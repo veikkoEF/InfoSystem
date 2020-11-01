@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="MyHome.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="using:MyHome.ViewModels"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <viewmodel:MainPageViewModel />
+    </Page.DataContext>
+    <NavigationView
+        x:Name="NavView"
+        IsBackButtonVisible="Collapsed"
+        IsPaneOpen="False"
+        ItemInvoked="NavigationView_ItemInvoked"
+        Loaded="NavigationView_Loaded"
+        PaneDisplayMode="LeftMinimal"
+        PaneOpened="NavView_PaneOpened"
+        Visibility="Visible">
+        <NavigationView.MenuItems>
+            <!--  Home Item  -->
+            <NavigationViewItem
+                x:Name="HomeItem"
+                x:Uid="HomeNavItem"
+                Content="Home"
+                Tag="home">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="Home" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+            <!--  Weather Item  -->
+            <NavigationViewItem
+                x:Name="WeatherItem"
+                x:Uid="WeatherNavItem"
+                Content="Wetter"
+                Tag="weather">
+                <NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="/Assets/Weather/03d.png" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+            <!--  News Item  -->
+            <NavigationViewItem
+                x:Name="NewsItem"
+                x:Uid="NewsNavItem"
+                Content="News"
+                Icon="Document"
+                Tag="news" />
+            <!--  Picture Item  -->
+            <NavigationViewItem
+                x:Name="PictureItem"
+                x:Uid="PictureShowNavItem"
+                Content="Bilder"
+                Icon="Pictures"
+                Tag="pictures" />
+            <!--  Clock Item  -->
+            <NavigationViewItem
+                x:Name="ClockItem"
+                x:Uid="ClockShowNavItem"
+                Content="Uhr"
+                Icon="Clock"
+                Tag="clock" />
+            <!--  Map Item  -->
+            <NavigationViewItem
+                x:Name="MapItem"
+                x:Uid="MapShowNavItem"
+                Content="Karte"
+                Icon="Map"
+                Tag="map" />
+        </NavigationView.MenuItems>
+        <Frame x:Name="ContentFrame">
+            <Frame.ContentTransitions>
+                <TransitionCollection>
+                    <NavigationThemeTransition />
+                </TransitionCollection>
+            </Frame.ContentTransitions>
+        </Frame>
+    </NavigationView>
+</Page>

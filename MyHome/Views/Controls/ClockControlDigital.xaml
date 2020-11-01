@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="MyHome.Views.ClockControlDigital"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:MyHome.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="using:MyHome.ViewModels"
+    d:DesignHeight="1000"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewmodel:ClockControlDigital />
+    </UserControl.DataContext>
+    <Grid Background="{Binding Background}">
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontFamily="Consolas"
+            FontSize="250"
+            FontWeight="SemiBold"
+            Foreground="{Binding Foreground}"
+            Text="{Binding Time}" />
+    </Grid>
+</UserControl>

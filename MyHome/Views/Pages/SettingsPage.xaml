@@ -1,0 +1,492 @@
+﻿<Page
+    x:Class="MyHome.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:MyHome.Helpers"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:notification="using:Syncfusion.UI.Xaml.Controls.Notification"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <local:FileNameConverter x:Key="ConverterFileName" />
+    </Page.Resources>
+    <controls:TabView x:Name="Tabs">
+        <!--#region   Home-->
+        <controls:TabViewItem Header="Home">
+            <StackPanel Margin="70,20">
+                <TextBlock FontWeight="Bold" Text="Meldung:" />
+                <TextBox
+                    Width="300"
+                    Margin="0,10,20,10"
+                    HorizontalAlignment="Left"
+                    PlaceholderText="Familiy"
+                    Text="{x:Bind ViewModel.Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </controls:TabViewItem>
+        <!--#endregion-->
+        <!--#region   Wetter-->
+        <controls:TabViewItem Header="Wetter">
+            <StackPanel Margin="70,20">
+                <TextBlock FontWeight="Bold" Text="Ort:" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox
+                        Width="300"
+                        Margin="0,10,20,0"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="Erfurt"
+                        Text="{x:Bind ViewModel.Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button
+                        Margin="0,10,10,0"
+                        Command="{x:Bind ViewModel.GetLocationCommand}"
+                        Content="Lokalisieren" />
+                    <Button
+                        Margin="0,10,10,0"
+                        Command="{x:Bind ViewModel.CheckLocationCommand}"
+                        Content="Check" />
+                </StackPanel>
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontWeight="Bold"
+                    Text="Darstellung:" />
+                <ComboBox
+                    Width="300"
+                    Margin="0,10"
+                    SelectedIndex="{x:Bind ViewModel.WeatherModus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem Content="3 Tages Vorhersage (Einfach)" />
+                    <ComboBoxItem Content="3 Tages Vorhersage (Komfort)" />
+                </ComboBox>
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontWeight="Bold"
+                    Text="OpenWeatherMap.org Integration (Key)" />
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <TextBox
+                        Width="500"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="Key"
+                        Text="{x:Bind ViewModel.OpenWeatherMapKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <HyperlinkButton
+                        Margin="30,0"
+                        Content="Info"
+                        NavigateUri="https://home.openweathermap.org/users/sign_up" />
+                </StackPanel>
+            </StackPanel>
+        </controls:TabViewItem>
+        <!--#endregion-->
+        <!--#region  News-->
+        <controls:TabViewItem Header="News">
+            <StackPanel Margin="70,20">
+                <TextBlock
+                    Margin="0,0"
+                    FontWeight="Bold"
+                    Text="Bereich:" />
+                <ComboBox
+                    Width="300"
+                    Margin="0,10"
+                    HorizontalAlignment="Left"
+                    SelectedIndex="{x:Bind ViewModel.NewsCategoryIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem Content="Business" />
+                    <ComboBoxItem Content="Unterhaltung" />
+                    <ComboBoxItem Content="Allgemein" />
+                    <ComboBoxItem Content="Gesundheit" />
+                    <ComboBoxItem Content="Wissenschaft" />
+                    <ComboBoxItem Content="Sport" />
+                    <ComboBoxItem Content="Technologie" />
+                </ComboBox>
+                <TextBlock
+                    Margin="0,0"
+                    FontWeight="Bold"
+                    Text="Zeit zwischen zwei Meldungen:" />
+                <Slider
+                    Width="300"
+                    Margin="0,10"
+                    HorizontalAlignment="Left"
+                    Maximum="60"
+                    Minimum="5"
+                    Value="{x:Bind ViewModel.TimeInSecondToChangeNewsMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontWeight="Bold"
+                    Text="NewsAPI.org Integration (Key)" />
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <TextBox
+                        Width="500"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="Key"
+                        Text="{x:Bind ViewModel.NewsAPIKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <HyperlinkButton
+                        Margin="30,0"
+                        Content="Info"
+                        NavigateUri="https://newsapi.org/register" />
+                </StackPanel>
+            </StackPanel>
+        </controls:TabViewItem>
+        <!--#endregion-->
+        <!--#region  Bilder-->
+        <controls:TabViewItem Header="Bilder">
+            <Grid x:Name="grid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" MinHeight="150" />
+                    <RowDefinition Height="120" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="300" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.ColumnSpan="2" Margin="70,20,0,0">
+                    <TextBlock FontWeight="Bold" Text="Zeit zwischen Bildwechsel:" />
+                    <Slider
+                        Width="300"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Left"
+                        Maximum="60"
+                        Minimum="5"
+                        Value="{x:Bind ViewModel.TimeInSecondToChangePicture, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock
+                        Margin="0,20,0,0"
+                        FontWeight="Bold"
+                        Text="Darstellung:" />
+                    <ComboBox
+                        Width="300"
+                        Margin="0,10"
+                        SelectedIndex="{x:Bind ViewModel.ArtOfPicturePresentation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBoxItem Content="Ein Bild (Vollbild)" />
+                        <ComboBoxItem Content="Mehrere Bilder" />
+                    </ComboBox>
+                    <TextBlock
+                        Margin="0,20,0,0"
+                        FontWeight="Bold"
+                        Text="Anzeigereihenfolge:" />
+                    <ComboBox Margin="0,10" SelectedIndex="{x:Bind ViewModel.PictureSelectionIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBoxItem Content="Nacheinander" />
+                        <ComboBoxItem Content="Zufall" />
+                    </ComboBox>
+                    <TextBlock
+                        Margin="0,20,0,0"
+                        FontWeight="Bold"
+                        Text="Dropbox-Integration (App-Tooken)" />
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                        <TextBox
+                            Width="500"
+                            HorizontalAlignment="Left"
+                            PlaceholderText="App-Tooken"
+                            Text="{x:Bind ViewModel.DropBoxAppToken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <HyperlinkButton
+                            Margin="30,0"
+                            Content="Info"
+                            NavigateUri="https://blogs.dropbox.com/developers/2014/05/generate-an-access-token-for-your-own-account/" />
+                    </StackPanel>
+                </StackPanel>
+                <controls:WrapPanel
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Margin="70,20"
+                    Orientation="Horizontal"
+                    VerticalSpacing="20">
+                    <Button
+                        Width="115"
+                        Command="{x:Bind ViewModel.DownloadFromDropBoxCommand}"
+                        Content="Download" />
+                    <Button
+                        Width="115"
+                        Margin="20,0,0,0"
+                        Command="{x:Bind ViewModel.CreateFolderAndUploadFilesInDropboxCommand}"
+                        Content="Upload Ordner..." />
+                    <Button
+                        Width="115"
+                        Margin="20,0,0,0"
+                        Command="{x:Bind ViewModel.UploadFileInDropboxCommand}"
+                        Content="Upload Bild..." />
+                    <Button
+                        Width="115"
+                        Margin="20,0,0,0"
+                        Command="{x:Bind ViewModel.DeleteDirectoryCommand}"
+                        Content="Ordner löschen"/>
+                    <Button
+                        x:Name="ButtonDelete"
+                        Width="115"
+                        Margin="20,0,0,0"
+                        Click="ButtonDelete_Click"
+                        Content="Bilder löschen"/>
+                    <notification:SfProgressBar
+                        x:Name="progressBar"
+                        Width="200"
+                        Margin="20,0,0,0"
+                        DisplayContentMode="Value"
+                        Minimum="0"
+                        Maximum="{x:Bind ViewModel.NumberOfFiles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Value="{x:Bind ViewModel.Progess, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ProgressType="SolidLinear" />
+                    <Button
+                        Width="110"
+                        Margin="20,0"
+                        VerticalAlignment="Center"
+                        Command="{x:Bind ViewModel.BreakUploadCommand}"
+                        Content="Abbrechen" />
+
+                </controls:WrapPanel>
+                <ListView
+                    Grid.Row="2"
+                    Margin="70,0"
+                    IsItemClickEnabled="True"
+                    ItemClick="ListView_ItemClick"
+                    ItemsSource="{x:Bind ViewModel.DirNames}" />
+                <ScrollViewer
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="70,0">
+                    <GridView
+                        x:Name="GridView"
+                        ItemsSource="{x:Bind ViewModel.FileNames}"
+                        SelectionMode="Multiple">
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="x:String">
+                                <StackPanel>
+                                    <TextBlock
+                                        Margin="0,5"
+                                        HorizontalAlignment="Center"
+                                        Text="{x:Bind Converter={StaticResource ConverterFileName}}" />
+                                    <Image
+                                        Width="150"
+                                        Height="150"
+                                        HorizontalAlignment="Center">
+                                        <Image.Source>
+                                            <BitmapImage DecodePixelWidth="150" UriSource="{x:Bind Mode=OneWay}" />
+                                        </Image.Source>
+                                    </Image>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </ScrollViewer>
+            </Grid>
+        </controls:TabViewItem>
+        <!--#endregion-->
+        <!--#region  Uhr-->
+        <controls:TabViewItem Header="Uhr">
+            <StackPanel Margin="70,20">
+                <TextBlock
+                    Margin="0,0"
+                    FontWeight="Bold"
+                    Text="Anzeige" />
+                <ComboBox
+                    Width="100"
+                    Margin="0,10"
+                    SelectedIndex="{x:Bind ViewModel.ClockModus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem Content="Analog" />
+                    <ComboBoxItem Content="Digital" />
+                </ComboBox>
+                <CheckBox
+                    Margin="0,10"
+                    Content="Sekunden anzeigen"
+                    IsChecked="{x:Bind ViewModel.ShowSeconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <StackPanel Orientation="Vertical">
+                    <CheckBox
+                        Margin="0,10"
+                        Content="Farbe automatisch"
+                        IsChecked="{x:Bind ViewModel.AutomaticColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontWeight="SemiBold"
+                    Text="Vordergrund" />
+                <Viewbox
+                    MaxWidth="150"
+                    MaxHeight="150"
+                    Margin="0,10"
+                    HorizontalAlignment="Left"
+                    Stretch="Fill">
+                    <ColorPicker
+                        x:Name="myColorPickerForground"
+                        ColorChanged="myColorPickerForground_ColorChanged"
+                        ColorSpectrumShape="Ring"
+                        IsColorChannelTextInputVisible="False"
+                        IsColorPreviewVisible="False"
+                        IsColorSliderVisible="False"
+                        IsHexInputVisible="False" />
+                </Viewbox>
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontWeight="SemiBold"
+                    Text="Hintergrund" />
+                <Viewbox
+                    MaxWidth="150"
+                    MaxHeight="150"
+                    Margin="0,10"
+                    HorizontalAlignment="Left"
+                    Stretch="Fill">
+                    <ColorPicker
+                        x:Name="myColorPickerBackground"
+                        ColorChanged="myColorPickerBackground_ColorChanged"
+                        ColorSpectrumShape="Ring"
+                        IsColorChannelTextInputVisible="False"
+                        IsColorPreviewVisible="False"
+                        IsColorSliderVisible="False"
+                        IsHexInputVisible="False" />
+                </Viewbox>
+            </StackPanel>
+        </controls:TabViewItem>
+        <!--#endregion-->
+        <!--#region  Karte-->
+        <controls:TabViewItem Header="Karte">
+            <StackPanel Margin="70,20">
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontWeight="Bold"
+                    Text="Bing Maps Integration (Key)" />
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <TextBox
+                        Width="500"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="Key"
+                        Text="{x:Bind ViewModel.MapsAPIKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <HyperlinkButton
+                        Margin="30,0"
+                        Content="Info"
+                        NavigateUri="https://www.bingmapsportal.com/" />
+                </StackPanel>
+            </StackPanel>
+        </controls:TabViewItem>
+        <!--#endregion-->
+        <!--#region App-->
+        <controls:TabViewItem Header="App">
+            <StackPanel Margin="70,20">
+                <CheckBox
+                    Margin="0,0"
+                    Content="Automatischer Wechsel zwischen Bereichen"
+                    IsChecked="{x:Bind ViewModel.AutoChangeContentSections, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <StackPanel Margin="0,20" Orientation="Horizontal">
+                    <TextBlock FontWeight="Bold" Text="Aktive Elemente" />
+                    <TextBlock
+                        Margin="50,0"
+                        FontWeight="Bold"
+                        Text="Anzeigedauer (s)" />
+                </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="checkBoxHome"
+                        Content="Home"
+                        IsChecked="{x:Bind ViewModel.HomeIsActiv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        IsEnabled="{x:Bind ViewModel.HomeCheckboxIsEnabled}" />
+                    <Slider
+                        Width="300"
+                        Margin="50,0"
+                        HorizontalAlignment="Left"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxHome}"
+                        Maximum="120"
+                        Minimum="1"
+                        Value="{x:Bind ViewModel.ShowDurationHome, Mode=TwoWay}" />
+                </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="checkBoxWeather"
+                        Content="Wetter"
+                        IsChecked="{x:Bind ViewModel.WeatherIsActiv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Slider
+                        Width="300"
+                        Margin="50,0"
+                        HorizontalAlignment="Left"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxWeather}"
+                        Maximum="120"
+                        Minimum="1"
+                        Value="{x:Bind ViewModel.ShowDurationWeather, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="checkBoxNews"
+                        Content="News"
+                        IsChecked="{x:Bind ViewModel.NewsIsActiv, Mode=TwoWay}" />
+                    <Slider
+                        Width="300"
+                        Margin="50,0"
+                        HorizontalAlignment="Left"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxNews}"
+                        Maximum="120"
+                        Minimum="1"
+                        Value="{x:Bind ViewModel.ShowDurationNews, Mode=TwoWay}" />
+                </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="checkBoxPictures"
+                        Content="Bilder"
+                        IsChecked="{x:Bind ViewModel.PictureIsActiv, Mode=TwoWay}" />
+                    <Slider
+                        Width="300"
+                        Margin="50,0"
+                        HorizontalAlignment="Left"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxPictures}"
+                        Maximum="120"
+                        Minimum="1"
+                        Value="{x:Bind ViewModel.ShowDurationPictures, Mode=TwoWay}" />
+                </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="checkBoxClock"
+                        Content="Uhr"
+                        IsChecked="{x:Bind ViewModel.ClockIsActiv, Mode=TwoWay}" />
+                    <Slider
+                        Width="300"
+                        Margin="50,0"
+                        HorizontalAlignment="Left"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxClock}"
+                        Maximum="120"
+                        Minimum="1"
+                        Value="{x:Bind ViewModel.ShowDurationClock, Mode=TwoWay}" />
+                </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="checkBoxMap"
+                        Content="Karte"
+                        IsChecked="{x:Bind ViewModel.MapIsActiv, Mode=TwoWay}" />
+                    <Slider
+                        Width="300"
+                        Margin="50,0"
+                        HorizontalAlignment="Left"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxMap}"
+                        Maximum="120"
+                        Minimum="1"
+                        Value="{x:Bind ViewModel.ShowDurationMap, Mode=TwoWay}" />
+                </StackPanel>
+                <!--  App neu starten / Herunterfahren  -->
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <Button
+                        Width="140"
+                        Command="{x:Bind ViewModel.SaveKeysCommand}"
+                        Content="API Keys speichern" />
+                    <Button
+                        Width="140"
+                        Margin="30,0,0,0"
+                        Command="{x:Bind ViewModel.LoadKeysCommand}"
+                        Content="API keys laden" />
+                </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <Button
+                        Width="140"
+                        Command="{x:Bind ViewModel.RestartAppCommmand}"
+                        Content="App Neu Starten" />
+                    <Button
+                        Width="140"
+                        Margin="30,0,0,0"
+                        Background="Orange"
+                        Command="{x:Bind ViewModel.ShutDownCommand}"
+                        Content=" Herunterfahren" />
+                </StackPanel>
+                <TextBlock
+                    Margin="0,20"
+                    HorizontalAlignment="Left"
+                    Text="{x:Bind ViewModel.AppVersion}" />
+            </StackPanel>
+        </controls:TabViewItem>
+        <controls:TabViewItem Header="MyHome">
+            <WebView
+                x:Name="MyWebView"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" />
+        </controls:TabViewItem>
+        <!--#endregion-->
+    </controls:TabView>
+</Page>

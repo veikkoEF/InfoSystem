@@ -1,0 +1,129 @@
+﻿<UserControl
+    x:Class="MyHome.Views.WeatherControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:MyHome.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="using:MyHome.ViewModels"
+    d:DesignHeight="600"
+    d:DesignWidth="1000"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewmodel:WeatherControlViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="TextBlockStyleDays" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style x:Key="TextBlockStyleTemperatur" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Blue" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/cloud1.jpg" Opacity="0.20" />
+        </Grid.Background>
+        <!--  Location  -->
+        <TextBlock
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="75"
+            FontWeight="Bold"
+            Foreground="Black"
+            Text="{Binding Location}"
+            TextWrapping="Wrap" />
+        <!--  Notes  -->
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="28"
+            FontWeight="SemiBold"
+            Foreground="Black"
+            Text="{Binding TimeOfTemps}"
+            TextWrapping="Wrap" />
+        <!--  Days  -->
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="5"
+            Style="{StaticResource TextBlockStyleDays}"
+            Text="{Binding NameOfDay3}" />
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="3"
+            Style="{StaticResource TextBlockStyleDays}"
+            Text="{Binding NameOfDay2}" />
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="1"
+            Style="{StaticResource TextBlockStyleDays}"
+            Text="Heute" />
+        <!--  Temerature  -->
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="2"
+            Style="{StaticResource TextBlockStyleTemperatur}"
+            Text="{Binding TempDay1, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="4"
+            Style="{StaticResource TextBlockStyleTemperatur}"
+            Text="{Binding TempDay2, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="6"
+            Style="{StaticResource TextBlockStyleTemperatur}"
+            Text="{Binding TempDay3, UpdateSourceTrigger=PropertyChanged}" />
+        <!--  Images  -->
+        <Image
+            Grid.Row="5"
+            Grid.Column="2"
+            Source="{Binding IconDay1, UpdateSourceTrigger=PropertyChanged}" />
+        <Image
+            Grid.Row="3"
+            Grid.Column="4"
+            Source="{Binding IconDay2, UpdateSourceTrigger=PropertyChanged}" />
+        <Image
+            Grid.Row="1"
+            Grid.Column="6"
+            Source="{Binding IconDay3, UpdateSourceTrigger=PropertyChanged}" />
+    </Grid>
+</UserControl>
