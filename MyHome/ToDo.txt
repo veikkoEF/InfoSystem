@@ -1,11 +1,4 @@
-﻿* Umstellung SettingPage (View), Pictures
-    - vor Download, alle Ordner im lokalen Verzeichnis löschen
-    *** Button: Löschen Bilder in Ordner (lokal, Dropbox) ***
-    - Button: Löschen Ordner (lokal, Dropbox)
-    - Progressbar: Anzeige x/n und Rücksetzen nach Prozess beendet
-    - aktuelles Verzeichnis aufrufen
-
-
+﻿
  * Modul: PictureShowControlCarousel
 
  * MapControl

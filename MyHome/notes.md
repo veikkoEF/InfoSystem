@@ -86,7 +86,7 @@
 - https://dummyimage.com/
 
 # Installation
-- Pfad (lokal): App-Path: C:\Users\veikk\AppData\Local\Packages\8544BE04-7D67-4622-BE58-D29D0F852409_8p501sd6q9bgj\LocalState
+- Pfad (lokal): App-Path: C:\Users\...\AppData\Local\Packages\...\LocalState
 - 
 
 # Code-Beispiele
