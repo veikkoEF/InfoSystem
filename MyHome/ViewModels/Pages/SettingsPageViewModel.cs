@@ -29,8 +29,24 @@ namespace MyHome.ViewModels
         private bool breakUpload;
         private bool homeCheckboxIsEnabled = true;
         private int numberOfFiles;
-        private int progess;
+        private int progress;
         private object[] selectedObjects;
+        private string selectedDirName;
+
+        public string SelectedDirName
+        {
+            get
+            {
+                return selectedDirName;
+            }
+            set
+            {
+
+                selectedDirName = value;
+                OnPropertyChanged(nameof(SelectedDirName));
+            }
+        }
+
 
         /// <summary>
         /// Generiert ein neues Objekte der Klasse
@@ -62,25 +78,25 @@ namespace MyHome.ViewModels
             // https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/dialogs
             Windows.UI.Xaml.Controls.ContentDialog locationPromptDialog = new Windows.UI.Xaml.Controls.ContentDialog
             {
-                Title = "Löschen des gesamten Ordners -- Bestätigung",
+                Title = "Bestätigung",
                 Content = "Möchten Sie den gesamten Ordner löschen?",
                 CloseButtonText = "Abbrechen",
                 PrimaryButtonText = "Löschen"
             };
 
             Windows.UI.Xaml.Controls.ContentDialogResult result = await locationPromptDialog.ShowAsync();
+            // wenn löschen bestätigt
             if (result == Windows.UI.Xaml.Controls.ContentDialogResult.Primary)
             {
                 // Ordner lokal löschen
-
+                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                StorageFolder currentFolder = await storageFolder.GetFolderAsync(SelectedDirName);
+                await currentFolder.DeleteAsync();
                 // Ordner in Dropbox löschen
-
-
+                DropboxCommunication dropbox = new DropboxCommunication(ProgrammSettings.DropBoxAppToken);
+                dropbox.DeleteFolderAsync(SelectedDirName);
+                UpdateDirNamesAsync();
             }
-
-
-
-
 
         }
 
@@ -88,20 +104,20 @@ namespace MyHome.ViewModels
         {
             if (SelectedObjects.Length > 0)
             {
-                Progess = 0;
+                Progress = 0;
                 NumberOfFiles = SelectedObjects.Count();
                 foreach (var item in SelectedObjects)
                 {
-                    Progess++;
+                    Progress++;
                     // Datei lokal löschen
                     string fileNameLocal = item.ToString();
                      File.Delete(fileNameLocal);
                     var fileNameDropBox = Path.GetFileName(item.ToString());
                     // Datei in der Dropbox löschen
                     DropboxCommunication dropbox = new DropboxCommunication(ProgrammSettings.DropBoxAppToken);
-                    dropbox.DeleteFileFromDropBoxAsync(ProgrammSettings.NameOfCurrentDir, fileNameDropBox);
+                    dropbox.DeleteFileAsync(ProgrammSettings.NameOfCurrentDir, fileNameDropBox);
                 }
-                Progess = 0;
+                Progress = 0;
                 UpdateDirNamesAsync();
             }
         }
@@ -440,16 +456,16 @@ namespace MyHome.ViewModels
             }
         }
 
-        public int Progess
+        public int Progress
         {
             get
             {
-                return progess;
+                return progress;
             }
             set
             {
-                progess = value;
-                OnPropertyChanged(nameof(Progess));
+                progress = value;
+                OnPropertyChanged(nameof(Progress));
             }
         }
 
@@ -710,15 +726,15 @@ namespace MyHome.ViewModels
             DropboxCommunication dropboxCommunication = new DropboxCommunication(ProgrammSettings.DropBoxAppToken);
             var list = await dropboxCommunication.GetListOfFilesAsync();
             NumberOfFiles = list.Entries.Count;
-            Progess = 0;
+            Progress = 0;
             for (int i = 0; i < list.Entries.Count; i++)
             {
                 if (BreakOperation)
                 {
-                    Progess = 0;
+                    Progress = 0;
                     break;
                 }
-                Progess = i + 1;
+                Progress = i + 1;
                 if (list.Entries[i].IsFolder)
                 {
                     await storageFolder.CreateFolderAsync(list.Entries[i].Name, CreationCollisionOption.ReplaceExisting);
@@ -739,7 +755,7 @@ namespace MyHome.ViewModels
                     }
                 }
             }
-            Progess = 0;
+            Progress = 0;
             UpdateDirNamesAsync();
             if (DirNames.Count > 0)
                 UpdateFilesNamesAsync(DirNames[0]);
@@ -797,7 +813,7 @@ namespace MyHome.ViewModels
                     DropboxCommunication myDropboxCommunication = new DropboxCommunication(ProgrammSettings.DropBoxAppToken);
                     await myDropboxCommunication.CreateFolderAsync("/" + mySourceFolder.Name);
 
-                    Progess = 0;
+                    Progress = 0;
                     NumberOfFiles = fileList.Count;
                     BreakOperation = false;
 
@@ -805,15 +821,16 @@ namespace MyHome.ViewModels
                     {
                         if (BreakOperation)
                         {
-                            Progess = 0;
+                            Progress = 0;
                             break;
                         }
-                        Progess++;
+                        Progress++;
                         // Datei lokal kopieren
                         StorageFile newFile = await LoadFileResizeAndSaveAsync(file, storageFolder);
                         // Datei in die Dropbox kopieren
                         await myDropboxCommunication.UploadFileAsync(mySourceFolder.Name, newFile.Name, newFile.Path);
                     }
+                    Progress = 0;
                 }
                 else
                 {

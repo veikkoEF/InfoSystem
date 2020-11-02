@@ -37,7 +37,22 @@ namespace DropboxAPI
             }
         }
 
-        public async void DeleteFileFromDropBoxAsync(string dirName, string fileName)
+        public async void DeleteFolderAsync(string nameOfFolder)
+        {
+            try
+            {
+                using (var dbx = new DropboxClient(dropBoxAppToken))
+                {
+                    await dbx.Files.DeleteV2Async("/" + nameOfFolder);
+                }
+            }
+            catch
+            { }
+            }
+
+        
+
+        public async void DeleteFileAsync(string dirName, string fileName)
         {
             try
             {

@@ -45,6 +45,7 @@ namespace MyHome.Views
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             string nameOfDir = (e.ClickedItem).ToString();
+            ViewModel.SelectedDirName = nameOfDir;
             ViewModel.UpdateFilesNamesAsync(nameOfDir);
         }
     }

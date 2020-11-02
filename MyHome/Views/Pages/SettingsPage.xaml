@@ -220,7 +220,7 @@
                         DisplayContentMode="Value"
                         Minimum="0"
                         Maximum="{x:Bind ViewModel.NumberOfFiles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        Value="{x:Bind ViewModel.Progess, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ProgressType="SolidLinear" />
+                        Value="{x:Bind ViewModel.Progress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ProgressType="SolidLinear" />
                     <Button
                         Width="110"
                         Margin="20,0"
