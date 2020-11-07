@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <Authors>Hassie</Authors>
+    <Company />
+    <Product>NewsAPI.NET</Product>
+    <Copyright>©2018 Hassie.</Copyright>
+    <Description>News API wrapper for .NET, written in .NET Standard 1.1</Description>
+    <PackageProjectUrl>https://github.com/hassie-dash/NewsAPI.NET</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseUrl>https://github.com/hassie-dash/NewsAPI.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/hassie-dash/NewsAPI.NET</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Version 2.2.1
+* Fixed bug when adding a search query with a query builder.
+
+Version 2.2.0
+* Implemented Everything endpoint. Note that for the query parameter, you must provide the query in URL encoded format.
+
+Version 2.1.0
+* INewsArticles and INewsSources now return a read only list of INewsArticle and INewsSource respectively, you no longer have to use the Articles/Sources property within the interface to retrieve the list.
+
+Version 2.0.1
+* Bug fixes.
+
+Version 2.0.0
+* Rewrote API wraper to use builder pattern.
+* Implemented Sources endpoint.
+* Please refer to documentation to see the updated example usages.</PackageReleaseNotes>
+    <PackageTags>news;api;hassie;hassie-dash</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <AssemblyVersion>2.2.1.0</AssemblyVersion>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <Title>NewsAPI.NET</Title>
+    <Description>A simple to use async library to retrieve news from News API; written in .NET Standard 1.1.</Description>
+    <Version>2.2.1</Version>
+    <FileVersion>2.2.1.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+</Project>

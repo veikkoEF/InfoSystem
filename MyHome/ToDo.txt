@@ -1,7 +1,13 @@
-﻿
+﻿	
  * Modul: PictureShowControlCarousel
 
  * MapControl
 
  * Prüfung auf Internetverbindung, wenn nicht, dann Funktionen mit Internet abschalten und Hinweis
  * Prüfung auf Updates von Wetter, News, Bilder (Intervall)
+
+
+ Next:
+ ==================
+ 1. Update News-Control: Textfeld für Datenfeld "Content" ergänzen
+ 2. View: Message

@@ -105,9 +105,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Hassie.NET.API.NewsAPI">
-      <Version>2.2.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.CodeQuality.Analyzers">
       <Version>3.3.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -376,6 +373,10 @@
     <ProjectReference Include="..\DropboxAPI\DropboxAPI.csproj">
       <Project>{e4ef71b0-0a18-4c1b-9739-1a2160bb26df}</Project>
       <Name>DropboxAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hassie.API.NewsAPI\Hassie.NET.API.NewsAPI.csproj">
+      <Project>{353d472b-8f06-4ed5-82fd-f03aa27a56fb}</Project>
+      <Name>Hassie.NET.API.NewsAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\NewsAPI\NewsAPI.csproj">
       <Project>{584334b9-62fa-47c6-9fd5-fa93bba4d33d}</Project>

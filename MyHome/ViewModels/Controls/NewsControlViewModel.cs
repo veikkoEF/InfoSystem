@@ -4,7 +4,9 @@ using MyHome.Helpers;
 using MyHome.Settings;
 using NewsAPI;
 using System;
+using System.IO;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace MyHome.ViewModels
 {
@@ -12,9 +14,11 @@ namespace MyHome.ViewModels
     {
         private string description;
         private string headline;
-        private string myPath = string.Empty;
+        //private string myPath = string.Empty;
+        private Uri myPath;
         private INewsArticles newsArticles;
         private string source;
+        private string content;
         private int currentNumber;
         private DispatcherTimer uiTimer = new DispatcherTimer(); // neue Nachricht
         private DispatcherTimer updateTimer = new DispatcherTimer(); // neuer Download der Nachrichten
@@ -34,6 +38,7 @@ namespace MyHome.ViewModels
         private void GetNewMessageFromCloud(object sender, object e)
         {
             GetNewsAsync();
+            
         }
 
         private void UpdateNewsShowMessage(object sender, object e)
@@ -65,16 +70,26 @@ namespace MyHome.ViewModels
             }
         }
 
-        public string MyPath
+        public Uri MyPath
         {
             get { return myPath; }
             set
             {
-                myPath = string.Empty;
                 myPath = value;
                 OnPropertyChanged(nameof(MyPath));
             }
         }
+
+        //public string MyPath
+        //{
+        //    get { return myPath; }
+        //    set
+        //    {
+        //        myPath = string.Empty;
+        //        myPath = value;
+        //        OnPropertyChanged(nameof(MyPath));
+        //    }
+        //}
 
         public string Source
         {
@@ -83,6 +98,16 @@ namespace MyHome.ViewModels
             {
                 source = value;
                 OnPropertyChanged(nameof(Source));
+            }
+        }
+
+        public string Content
+        {
+            get { return content; }
+            set
+            {
+                content = value;
+                OnPropertyChanged(nameof(Content));
             }
         }
 
@@ -98,10 +123,10 @@ namespace MyHome.ViewModels
             if (newsArticles != null)
             {
                 Headline = newsArticles[number].Title;
-                MyPath = newsArticles[number].ImageURL;
+                MyPath = new Uri(newsArticles[number].ImageURL);
                 Description = newsArticles[number].Description;
                 Source = newsArticles[number].SourceName;
-               
+                Content = newsArticles[number].Content;
             }
         }
     }

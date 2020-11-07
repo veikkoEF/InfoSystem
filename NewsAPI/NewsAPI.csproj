@@ -125,12 +125,15 @@
     <EmbeddedResource Include="Properties\NewsAPI.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Hassie.NET.API.NewsAPI">
-      <Version>2.2.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hassie.API.NewsAPI\Hassie.NET.API.NewsAPI.csproj">
+      <Project>{353d472b-8f06-4ed5-82fd-f03aa27a56fb}</Project>
+      <Name>Hassie.NET.API.NewsAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
