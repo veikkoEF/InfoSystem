@@ -101,6 +101,7 @@ namespace MyHome.ViewModels
                 MyPath = newsArticles[number].ImageURL;
                 Description = newsArticles[number].Description;
                 Source = newsArticles[number].SourceName;
+               
             }
         }
     }

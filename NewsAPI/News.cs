@@ -29,5 +29,6 @@ namespace NewsAPI
                 .Build());
             return newsArticles;
         }
+
     }
 }
