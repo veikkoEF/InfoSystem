@@ -80,16 +80,7 @@ namespace MyHome.ViewModels
             }
         }
 
-        //public string MyPath
-        //{
-        //    get { return myPath; }
-        //    set
-        //    {
-        //        myPath = string.Empty;
-        //        myPath = value;
-        //        OnPropertyChanged(nameof(MyPath));
-        //    }
-        //}
+        
 
         public string Source
         {
