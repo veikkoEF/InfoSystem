@@ -65,12 +65,13 @@ namespace MyHome.ViewModels
             BreakUploadCommand = new RelayCommand(OnBreakUploadCommandExecute);
             DeleteFilesCommand = new RelayCommand(OnDeleteFilesCommandExecute);
             DeleteDirectoryCommand = new RelayCommand(OnDeleteDirectoryCommandExecute);
-
             FileNames = new ObservableCollection<string>();
             DirNames = new ObservableCollection<string>();
 
             UpdateDirNamesAsync();
         }
+
+   
 
         private async void OnDeleteDirectoryCommandExecute()
         {

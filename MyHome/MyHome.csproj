@@ -188,11 +188,14 @@
     <Compile Include="Views\Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\NewControl.xaml.cs">
-      <DependentUpon>NewControl.xaml</DependentUpon>
+    <Compile Include="Views\Controls\NewsControl.xaml.cs">
+      <DependentUpon>NewsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\MessagePage.xaml.cs">
+      <DependentUpon>MessagePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\NewsPage.xaml.cs">
       <DependentUpon>NewsPage.xaml</DependentUpon>
@@ -278,11 +281,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Controls\NewControl.xaml">
+    <Page Include="Views\Controls\NewsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\MapPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\MessagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

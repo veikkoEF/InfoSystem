@@ -9,5 +9,6 @@
 
  Next:
  ==================
- 1. Update News-Control: Textfeld für Datenfeld "Content" ergänzen
- 2. View: Message
+ View: Message
+
+ RSS-Feed, siehe Windows Toolkit
