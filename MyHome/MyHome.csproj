@@ -167,6 +167,9 @@
     <Compile Include="Views\Controls\MapControl.xaml.cs">
       <DependentUpon>MapControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\MessageControl.xaml.cs">
+      <DependentUpon>MessageControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\PictureShowControlSingle.xaml.cs">
       <DependentUpon>PictureShowControlSingle.xaml</DependentUpon>
     </Compile>
@@ -253,6 +256,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Controls\MessageControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Controls\PictureShowControlSingle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -325,6 +332,7 @@
   <ItemGroup>
     <Content Include="Assets\cloud1.jpg" />
     <Content Include="Assets\cloud2.jpg" />
+    <Content Include="Assets\Message.png" />
     <Content Include="Assets\News.jpg" />
     <Content Include="Assets\TestImages\TestImage1.jpg" />
     <Content Include="Assets\TestImages\TestImage2.jpg" />
