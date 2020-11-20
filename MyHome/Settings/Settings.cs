@@ -108,9 +108,7 @@ namespace MyHome.Settings
             localSettings.Values["PictureIsActiv"] = PictureIsActiv;
             localSettings.Values["ClockIsActiv"] = ClockIsActiv;
             localSettings.Values["MapIsActiv"] = MapIsActiv;
-
-
-
+            localSettings.Values["MessageIsActiv"] = MapIsActiv;
         }
 
         public static void Load()
@@ -206,6 +204,8 @@ namespace MyHome.Settings
                 MapIsActiv= (bool)localSettings.Values["MapIsActiv"];
                 if (MapsAPIKey == "")
                     MapIsActiv = false;
+
+                MessageIsActiv = (bool)localSettings.Values["MessageIsActiv"];
             }
             catch
             {

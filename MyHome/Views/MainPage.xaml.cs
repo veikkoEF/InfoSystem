@@ -5,7 +5,6 @@ using System.Linq;
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Media.Animation;
 
 namespace MyHome.Views
@@ -14,6 +13,7 @@ namespace MyHome.Views
     {
         private ContentType type;
         private DispatcherTimer uiTimer = new DispatcherTimer();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -25,6 +25,7 @@ namespace MyHome.Views
         }
 
         public MainPageViewModel ViewModel { get; } = new MainPageViewModel();
+
         private void App_Suspending(object sender, SuspendingEventArgs e)
         {
             ProgrammSettings.Save();
@@ -85,10 +86,10 @@ namespace MyHome.Views
                 case "map":
                     type = ContentType.Map;
                     break;
+
                 case "message":
                     type = ContentType.Message;
                     break;
-
             }
             UpdateContent();
         }
@@ -136,7 +137,7 @@ namespace MyHome.Views
                     break;
 
                 case ContentType.Clock:
-                    type = ContentType.Map ;
+                    type = ContentType.Map;
                     if (ProgrammSettings.ClockIsActiv)
                     {
                         ContentFrame.Navigate(typeof(ClockPage), null, new DrillInNavigationTransitionInfo());
@@ -145,6 +146,7 @@ namespace MyHome.Views
                     else
                         uiTimer.Interval = new TimeSpan(0, 0, 1);
                     break;
+
                 case ContentType.Map:
                     type = ContentType.Home;
                     if (ProgrammSettings.MapIsActiv)
@@ -177,7 +179,7 @@ namespace MyHome.Views
         {
             // Menüeinträge modifizieren
             HomeItem.Visibility = ProgrammSettings.HomeIsActiv ? Visibility.Visible : Visibility.Collapsed;
-            WeatherItem.Visibility = ProgrammSettings.WeatherIsActiv ? Visibility.Visible: Visibility.Collapsed;
+            WeatherItem.Visibility = ProgrammSettings.WeatherIsActiv ? Visibility.Visible : Visibility.Collapsed;
             NewsItem.Visibility = ProgrammSettings.NewsIsActiv ? Visibility.Visible : Visibility.Collapsed;
             PictureItem.Visibility = ProgrammSettings.PictureIsActiv ? Visibility.Visible : Visibility.Collapsed;
             ClockItem.Visibility = ProgrammSettings.ClockIsActiv ? Visibility.Visible : Visibility.Collapsed;
