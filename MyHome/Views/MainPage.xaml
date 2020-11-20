@@ -68,6 +68,12 @@
                 Content="Karte"
                 Icon="Map"
                 Tag="map" />
+            <NavigationViewItem
+                x:Name="MessageItem"
+                x:Uid="MessageShowNavItem"
+                Content="Nachrichten"
+                Icon="Message"
+                Tag="message" />
         </NavigationView.MenuItems>
         <Frame x:Name="ContentFrame">
             <Frame.ContentTransitions>

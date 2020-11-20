@@ -15,5 +15,19 @@
         </Grid.RowDefinitions>
         <TextBlock VerticalAlignment="Center" Text="Montag, 16. November 2020" HorizontalAlignment="Center" FontFamily="Consolas" FontSize="58" Foreground="#FF2B77C0"/>
         <Image HorizontalAlignment="Left" Margin="30,0" Source="/Assets/Message.png"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
     </Grid>
 </UserControl>

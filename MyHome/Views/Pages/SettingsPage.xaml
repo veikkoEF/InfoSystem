@@ -230,6 +230,7 @@
 
                 </controls:WrapPanel>
                 <ListView
+                    x:Name="MyDirNamesListView"
                     Grid.Row="2"
                     Margin="70,0"
                     IsItemClickEnabled="True"

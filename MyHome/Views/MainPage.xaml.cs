@@ -85,6 +85,10 @@ namespace MyHome.Views
                 case "map":
                     type = ContentType.Map;
                     break;
+                case "message":
+                    type = ContentType.Message;
+                    break;
+
             }
             UpdateContent();
         }
@@ -151,6 +155,8 @@ namespace MyHome.Views
                     else
                         uiTimer.Interval = new TimeSpan(0, 0, 1);
                     break;
+
+
 
                 case ContentType.Home:
                 default:

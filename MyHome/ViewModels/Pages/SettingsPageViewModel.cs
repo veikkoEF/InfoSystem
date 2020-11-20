@@ -931,8 +931,17 @@ namespace MyHome.ViewModels
                     DirNames.Add(item.Name);
                 }     
             }
+
             if (DirNames.Count > 0)
-                UpdateFilesNamesAsync(DirNames[0]);
+            {
+                var selectDirName = DirNames[0];
+                foreach (var item in DirNames)
+                {
+                    if (item == ProgrammSettings.NameOfCurrentDir)
+                        selectDirName = ProgrammSettings.NameOfCurrentDir;
+                }
+                UpdateFilesNamesAsync(selectDirName);
+            }
         }
     }
 }

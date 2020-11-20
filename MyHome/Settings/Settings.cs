@@ -59,6 +59,7 @@ namespace MyHome.Settings
         public static bool PictureIsActiv { get; set; } = true;
         public static bool ClockIsActiv { get; set; } = true;
         public static bool MapIsActiv { get; set; } = true;
+        public static bool MessageIsActiv { get; set; } = true;
 
 
         public static void Save()
