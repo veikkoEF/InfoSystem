@@ -330,6 +330,8 @@
     <Compile Include="Helpers\ResourceExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Avatar\Avatar1.png" />
+    <Content Include="Assets\Avatar\Avatar2.png" />
     <Content Include="Assets\cloud1.jpg" />
     <Content Include="Assets\cloud2.jpg" />
     <Content Include="Assets\Message.png" />

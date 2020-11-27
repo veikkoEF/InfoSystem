@@ -10,37 +10,65 @@
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" /> 
+            <RowDefinition Height="30" />
             <RowDefinition Height="100" />
             <RowDefinition />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <TextBlock
-            Grid.Row="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontFamily="Consolas"
-            FontSize="58"
-            Foreground="#FF2B77C0"
-            Text="Montag, 16. November 2020" />
-        <Image
-            Grid.Row="1"
-            Margin="50,0"
-            HorizontalAlignment="Left"
-            Source="/Assets/Message.png" />
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="3*" />
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="Consolas"
+                FontSize="48"
+                Foreground="#FF2B77C0"
+                Text="Montag, 16. November 2020" />
+            <Image
+                Margin="50,0"
+                HorizontalAlignment="Left"
+                Source="/Assets/Message.png" />
         </Grid>
+        <ListView Margin="50,30" Grid.Row="2" Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Grid Margin="0,25">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Width="100"
+                            Height="100"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Source="/Assets/Avatar/Avatar1.png" />
+                        <TextBlock
+                            Grid.Column="2"
+                            Margin="10,0"
+                            TextWrapping="WrapWholeWords"
+                            VerticalAlignment="Center"
+                            FontSize="35"
+                            FontFamily="Consolas"
+                            Foreground="#FF2B77C0"
+                            Text="{x:Bind}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Text="08:30 Uhr"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <x:String>Hallo, ich komme bald nach Hause. Bist Du dann schon da?</x:String>
+            <x:String>Bist Du schon da?</x:String>
+            <x:String>Ist noch Butter da?</x:String>
+        </ListView>
     </Grid>
 </UserControl>
