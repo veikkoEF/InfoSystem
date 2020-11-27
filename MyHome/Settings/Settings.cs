@@ -61,6 +61,9 @@ namespace MyHome.Settings
         public static bool MapIsActiv { get; set; } = true;
         public static bool MessageIsActiv { get; set; } = true;
 
+        // Section Message
+        public static int ShowDurationMessage { get; set; } = 20;
+
 
         public static void Save()
         {

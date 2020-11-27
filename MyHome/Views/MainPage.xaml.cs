@@ -148,7 +148,7 @@ namespace MyHome.Views
                     break;
 
                 case ContentType.Map:
-                    type = ContentType.Home;
+                    type = ContentType.Message;
                     if (ProgrammSettings.MapIsActiv)
                     {
                         ContentFrame.Navigate(typeof(MapPage), null, new DrillInNavigationTransitionInfo());
@@ -158,8 +158,16 @@ namespace MyHome.Views
                         uiTimer.Interval = new TimeSpan(0, 0, 1);
                     break;
 
-
-
+                case ContentType.Message:
+                    type = ContentType.Home;
+                    if (ProgrammSettings.MessageIsActiv)
+                    {
+                        ContentFrame.Navigate(typeof(MessagePage), null, new DrillInNavigationTransitionInfo());
+                        uiTimer.Interval = new TimeSpan(0, 0, ProgrammSettings.ShowDurationMessage);
+                    }
+                    else
+                        uiTimer.Interval = new TimeSpan(0, 0, 1);
+                    break;
                 case ContentType.Home:
                 default:
                     type = ContentType.Weather;
