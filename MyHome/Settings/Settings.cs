@@ -62,7 +62,7 @@ namespace MyHome.Settings
         public static bool MessageIsActiv { get; set; } = true;
 
         // Section Message
-        public static int ShowDurationMessage { get; set; } = 20;
+        public static int ShowDurationMessage { get; set; } = 30;
 
 
         public static void Save()

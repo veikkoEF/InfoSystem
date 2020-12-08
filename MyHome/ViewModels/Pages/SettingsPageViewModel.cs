@@ -207,15 +207,6 @@ namespace MyHome.ViewModels
             set
             {
                 ProgrammSettings.ClockIsActiv = value;
-                if ((WeatherIsActiv == false) && (NewsIsActiv == false) && (PictureIsActiv == false) && (ClockIsActiv == false) && (MapIsActiv == false))
-                {
-                    HomeIsActiv = true;
-                    HomeCheckboxIsEnabled = false;
-                }
-                else
-                {
-                    HomeCheckboxIsEnabled = true;
-                }
                 OnPropertyChanged(nameof(ClockIsActiv));
             }
         }
@@ -277,18 +268,7 @@ namespace MyHome.ViewModels
 
         public RelayCommand GetLocationCommand { get; set; }
 
-        public bool HomeCheckboxIsEnabled
-        {
-            get
-            {
-                return homeCheckboxIsEnabled;
-            }
-            set
-            {
-                homeCheckboxIsEnabled = value;
-                OnPropertyChanged(nameof(HomeCheckboxIsEnabled));
-            }
-        }
+        
 
         public bool HomeIsActiv
         {
@@ -315,22 +295,28 @@ namespace MyHome.ViewModels
             }
         }
 
+
         public bool MapIsActiv
         {
             get { return ProgrammSettings.MapIsActiv; }
             set
             {
                 ProgrammSettings.MapIsActiv = value;
-                if ((WeatherIsActiv == false) && (NewsIsActiv == false) && (PictureIsActiv == false) && (ClockIsActiv == false) && (MapIsActiv == false))
-                {
-                    HomeIsActiv = true;
-                    HomeCheckboxIsEnabled = false;
-                }
-                else
-                {
-                    HomeCheckboxIsEnabled = true;
-                }
                 OnPropertyChanged(nameof(MapIsActiv));
+            }
+        }
+
+
+        public bool MessageIsActiv
+        {
+            get
+            {
+                return ProgrammSettings.MessageIsActiv;
+            }
+            set
+            {
+                ProgrammSettings.MessageIsActiv = value;
+                OnPropertyChanged(nameof(MessageIsActiv));
             }
         }
 
@@ -346,6 +332,7 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(MapsAPIKey));
             }
         }
+
 
         public string Message
         {
@@ -389,15 +376,6 @@ namespace MyHome.ViewModels
             set
             {
                 ProgrammSettings.NewsIsActiv = value;
-                if ((WeatherIsActiv == false) && (NewsIsActiv == false) && (PictureIsActiv == false) && (ClockIsActiv == false) && (MapIsActiv == false))
-                {
-                    HomeIsActiv = true;
-                    HomeCheckboxIsEnabled = false;
-                }
-                else
-                {
-                    HomeCheckboxIsEnabled = true;
-                }
                 OnPropertyChanged(nameof(NewsIsActiv));
             }
         }
@@ -434,15 +412,6 @@ namespace MyHome.ViewModels
             set
             {
                 ProgrammSettings.PictureIsActiv = value;
-                if ((WeatherIsActiv == false) && (NewsIsActiv == false) && (PictureIsActiv == false) && (ClockIsActiv == false))
-                {
-                    HomeIsActiv = true;
-                    HomeCheckboxIsEnabled = false;
-                }
-                else
-                {
-                    HomeCheckboxIsEnabled = true;
-                }
                 OnPropertyChanged(nameof(PictureIsActiv));
             }
         }
@@ -522,6 +491,19 @@ namespace MyHome.ViewModels
             {
                 ProgrammSettings.ShowDurationMap = value;
                 OnPropertyChanged(nameof(ShowDurationMap));
+            }
+        }
+
+        public int ShowDurationMessage
+        {
+            get
+            {
+                return ProgrammSettings.ShowDurationMessage;
+            }
+            set
+            {
+                ProgrammSettings.ShowDurationMessage = value;
+                OnPropertyChanged(nameof(ShowDurationMessage));
             }
         }
 
@@ -613,15 +595,6 @@ namespace MyHome.ViewModels
             set
             {
                 ProgrammSettings.WeatherIsActiv = value;
-                if ((WeatherIsActiv == false) && (NewsIsActiv == false) && (PictureIsActiv == false) && (ClockIsActiv == false) && (MapIsActiv == false))
-                {
-                    HomeIsActiv = true;
-                    HomeCheckboxIsEnabled = false;
-                }
-                else
-                {
-                    HomeCheckboxIsEnabled = true;
-                }
                 OnPropertyChanged(nameof(WeatherIsActiv));
             }
         }

@@ -192,6 +192,7 @@ namespace MyHome.Views
             PictureItem.Visibility = ProgrammSettings.PictureIsActiv ? Visibility.Visible : Visibility.Collapsed;
             ClockItem.Visibility = ProgrammSettings.ClockIsActiv ? Visibility.Visible : Visibility.Collapsed;
             MapItem.Visibility = ProgrammSettings.MapIsActiv ? Visibility.Visible : Visibility.Collapsed;
+            MessageItem.Visibility = ProgrammSettings.MessageIsActiv ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }
