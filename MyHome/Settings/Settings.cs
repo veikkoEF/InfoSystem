@@ -64,6 +64,11 @@ namespace MyHome.Settings
         // Section Message
         public static int ShowDurationMessage { get; set; } = 30;
 
+        // Section Backend as a Service
+        public static string ApplicationId;
+        public static string ServerURL;
+        public static string NetKey;
+
 
         public static void Save()
         {
@@ -112,6 +117,11 @@ namespace MyHome.Settings
             localSettings.Values["ClockIsActiv"] = ClockIsActiv;
             localSettings.Values["MapIsActiv"] = MapIsActiv;
             localSettings.Values["MessageIsActiv"] = MapIsActiv;
+
+            // Backend as a Service Keys
+            localSettings.Values["ApplicationId"] = ApplicationId;
+            localSettings.Values["ServerURL"] = ServerURL;
+            localSettings.Values["NetKey"] = NetKey;
         }
 
         public static void Load()
@@ -209,6 +219,12 @@ namespace MyHome.Settings
                     MapIsActiv = false;
 
                 MessageIsActiv = (bool)localSettings.Values["MessageIsActiv"];
+
+                // Backend as a Service
+                ApplicationId = localSettings.Values["ApplicationId"].ToString();
+                ServerURL = localSettings.Values["ServerURL"].ToString();
+                NetKey = localSettings.Values["NetKey"].ToString();
+
             }
             catch
             {
@@ -228,6 +244,10 @@ namespace MyHome.Settings
             await FileIO.WriteTextAsync(file, DropBoxAppToken + "\r\n");
             var keys = new List<string> { OpenWeatherMapKey, NewsAPIKey, MapsAPIKey};
             await FileIO.AppendLinesAsync(file, keys);
+
+            // public static string ApplicationId;
+            // public static string ServerURL;
+            // public static string NetKey;
         }
 
         /// <summary>
@@ -252,6 +272,10 @@ namespace MyHome.Settings
                 if (keys.Count > 3)
                     MapsAPIKey = keys[3];
             }
+
+            // public static string ApplicationId;
+            // public static string ServerURL;
+            // public static string NetKey;
         }
     }
 }
