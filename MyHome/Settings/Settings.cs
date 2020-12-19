@@ -65,8 +65,8 @@ namespace MyHome.Settings
         public static int ShowDurationMessage { get; set; } = 30;
 
         // Section Backend as a Service
+        public const string ServerURL = "https://parseapi.back4app.com/";
         public static string ApplicationId;
-        public static string ServerURL;
         public static string NetKey;
 
 
@@ -120,7 +120,6 @@ namespace MyHome.Settings
 
             // Backend as a Service Keys
             localSettings.Values["ApplicationId"] = ApplicationId;
-            localSettings.Values["ServerURL"] = ServerURL;
             localSettings.Values["NetKey"] = NetKey;
         }
 
@@ -222,9 +221,7 @@ namespace MyHome.Settings
 
                 // Backend as a Service
                 ApplicationId = localSettings.Values["ApplicationId"].ToString();
-                ServerURL = localSettings.Values["ServerURL"].ToString();
                 NetKey = localSettings.Values["NetKey"].ToString();
-
             }
             catch
             {
@@ -242,12 +239,8 @@ namespace MyHome.Settings
             // Datei generieren
             StorageFile file = await storageFolder.CreateFileAsync(fileNameOfKeys, CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, DropBoxAppToken + "\r\n");
-            var keys = new List<string> { OpenWeatherMapKey, NewsAPIKey, MapsAPIKey};
+            var keys = new List<string> { OpenWeatherMapKey, NewsAPIKey, MapsAPIKey, ApplicationId, NetKey};
             await FileIO.AppendLinesAsync(file, keys);
-
-            // public static string ApplicationId;
-            // public static string ServerURL;
-            // public static string NetKey;
         }
 
         /// <summary>
@@ -271,11 +264,11 @@ namespace MyHome.Settings
                     NewsAPIKey = keys[2];
                 if (keys.Count > 3)
                     MapsAPIKey = keys[3];
+                if (keys.Count > 4)
+                    ApplicationId = keys[4];
+                if (keys.Count > 5)
+                    NetKey = keys[5];
             }
-
-            // public static string ApplicationId;
-            // public static string ServerURL;
-            // public static string NetKey;
         }
     }
 }
