@@ -142,6 +142,7 @@
     <Compile Include="Helpers\LocationService.cs" />
     <Compile Include="Helpers\Observable.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="Data\MessageData.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
     <Compile Include="Services\NavigationService.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="ViewModels\Controls\CarouselViewPictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\ClockControlDigitalViewModel.cs" />
     <Compile Include="ViewModels\Controls\MapControlViewModel.cs" />
+    <Compile Include="ViewModels\Controls\MessageControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\MultiViewPictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\SingleViewPictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\PictureShowControlViewModel.cs" />

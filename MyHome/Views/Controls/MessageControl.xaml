@@ -33,7 +33,10 @@
                 HorizontalAlignment="Left"
                 Source="/Assets/Message.png" />
         </Grid>
-        <ListView Margin="50,30" Grid.Row="2" Grid.Column="1">
+        <ListView
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="50,30">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="x:String">
                     <Grid Margin="0,25">
@@ -52,23 +55,20 @@
                         <TextBlock
                             Grid.Column="2"
                             Margin="10,0"
-                            TextWrapping="WrapWholeWords"
                             VerticalAlignment="Center"
-                            FontSize="35"
                             FontFamily="Consolas"
+                            FontSize="35"
                             Foreground="#FF2B77C0"
-                            Text="{x:Bind}" />
+                            Text="{x:Bind}"
+                            TextWrapping="WrapWholeWords" />
                         <TextBlock
                             Grid.Column="1"
-                            VerticalAlignment="Bottom"
                             HorizontalAlignment="Left"
-                            Text="08:30 Uhr"/>
+                            VerticalAlignment="Bottom"
+                            Text="08:30 Uhr" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <x:String>Hallo, ich komme bald nach Hause. Bist Du dann schon da?</x:String>
-            <x:String>Bist Du schon da?</x:String>
-            <x:String>Ist noch Butter da?</x:String>
         </ListView>
     </Grid>
 </UserControl>

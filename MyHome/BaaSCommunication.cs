@@ -1,5 +1,5 @@
-﻿using Parse;
-using System;
+﻿using MyHome.Data;
+using Parse;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,16 +30,5 @@ namespace MyHome
 
 
 
-    }
-
-    public class MessageData
-    {
-        public string Message { get; set; }
-        public DateTime Date { get; set; }
-
-        public MessageData()
-        {
-
-        }
     }
 }
