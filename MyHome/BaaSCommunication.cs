@@ -9,11 +9,6 @@ namespace MyHome
 {
     public class BaaSCommunication
     {
-        // Individual Keys
-        //const string applicationId = "ZaP3heCxmOgl5ulgGosDyuG6SgHbf8b8EUfWOf0i";
-        //const string serverURL = "https://parseapi.back4app.com/";
-        //const string netKey = "Wz3paUpU3i2S6xBbkk3w9eAc5EchAx2NSY5MREuS";
-
         public BaaSCommunication()
         {
             // Parse Initlization
