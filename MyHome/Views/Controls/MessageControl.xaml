@@ -61,13 +61,13 @@
                             FontFamily="Consolas"
                             FontSize="35"
                             Foreground="#FF2B77C0"
-                            Text="{x:Bind}"
+                            Text="{x:Bind Message}"
                             TextWrapping="WrapWholeWords" />
                         <TextBlock
                             Grid.Column="1"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
-                            Text="08:30 Uhr" />
+                            Text="{x:Bind Date.ToShortTimeString()}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -116,7 +116,7 @@ namespace MyHome.Settings
             localSettings.Values["PictureIsActiv"] = PictureIsActiv;
             localSettings.Values["ClockIsActiv"] = ClockIsActiv;
             localSettings.Values["MapIsActiv"] = MapIsActiv;
-            localSettings.Values["MessageIsActiv"] = MapIsActiv;
+            localSettings.Values["MessageIsActiv"] = MessageIsActiv;
 
             // Backend as a Service Keys
             localSettings.Values["ApplicationId"] = ApplicationId;

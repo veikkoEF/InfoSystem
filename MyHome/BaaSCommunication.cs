@@ -1,6 +1,8 @@
 ﻿using MyHome.Data;
 using Parse;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,12 +22,26 @@ namespace MyHome
             });
         }
 
-        public Task<List<MessageData>> GetMessagesAsync()
+        public async Task<ObservableCollection<MessageData>> GetMessagesAsync()
         {
+            var query = ParseObject.GetQuery("Message");
+            IEnumerable<ParseObject> results = await query.FindAsync();
+            ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
+            foreach (var item in results)
+            {
+                string myMessage = item.Get<string>("Message");
+                string myUserName = item.Get<string>("UserName");
+                DateTime myDate = (DateTime) item.CreatedAt;
 
-            return null;
-            //var query = ParseObject.GetQuery("Message").WhereEqualTo("UserName", Settings.UserName);
-            //IEnumerable<ParseObject> results = await query.FindAsync();
+                MessageData myMessageData = new MessageData();
+                myMessageData.Message = myMessage;
+                myMessageData.Date = myDate;
+                myMessageData.UserName = myUserName;
+
+                list.Add(myMessageData);
+                
+            }
+            return list;
         }
 
 
