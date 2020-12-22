@@ -14,7 +14,7 @@
             <view:ClockControlAnalog x:Name="MyClockControl" Margin="50" />
         </Viewbox>
         <Viewbox x:Name="ViewBoxClockControlDigital" Visibility="Collapsed">
-            <view:ClockControlDigital Margin="50" />
+            <view:ClockControlDigital Margin="50"/>
         </Viewbox>
     </Grid>
 </Page>

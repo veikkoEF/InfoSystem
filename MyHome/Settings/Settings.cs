@@ -45,6 +45,7 @@ namespace MyHome.Settings
         public static Windows.UI.Color ForegroundColor { get; set; } = _uiSettings.GetColorValue(UIColorType.Background);
         public static Windows.UI.Color BackgroundColor { get; set; } = _uiSettings.GetColorValue(UIColorType.Accent);
         public static bool ShowSeconds { get; set; }
+        public static bool ShowDate { get; set; }
         public static ClockMode ClockModus { get; set; } = ClockMode.Analog;
 
         // Section Map
@@ -100,6 +101,7 @@ namespace MyHome.Settings
             // Section Clock
             localSettings.Values["ShowDurationClock"] = ShowDurationClock;
             localSettings.Values["ShowSeconds"] = ShowSeconds;
+            localSettings.Values["ShowDate"] = ShowDate;
             localSettings.Values["AutomaticColor"] = AutomaticColor;
             localSettings.Values["BackgroundColor"] = BackgroundColor.ToString();
             localSettings.Values["ForegroundColor"] = ForegroundColor.ToString();
@@ -178,6 +180,7 @@ namespace MyHome.Settings
                 // Section Clock
                 ShowDurationClock = (int)localSettings.Values["ShowDurationClock"];
                 ShowSeconds = (bool)localSettings.Values["ShowSeconds"];
+                ShowDate = true;// (bool)localSettings.Values["ShowDate"];
                 AutomaticColor = (bool)localSettings.Values["AutomaticColor"];
                 BackgroundColor = ColorHelper.ToColor((string)localSettings.Values["BackgroundColor"]);
                 ForegroundColor = ColorHelper.ToColor((string)localSettings.Values["ForegroundColor"]);

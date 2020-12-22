@@ -1,6 +1,7 @@
 ﻿using MyHome.Helpers;
 using MyHome.Settings;
 using System;
+using System.Globalization;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
@@ -12,6 +13,14 @@ namespace MyHome.ViewModels
         private DispatcherTimer timer;
         private string time;
         private  UISettings uiSettings = new UISettings();
+
+        private string date;
+        public string Date
+        {
+            get => date;
+            set => Set(ref date, value);
+        }
+
 
         public ClockControlDigital()
         {
@@ -36,6 +45,8 @@ namespace MyHome.ViewModels
                 Time = DateTime.Now.ToLocalTime().ToString("HH:mm:ss");
             else
                 Time = DateTime.Now.ToLocalTime().ToString("HH:mm");
+            if (ProgrammSettings.ShowDate)
+                Date = DateTime.Now.ToLocalTime().Date.ToString("D", CultureInfo.CreateSpecificCulture("de-DE"));
         }
 
         public Brush Foreground
