@@ -109,15 +109,22 @@ namespace MyHome.ViewModels
             ShowNewsArticle(currentNumber);
         }
 
-        private void ShowNewsArticle(int number)
+        private void ShowNewsArticle(int number = 0)
         {
             if (newsArticles != null)
             {
-                Headline = newsArticles[number].Title;
-                MyPath = new Uri(newsArticles[number].ImageURL);
-                Description = newsArticles[number].Description;
-                Source = newsArticles[number].SourceName;
-                Content = newsArticles[number].Content;
+                try
+                {
+                    Headline = newsArticles[number].Title;
+                    MyPath = new Uri(newsArticles[number].ImageURL);
+                    Description = newsArticles[number].Description;
+                    Source = newsArticles[number].SourceName;
+                    Content = newsArticles[number].Content;
+                }
+                catch
+                {
+                }
+                
             }
         }
     }
