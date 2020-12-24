@@ -461,7 +461,7 @@
                         Width="300"
                         Margin="50,0"
                         HorizontalAlignment="Left"
-                        IsEnabled="{Binding IsChecked, ElementName=checkBoxMap}"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxMessage}"
                         Maximum="120"
                         Minimum="1"
                         Value="{x:Bind ViewModel.ShowDurationMessage, Mode=TwoWay}" />
