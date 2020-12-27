@@ -559,6 +559,20 @@ namespace MyHome.ViewModels
             }
         }
 
+        public bool ShowDate
+        {
+            get
+            {
+                return ProgrammSettings.ShowDate;
+            }
+            set
+            {
+                ProgrammSettings.ShowDate = value;
+                OnPropertyChanged(nameof(ShowDate));
+            }
+        }
+            
+
         public RelayCommand ShutDownCommand { get; set; }
 
         public int TimeInSecondToChangeNewsMessage

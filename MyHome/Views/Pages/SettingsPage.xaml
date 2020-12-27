@@ -286,6 +286,10 @@
                     Margin="0,10"
                     Content="Sekunden anzeigen"
                     IsChecked="{x:Bind ViewModel.ShowSeconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <CheckBox
+                    Margin="0,10"
+                    Content="Datum anzeigen"
+                    IsChecked="{x:Bind ViewModel.ShowDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <StackPanel Orientation="Vertical">
                     <CheckBox
                         Margin="0,10"
