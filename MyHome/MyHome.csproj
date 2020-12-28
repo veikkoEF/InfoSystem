@@ -150,6 +150,7 @@
     <Compile Include="Settings\ClockModus.cs" />
     <Compile Include="Settings\PictureSeletionMode.cs" />
     <Compile Include="Settings\Settings.cs" />
+    <Compile Include="ViewModels\Controls\CanvasControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\CarouselViewPictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\ClockControlDigitalViewModel.cs" />
     <Compile Include="ViewModels\Controls\MapControlViewModel.cs" />
@@ -164,6 +165,9 @@
     <Compile Include="ViewModels\Controls\NewsControlViewModel.cs" />
     <Compile Include="ViewModels\Pages\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\Controls\WeatherControlViewModel.cs" />
+    <Compile Include="Views\Controls\CanvasControl.xaml.cs">
+      <DependentUpon>CanvasControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\ClockControlDigital.xaml.cs">
       <DependentUpon>ClockControlDigital.xaml</DependentUpon>
     </Compile>
@@ -184,6 +188,9 @@
     </Compile>
     <Compile Include="Views\Controls\WeatherControl2.xaml.cs">
       <DependentUpon>WeatherControl2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\CanvasPage.xaml.cs">
+      <DependentUpon>CanvasPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\ClockPage.xaml.cs">
       <DependentUpon>ClockPage.xaml</DependentUpon>
@@ -250,6 +257,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Controls\CanvasControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Controls\ClockControlDigital.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -275,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\WeatherControl2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\CanvasPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,6 +357,7 @@
     <Content Include="Assets\cloud2.jpg" />
     <Content Include="Assets\Message.png" />
     <Content Include="Assets\News.jpg" />
+    <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\TestImages\TestImage1.jpg" />
     <Content Include="Assets\TestImages\TestImage2.jpg" />
     <Content Include="Assets\TestImages\TestImage3.jpg" />
@@ -373,13 +389,6 @@
     <None Include="doc\UploadFolder.vpd" />
     <None Include="notes.md" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
