@@ -168,6 +168,8 @@ namespace MyHome.Views
                     else
                         uiTimer.Interval = new TimeSpan(0, 0, 1);
                     break;
+
+
                 case ContentType.Home:
                 default:
                     type = ContentType.Weather;

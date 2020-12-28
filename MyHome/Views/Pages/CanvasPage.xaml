@@ -8,7 +8,7 @@
     xmlns:view="using:MyHome.Views"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-    <Grid >
-        <view:CanvasControl/>
+    <Grid>
+        <view:CanvasControl />
     </Grid>
 </Page>
