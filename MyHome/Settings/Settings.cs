@@ -67,7 +67,7 @@ namespace MyHome.Settings
         public static int ShowDurationMessage { get; set; } = 30;
 
         // Section Canvas
-        public static int ShowDurationCanvas { get; set; } = 30;
+        public static int ShowDurationCanvas { get; set; } = 20;
 
         // Section Backend as a Service
         public const string ServerURL = "https://parseapi.back4app.com/";

@@ -45,7 +45,7 @@ namespace MyHome.Views
             }
             else
             {
-                if (ProgrammSettings.AutoChangeContentSections)
+                if ((ProgrammSettings.AutoChangeContentSections) && (args.InvokedItemContainer.Tag.ToString() != "canvas"))
                     uiTimer.Start();
                 var item = sender.MenuItems.OfType<NavigationViewItem>().First(x => (string)x.Content == (string)args.InvokedItem);
                 NavView_Navigate(item as NavigationViewItem);

@@ -12,6 +12,7 @@ namespace MyHome.Views
         {
             this.InitializeComponent();
             ViewModel = new CanvasControlViewModel();
+            myCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Touch;
         }
     }
 }
