@@ -90,6 +90,10 @@ namespace MyHome.Views
                 case "message":
                     type = ContentType.Message;
                     break;
+
+                case "canvas":
+                    type = ContentType.Canvas;
+                    break;
             }
             UpdateContent();
         }
@@ -159,11 +163,22 @@ namespace MyHome.Views
                     break;
 
                 case ContentType.Message:
-                    type = ContentType.Home;
+                    type = ContentType.Canvas;
                     if (ProgrammSettings.MessageIsActiv)
                     {
                         ContentFrame.Navigate(typeof(MessagePage), null, new DrillInNavigationTransitionInfo());
                         uiTimer.Interval = new TimeSpan(0, 0, ProgrammSettings.ShowDurationMessage);
+                    }
+                    else
+                        uiTimer.Interval = new TimeSpan(0, 0, 1);
+                    break;
+
+                case ContentType.Canvas:
+                    type = ContentType.Home;
+                    if (ProgrammSettings.CanvasIsActiv)
+                    {
+                        ContentFrame.Navigate(typeof(CanvasPage), null, new DrillInNavigationTransitionInfo());
+                        uiTimer.Interval = new TimeSpan(0, 0, ProgrammSettings.ShowDurationCanvas);
                     }
                     else
                         uiTimer.Interval = new TimeSpan(0, 0, 1);

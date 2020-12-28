@@ -61,9 +61,13 @@ namespace MyHome.Settings
         public static bool ClockIsActiv { get; set; } = true;
         public static bool MapIsActiv { get; set; } = true;
         public static bool MessageIsActiv { get; set; } = true;
+        public static bool CanvasIsActiv { get; set; } = true;
 
         // Section Message
         public static int ShowDurationMessage { get; set; } = 30;
+
+        // Section Canvas
+        public static int ShowDurationCanvas { get; set; } = 30;
 
         // Section Backend as a Service
         public const string ServerURL = "https://parseapi.back4app.com/";
