@@ -306,6 +306,18 @@ namespace MyHome.ViewModels
             }
         }
 
+        public bool CanvasIsActiv
+        {
+            get
+            {
+                return ProgrammSettings.CanvasIsActiv;
+            }
+            set
+            {
+                ProgrammSettings.CanvasIsActiv = value;
+                OnPropertyChanged(nameof(CanvasIsActiv));
+            }
+        }
 
         public bool MessageIsActiv
         {
@@ -491,6 +503,20 @@ namespace MyHome.ViewModels
             {
                 ProgrammSettings.ShowDurationMap = value;
                 OnPropertyChanged(nameof(ShowDurationMap));
+            }
+        }
+
+
+        public int ShowDurationCanvas
+        {
+            get
+            {
+                return ProgrammSettings.ShowDurationCanvas;
+            }
+            set
+            {
+                ProgrammSettings.ShowDurationCanvas = value;
+                OnPropertyChanged(nameof(ShowDurationCanvas));
             }
         }
 

@@ -470,6 +470,20 @@
                         Minimum="1"
                         Value="{x:Bind ViewModel.ShowDurationMessage, Mode=TwoWay}" />
                 </StackPanel>
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="checkBoxCanvas"
+                        Content="Zeichenfläche"
+                        IsChecked="{x:Bind ViewModel.CanvasIsActiv, Mode=TwoWay}" />
+                    <Slider
+                        Width="300"
+                        Margin="50,0"
+                        HorizontalAlignment="Left"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxMessage}"
+                        Maximum="120"
+                        Minimum="1"
+                        Value="{x:Bind ViewModel.ShowDurationCanvas, Mode=TwoWay}" />
+                </StackPanel>
                 <!--  App neu starten / Herunterfahren  -->
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <Button
