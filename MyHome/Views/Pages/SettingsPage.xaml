@@ -479,7 +479,7 @@
                         Width="300"
                         Margin="50,0"
                         HorizontalAlignment="Left"
-                        IsEnabled="{Binding IsChecked, ElementName=checkBoxMessage}"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxCanvas}"
                         Maximum="120"
                         Minimum="1"
                         Value="{x:Bind ViewModel.ShowDurationCanvas, Mode=TwoWay}" />
