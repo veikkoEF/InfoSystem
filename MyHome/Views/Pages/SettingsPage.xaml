@@ -358,6 +358,32 @@
             </StackPanel>
         </controls:TabViewItem>
         <!--#endregion-->
+        <!--#region  Message-->
+        <controls:TabViewItem Header="Message">
+            <StackPanel Margin="70,20">
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontWeight="Bold"
+                    Text="Back4App Integration" />
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <TextBox
+                        Width="500"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="ApplicationID"
+                        Text="{x:Bind ViewModel.ApplicationID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <HyperlinkButton
+                        Margin="30,0"
+                        Content="Info"
+                        NavigateUri="https://www.back4app.com/" />
+                </StackPanel>
+                <TextBox
+                        Margin="0,10,0,0"
+                        Width="500"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="NETKey"
+                        />
+            </StackPanel>
+        </controls:TabViewItem>
         <!--#region App-->
         <controls:TabViewItem Header="App">
             <StackPanel Margin="70,20">

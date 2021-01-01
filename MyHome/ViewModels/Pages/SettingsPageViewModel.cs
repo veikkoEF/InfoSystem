@@ -345,6 +345,19 @@ namespace MyHome.ViewModels
             }
         }
 
+        public string ApplicationID
+        {
+            get
+            {
+                return ProgrammSettings.ApplicationId;
+            }
+            set
+            {
+                ProgrammSettings.ApplicationId = value;
+                OnPropertyChanged(nameof(ApplicationId));
+            }
+        }
+
 
         public string Message
         {
