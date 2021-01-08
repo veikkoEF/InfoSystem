@@ -27,7 +27,6 @@ namespace MyHome.ViewModels
     public class SettingsPageViewModel : Observable
     {
         private bool breakUpload;
-        private bool homeCheckboxIsEnabled = true;
         private int numberOfFiles;
         private int progress;
         private object[] selectedObjects;
@@ -65,13 +64,18 @@ namespace MyHome.ViewModels
             BreakUploadCommand = new RelayCommand(OnBreakUploadCommandExecute);
             DeleteFilesCommand = new RelayCommand(OnDeleteFilesCommandExecute);
             DeleteDirectoryCommand = new RelayCommand(OnDeleteDirectoryCommandExecute);
+            DeleteAllMessageFromBaaS = new RelayCommand(OnDeleteAllMessageFromBaaSExecute);
             FileNames = new ObservableCollection<string>();
             DirNames = new ObservableCollection<string>();
 
             UpdateDirNamesAsync();
         }
 
-   
+        private  void OnDeleteAllMessageFromBaaSExecute()
+        {
+            BaaSCommunication baas = new BaaSCommunication();
+            baas.DeleteMessagesAsync();
+        }
 
         private async void OnDeleteDirectoryCommandExecute()
         {
@@ -200,6 +204,8 @@ namespace MyHome.ViewModels
         public RelayCommand CheckLocationCommand { get; set; }
 
         public RelayCommand DeleteDirectoryCommand { get; set; }
+
+        public RelayCommand DeleteAllMessageFromBaaS { get; set; }
 
         public bool ClockIsActiv
         {
@@ -341,6 +347,19 @@ namespace MyHome.ViewModels
             set
             {
                 ProgrammSettings.MapsAPIKey = value;
+                OnPropertyChanged(nameof(MapsAPIKey));
+            }
+        }
+
+        public string NETKey
+        {
+            get
+            {
+                return ProgrammSettings.NetKey;
+            }
+            set
+            {
+                ProgrammSettings.NetKey = value;
                 OnPropertyChanged(nameof(MapsAPIKey));
             }
         }

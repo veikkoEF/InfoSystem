@@ -380,8 +380,12 @@
                         Margin="0,10,0,0"
                         Width="500"
                         HorizontalAlignment="Left"
-                        PlaceholderText="NETKey"
-                        />
+                        Text="{x:Bind ViewModel.NETKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        PlaceholderText="NETKey"/>
+                <Button Content="Alle Meldungen löschen"
+                        Width="200"
+                        Command="{x:Bind ViewModel.DeleteAllMessageFromBaaS}"
+                        Margin="0,10,0,0"/>
             </StackPanel>
         </controls:TabViewItem>
         <!--#region App-->

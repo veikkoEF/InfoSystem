@@ -3,8 +3,6 @@ using Parse;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MyHome
@@ -24,7 +22,7 @@ namespace MyHome
 
         public async Task<ObservableCollection<MessageData>> GetMessagesAsync()
         {
-            var query = ParseObject.GetQuery("Message");
+            var query = ParseObject.GetQuery("Message").OrderByDescending("createdAt");
             IEnumerable<ParseObject> results = await query.FindAsync();
             ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
             foreach (var item in results)
@@ -42,6 +40,17 @@ namespace MyHome
                 
             }
             return list;
+        }
+
+        public async void DeleteMessagesAsync()
+        {
+            var query = ParseObject.GetQuery("Message");
+            IEnumerable<ParseObject> results = await query.FindAsync();
+            //foreach (var item in results)
+            //{
+            //    await item.DeleteAsync();
+            //}
+
         }
 
 
