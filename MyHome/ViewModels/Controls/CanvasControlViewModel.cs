@@ -1,17 +1,16 @@
 ﻿using MyHome.Helpers;
+using System;
 
 namespace MyHome.ViewModels
 {
-    public class CanvasControlViewModel: Observable
+    public class CanvasControlViewModel : Observable
     {
 
-        public RelayCommand SaveImage { get; set; }
         public CanvasControlViewModel()
         {
-            // Commands
+           
         }
-
         
-
     }
 }
+    
