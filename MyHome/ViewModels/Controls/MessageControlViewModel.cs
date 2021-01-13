@@ -19,7 +19,7 @@ namespace MyHome.ViewModels
 
         public ObservableCollection<MessageData> Messages { get; set; }
 
-
+        
 
 
         private async void GetMessagagesFromBackendAsync()
@@ -29,6 +29,9 @@ namespace MyHome.ViewModels
             MessageData item2 = new MessageData() { Message = "Test 2", Date = DateTime.Now };
             Messages.Add(item1);
             Messages.Add(item2);
+
+            // Commands
+
 
             BaaSCommunication baas = new BaaSCommunication();
             var newMessages  = await baas.GetMessagesAsync();

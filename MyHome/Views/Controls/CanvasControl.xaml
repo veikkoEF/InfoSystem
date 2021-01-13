@@ -22,7 +22,11 @@
         <InkToolbar
             Grid.Row="1"
             Margin="50,0"
-            TargetInkCanvas="{x:Bind myCanvas}" />
+            TargetInkCanvas="{x:Bind myCanvas}">
+            <InkToolbarCustomToolButton>
+                <SymbolIcon Symbol="Save" />
+            </InkToolbarCustomToolButton>
+        </InkToolbar>
         <InkCanvas
             x:Name="myCanvas"
             Grid.Row="2"
