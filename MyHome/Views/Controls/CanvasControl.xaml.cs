@@ -1,5 +1,8 @@
 ﻿using MyHome.ViewModels;
+using System;
 using System.Collections.Generic;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Input.Inking;
 using Windows.UI.Xaml.Controls;
 
@@ -17,65 +20,48 @@ namespace MyHome.Views
             myCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Touch;
         }
 
-        private void InkToolbarCustomToolButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        
+
+        private async void SaveButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            //// Get all strokes on the InkCanvas.
-            //IReadOnlyList<InkStroke> currentStrokes = myCanvas.InkPresenter.StrokeContainer.GetStrokes();
+            // Get all strokes on the InkCanvas.
+            IReadOnlyList<InkStroke> currentStrokes = myCanvas.InkPresenter.StrokeContainer.GetStrokes();
 
-            //// Strokes present on ink canvas.
-            //if (currentStrokes.Count > 0)
-            //{
-            //    // Let users choose their ink file using a file picker.
-            //    // Initialize the picker.
-            //    Windows.Storage.Pickers.FileSavePicker savePicker =
-            //        new Windows.Storage.Pickers.FileSavePicker();
-            //    savePicker.SuggestedStartLocation =
-            //        Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-            //    savePicker.FileTypeChoices.Add(
-            //        "GIF with embedded ISF",
-            //        new List<string>() { ".gif" });
-            //    savePicker.DefaultFileExtension = ".gif";
-            //    savePicker.SuggestedFileName = "InkSample";
+            // Strokes present on ink canvas.
+            if (currentStrokes.Count > 0)
+            {
+                // aktuellen App-Ordner ermitteln
+                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                // Datei generieren
+                StorageFile file = await storageFolder.CreateFileAsync("inkfile.gif", CreationCollisionOption.ReplaceExisting);
+                if (file != null)
+                {
+                    //        // Prevent updates to the file until updates are 
+                    // finalized with call to CompleteUpdatesAsync.
+                    CachedFileManager.DeferUpdates(file);
+                    // Open a file stream for writing.
+                    IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+                    // Write the ink strokes to the output stream.
+                    using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
+                    {
+                        await myCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
+                        await outputStream.FlushAsync();
+                    }
+                    stream.Dispose();
 
-            //    // Show the file picker.
-            //    Windows.Storage.StorageFile file =
-            //        await savePicker.PickSaveFileAsync();
-            //    // When chosen, picker returns a reference to the selected file.
-            //    if (file != null)
-            //    {
-            //        // Prevent updates to the file until updates are 
-            //        // finalized with call to CompleteUpdatesAsync.
-            //        Windows.Storage.CachedFileManager.DeferUpdates(file);
-            //        // Open a file stream for writing.
-            //        IRandomAccessStream stream =
-            //            await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
-            //        // Write the ink strokes to the output stream.
-            //        using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
-            //        {
-            //            await inkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
-            //            await outputStream.FlushAsync();
-            //        }
-            //        stream.Dispose();
+                    // Finalize write so other apps can update file.
+                    Windows.Storage.Provider.FileUpdateStatus status = await CachedFileManager.CompleteUpdatesAsync(file);
+                    if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+                    {
+                        // File saved.
+                    }
+                    else
+                    {
+                        // File couldn't be saved.
+                    }
+                }
 
-            //        // Finalize write so other apps can update file.
-            //        Windows.Storage.Provider.FileUpdateStatus status =
-            //            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-
-            //        if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
-            //        {
-            //            // File saved.
-            //        }
-            //        else
-            //        {
-            //            // File couldn't be saved.
-            //        }
-            //    }
-            //    // User selects Cancel and picker returns null.
-            //    else
-            //    {
-            //        // Operation cancelled.
-            //    }
-            //}
+            }
         }
     }
 }

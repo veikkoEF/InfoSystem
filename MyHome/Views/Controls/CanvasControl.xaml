@@ -23,45 +23,45 @@
             Grid.Row="1"
             Margin="50,0"
             TargetInkCanvas="{x:Bind myCanvas}">
-            <InkToolbarCustomToolButton Click="InkToolbarCustomToolButton_Click">
+            <InkToolbarCustomToolButton x:Name="SaveButton" Click="SaveButton_Click">
                 <InkToolbarCustomToolButton.Content>
                     <Grid Background="LightYellow">
-                        <SymbolIcon Opacity="1" Symbol="Save"  />
-                    </Grid>
-                </InkToolbarCustomToolButton.Content>
-            </InkToolbarCustomToolButton>
-            <InkToolbarCustomToolButton Click="InkToolbarCustomToolButton_Click">
-                <InkToolbarCustomToolButton.Content>
-                    <Grid Background="LightGreen">
-                        <SymbolIcon Opacity="1" Symbol="Save"  />
-                    </Grid>
-                </InkToolbarCustomToolButton.Content>
-            </InkToolbarCustomToolButton>
-            <InkToolbarCustomToolButton Click="InkToolbarCustomToolButton_Click">
-                <InkToolbarCustomToolButton.Content>
-                    <Grid Background="Orange">
-                        <SymbolIcon Opacity="1" Symbol="Save"  />
-                    </Grid>
-                </InkToolbarCustomToolButton.Content>
-            </InkToolbarCustomToolButton>
-            <InkToolbarCustomToolButton>
-                <InkToolbarCustomToolButton.Content>
-                    <Grid Background="LightYellow">
-                        <SymbolIcon Opacity="1" Symbol="OpenFile"  />
+                        <SymbolIcon Opacity="1" Symbol="Save" />
                     </Grid>
                 </InkToolbarCustomToolButton.Content>
             </InkToolbarCustomToolButton>
             <InkToolbarCustomToolButton>
                 <InkToolbarCustomToolButton.Content>
                     <Grid Background="LightGreen">
-                        <SymbolIcon Opacity="1" Symbol="OpenFile"  />
+                        <SymbolIcon Opacity="1" Symbol="Save" />
                     </Grid>
                 </InkToolbarCustomToolButton.Content>
             </InkToolbarCustomToolButton>
             <InkToolbarCustomToolButton>
                 <InkToolbarCustomToolButton.Content>
                     <Grid Background="Orange">
-                        <SymbolIcon Opacity="1" Symbol="OpenFile"  />
+                        <SymbolIcon Opacity="1" Symbol="Save" />
+                    </Grid>
+                </InkToolbarCustomToolButton.Content>
+            </InkToolbarCustomToolButton>
+            <InkToolbarCustomToolButton x:Name="OpenButton">
+                <InkToolbarCustomToolButton.Content>
+                    <Grid Background="LightYellow">
+                        <SymbolIcon Opacity="1" Symbol="OpenFile" />
+                    </Grid>
+                </InkToolbarCustomToolButton.Content>
+            </InkToolbarCustomToolButton>
+            <InkToolbarCustomToolButton>
+                <InkToolbarCustomToolButton.Content>
+                    <Grid Background="LightGreen">
+                        <SymbolIcon Opacity="1" Symbol="OpenFile" />
+                    </Grid>
+                </InkToolbarCustomToolButton.Content>
+            </InkToolbarCustomToolButton>
+            <InkToolbarCustomToolButton>
+                <InkToolbarCustomToolButton.Content>
+                    <Grid Background="Orange">
+                        <SymbolIcon Opacity="1" Symbol="OpenFile" />
                     </Grid>
                 </InkToolbarCustomToolButton.Content>
             </InkToolbarCustomToolButton>
