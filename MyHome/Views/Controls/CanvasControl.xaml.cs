@@ -1,4 +1,5 @@
-﻿using MyHome.ViewModels;
+﻿using Microsoft.Toolkit.Uwp.Helpers;
+using MyHome.ViewModels;
 using System;
 using System.Collections.Generic;
 using Windows.Storage;
@@ -12,6 +13,7 @@ namespace MyHome.Views
 {
     public sealed partial class CanvasControl : UserControl
     {
+
         public CanvasControlViewModel ViewModel { get; set; }
         public CanvasControl()
         {
@@ -28,6 +30,22 @@ namespace MyHome.Views
         /// <param name="e"></param>
         private async void SaveButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            string fileName;
+            string myButtonName = ((InkToolbarCustomToolButton)sender).Name;
+            switch (myButtonName)
+            {
+                case "SaveButtonYellow":
+                    fileName = "inkfileYellow.gif";
+                    break;
+                case "SaveButtonGreen":
+                    fileName = "inkfileGreen.gif";
+                    break;
+                case "SaveButtonRed":
+                default:
+                    fileName = "inkfileRed.gif";
+                    break;
+            }
+
             // Get all strokes on the InkCanvas.
             IReadOnlyList<InkStroke> currentStrokes = myCanvas.InkPresenter.StrokeContainer.GetStrokes();
 
@@ -37,7 +55,7 @@ namespace MyHome.Views
                 // aktuellen App-Ordner ermitteln
                 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
                 // Datei generieren
-                StorageFile file = await storageFolder.CreateFileAsync("inkfile.gif", CreationCollisionOption.ReplaceExisting);
+                StorageFile file = await storageFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
                 if (file != null)
                 {
                     //        // Prevent updates to the file until updates are 
@@ -73,46 +91,22 @@ namespace MyHome.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OpenButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void OpenButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             // aktuellen App-Ordner ermitteln
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-
-            //bool result = await StorageFileHelper.FileExistsAsync(storageFolder, fileNameOfKeys, false);
-            //if (result == true)
-            //{
-            //    StorageFile file = await storageFolder.GetFileAsync(fileNameOfKeys);
-            //    //...
-            //}
-
-
-
-            //// Let users choose their ink file using a file picker.
-            //// Initialize the picker.
-            //Windows.Storage.Pickers.FileOpenPicker openPicker =
-            //    new Windows.Storage.Pickers.FileOpenPicker();
-            //openPicker.SuggestedStartLocation =
-            //    Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-            //openPicker.FileTypeFilter.Add(".gif");
-            //// Show the file picker.
-            //Windows.Storage.StorageFile file = await openPicker.PickSingleFileAsync();
-            //// User selects a file and picker returns a reference to the selected file.
-            //if (file != null)
-            //{
-            //    // Open a file stream for reading.
-            //    IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-            //    // Read from file.
-            //    using (var inputStream = stream.GetInputStreamAt(0))
-            //    {
-            //        await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
-            //    }
-            //    stream.Dispose();
-            //}
-            //// User selects Cancel and picker returns null.
-            //else
-            //{
-            //    // Operation cancelled.
-            //}
+            StorageFile file = await storageFolder.GetFileAsync("inkfile.gif");
+            if (file != null)
+            {
+                // Open a file stream for reading.
+                IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read);
+                // Read from file.
+                using (var inputStream = stream.GetInputStreamAt(0))
+                {
+                            await myCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                }
+                stream.Dispose();
+            }
         }
     }
 }
