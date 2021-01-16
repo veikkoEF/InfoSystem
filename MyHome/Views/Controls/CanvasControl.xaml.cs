@@ -21,7 +21,11 @@ namespace MyHome.Views
         }
 
         
-
+        /// <summary>
+        /// Save the image in a File 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void SaveButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             // Get all strokes on the InkCanvas.
@@ -63,5 +67,52 @@ namespace MyHome.Views
 
             }
         }
+
+        /// <summary>
+        /// Open an image from file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+
+            //StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            //bool result = await StorageFileHelper.FileExistsAsync(storageFolder, fileNameOfKeys, false);
+            //if (result == true)
+            //{
+            //    StorageFile file = await storageFolder.GetFileAsync(fileNameOfKeys);
+            //    //...
+            //}
+
+
+
+                //// Let users choose their ink file using a file picker.
+                //// Initialize the picker.
+                //Windows.Storage.Pickers.FileOpenPicker openPicker =
+                //    new Windows.Storage.Pickers.FileOpenPicker();
+                //openPicker.SuggestedStartLocation =
+                //    Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                //openPicker.FileTypeFilter.Add(".gif");
+                //// Show the file picker.
+                //Windows.Storage.StorageFile file = await openPicker.PickSingleFileAsync();
+                //// User selects a file and picker returns a reference to the selected file.
+                //if (file != null)
+                //{
+                //    // Open a file stream for reading.
+                //    IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                //    // Read from file.
+                //    using (var inputStream = stream.GetInputStreamAt(0))
+                //    {
+                //        await inkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                //    }
+                //    stream.Dispose();
+                //}
+                //// User selects Cancel and picker returns null.
+                //else
+                //{
+                //    // Operation cancelled.
+                //}
+            }
     }
 }

@@ -44,7 +44,7 @@
                     </Grid>
                 </InkToolbarCustomToolButton.Content>
             </InkToolbarCustomToolButton>
-            <InkToolbarCustomToolButton x:Name="OpenButton">
+            <InkToolbarCustomToolButton x:Name="OpenButton" Click="OpenButton_Click">
                 <InkToolbarCustomToolButton.Content>
                     <Grid Background="LightYellow">
                         <SymbolIcon Opacity="1" Symbol="OpenFile" />
