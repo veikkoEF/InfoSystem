@@ -23,6 +23,7 @@ namespace MyHome
         public async Task<ObservableCollection<MessageData>> GetMessagesAsync()
         {
             var query = ParseObject.GetQuery("Message").OrderByDescending("createdAt");
+
             IEnumerable<ParseObject> results = await query.FindAsync();
             ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
             foreach (var item in results)
