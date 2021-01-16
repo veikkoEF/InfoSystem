@@ -1,5 +1,4 @@
-﻿using Microsoft.Toolkit.Uwp.Helpers;
-using MyHome.ViewModels;
+﻿using MyHome.ViewModels;
 using System;
 using System.Collections.Generic;
 using Windows.Storage;
@@ -13,8 +12,6 @@ namespace MyHome.Views
 {
     public sealed partial class CanvasControl : UserControl
     {
-
-        public CanvasControlViewModel ViewModel { get; set; }
         public CanvasControl()
         {
             this.InitializeComponent();
@@ -22,33 +19,68 @@ namespace MyHome.Views
             myCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Touch;
         }
 
-        
-        /// <summary>
-        /// Save the image in a File 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void SaveButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        public CanvasControlViewModel ViewModel { get; set; }
+
+        private static string GetFileNameFromButtonName(object sender)
         {
-            string fileName;
             string myButtonName = ((InkToolbarCustomToolButton)sender).Name;
+            string fileName;
             switch (myButtonName)
             {
                 case "SaveButtonYellow":
+                case "OpenButtonYellow":
                     fileName = "inkfileYellow.gif";
                     break;
+
                 case "SaveButtonGreen":
+                case "OpenButtonGreen":
                     fileName = "inkfileGreen.gif";
                     break;
+
                 case "SaveButtonRed":
+                case "OpenButtonRed":
                 default:
                     fileName = "inkfileRed.gif";
                     break;
             }
 
+            return fileName;
+        }
+
+        /// <summary>
+        /// Open an image from file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void OpenButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            string fileName = GetFileNameFromButtonName(sender);
+            // aktuellen App-Ordner ermitteln
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await storageFolder.GetFileAsync(fileName);
+            if (file != null)
+            {
+                // Open a file stream for reading.
+                IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read);
+                // Read from file.
+                using (var inputStream = stream.GetInputStreamAt(0))
+                {
+                    await myCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                }
+                stream.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Save the image in a File
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void SaveButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            string fileName = GetFileNameFromButtonName(sender);
             // Get all strokes on the InkCanvas.
             IReadOnlyList<InkStroke> currentStrokes = myCanvas.InkPresenter.StrokeContainer.GetStrokes();
-
             // Strokes present on ink canvas.
             if (currentStrokes.Count > 0)
             {
@@ -58,7 +90,7 @@ namespace MyHome.Views
                 StorageFile file = await storageFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
                 if (file != null)
                 {
-                    //        // Prevent updates to the file until updates are 
+                    //        // Prevent updates to the file until updates are
                     // finalized with call to CompleteUpdatesAsync.
                     CachedFileManager.DeferUpdates(file);
                     // Open a file stream for writing.
@@ -82,30 +114,6 @@ namespace MyHome.Views
                         // File couldn't be saved.
                     }
                 }
-
-            }
-        }
-
-        /// <summary>
-        /// Open an image from file
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void OpenButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            // aktuellen App-Ordner ermitteln
-            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await storageFolder.GetFileAsync("inkfile.gif");
-            if (file != null)
-            {
-                // Open a file stream for reading.
-                IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read);
-                // Read from file.
-                using (var inputStream = stream.GetInputStreamAt(0))
-                {
-                            await myCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
-                }
-                stream.Dispose();
             }
         }
     }
