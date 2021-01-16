@@ -1,6 +1,8 @@
-﻿using MyHome.ViewModels;
+﻿using MyHome.Settings;
+using MyHome.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Input.Inking;
@@ -17,6 +19,7 @@ namespace MyHome.Views
             this.InitializeComponent();
             ViewModel = new CanvasControlViewModel();
             myCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Mouse | Windows.UI.Core.CoreInputDeviceTypes.Touch;
+            LoadFileAsync(ProgrammSettings.LastFileNameFromCanvas);
         }
 
         public CanvasControlViewModel ViewModel { get; set; }
@@ -52,10 +55,14 @@ namespace MyHome.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void OpenButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void OpenButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             string fileName = GetFileNameFromButtonName(sender);
-            // aktuellen App-Ordner ermitteln
+            LoadFileAsync(fileName);
+        }
+
+        private async void LoadFileAsync(string fileName)
+        {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             StorageFile file = await storageFolder.GetFileAsync(fileName);
             if (file != null)
@@ -79,6 +86,7 @@ namespace MyHome.Views
         private async void SaveButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             string fileName = GetFileNameFromButtonName(sender);
+            ProgrammSettings.LastFileNameFromCanvas = fileName;
             // Get all strokes on the InkCanvas.
             IReadOnlyList<InkStroke> currentStrokes = myCanvas.InkPresenter.StrokeContainer.GetStrokes();
             // Strokes present on ink canvas.

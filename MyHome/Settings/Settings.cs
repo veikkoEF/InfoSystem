@@ -68,6 +68,7 @@ namespace MyHome.Settings
 
         // Section Canvas
         public static int ShowDurationCanvas { get; set; } = 20;
+        public static string LastFileNameFromCanvas { get; set; } = "inkfileYellow.gif";
 
         // Section Backend as a Service
         public const string ServerURL = "https://parseapi.back4app.com/";
@@ -113,6 +114,14 @@ namespace MyHome.Settings
 
             // Section Map
             localSettings.Values["MapsAPIKey"] = MapsAPIKey;
+
+            // Section Message
+            localSettings.Values["ShowDurationMessage"] = ShowDurationMessage;
+
+            // Section Canvas
+            localSettings.Values["ShowDurationCanvas"] = ShowDurationCanvas;
+            localSettings.Values["LastFileNameFromCanvas"] = LastFileNameFromCanvas;
+
 
             // Section App
             localSettings.Values["AutoChangeContentSections"] = AutoChangeContentSections;
@@ -199,6 +208,13 @@ namespace MyHome.Settings
                 {
                     MapsAPIKey = localSettings.Values["MapsAPIKey"].ToString();
                 }
+
+                // Section Message
+                ShowDurationMessage = (int)localSettings.Values["ShowDurationMessage"];
+
+                // Section Canvas
+                ShowDurationCanvas = (int)localSettings.Values["ShowDurationCanvas"];
+                LastFileNameFromCanvas= localSettings.Values["LastFileNameFromCanvas"].ToString();
 
 
                 // Section App
