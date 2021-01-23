@@ -17,7 +17,7 @@
 
   <Properties>
     <DisplayName>MyHome</DisplayName>
-    <PublisherDisplayName>veikk</PublisherDisplayName>
+    <PublisherDisplayName>veikko</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
