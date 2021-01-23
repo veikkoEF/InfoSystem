@@ -120,5 +120,5 @@ Es stehe die folgenden Optionen für eine Bildanzeige zur Verfügung:
 - Collage: Mehrere Bilder werden auf der Oberfläche einblendet. Nach einer bestimmten Zeit wird der Bildschirm gelöscht und eine neue Collage wird gestartet. Es können die Anzahl der Bilder pro Collage und die Geschwindigkeit des Neueinblendendes eines des nächsten Bildes eingestellt werden.
 
 ## Upload der Bilder in den Online-Speicher
-- Die Bilder können direkt in den Onloine-Speicher hochgeldaden werden
+- Die Bilder können direkt in den Online-Speicher hochgeldaden werden
 - über die App MyHome 
