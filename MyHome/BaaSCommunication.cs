@@ -60,10 +60,10 @@ namespace MyHome
             {
                 var query = ParseObject.GetQuery("Message");
                 IEnumerable<ParseObject> results = await query.FindAsync();
-                //foreach (var item in results)
-                //{
-                //    await item.DeleteAsync();
-                //}
+                foreach (var item in results)
+                {
+                    await item.DeleteAsync();
+                }
             }
         }
 
