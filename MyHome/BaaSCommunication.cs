@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace MyHome
 {
@@ -45,13 +46,25 @@ namespace MyHome
 
         public async void DeleteMessagesAsync()
         {
-            var query = ParseObject.GetQuery("Message");
-            IEnumerable<ParseObject> results = await query.FindAsync();
-            //foreach (var item in results)
-            //{
-            //    await item.DeleteAsync();
-            //}
+            // Sicherheitsabfrage
+            ContentDialog deleteFileDialog = new ContentDialog
+            {
+                Title = "Löschen aller Nachrichten",
+                Content = "Wollen Sie alle Nachrichten löschen? Das kann nicht rückgängig gemacht werden",
+                PrimaryButtonText = "Löschen",
+                CloseButtonText = "Abbrechen"
+            };
 
+            ContentDialogResult result = await deleteFileDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var query = ParseObject.GetQuery("Message");
+                IEnumerable<ParseObject> results = await query.FindAsync();
+                //foreach (var item in results)
+                //{
+                //    await item.DeleteAsync();
+                //}
+            }
         }
 
 
