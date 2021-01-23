@@ -9,19 +9,12 @@
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
+            <RowDefinition Height="60" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock
-            Margin="50,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Style="{ThemeResource SubheaderTextBlockStyle}"
-            Text="Gib mir einen Text oder zeichne ein Bild" />
         <InkToolbar
-            Grid.Row="1"
-            Margin="50,0"
+            Grid.Row="0"
+            Margin="50,10,0,0"
             TargetInkCanvas="{x:Bind myCanvas}">
             <InkToolbarCustomToolButton x:Name="SaveButtonYellow" Click="SaveButton_Click">
                 <InkToolbarCustomToolButton.Content>
@@ -66,7 +59,7 @@
                 </InkToolbarCustomToolButton.Content>
             </InkToolbarCustomToolButton>
         </InkToolbar>
-        <InkCanvas
+        <InkCanvas 
             x:Name="myCanvas"
             Grid.Row="2"
             Margin="10" />

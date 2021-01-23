@@ -932,7 +932,7 @@ namespace MyHome.ViewModels
         }
         private void OnShutDownCommandExecute()
         {
-            ShutdownManager.BeginShutdown(ShutdownKind.Shutdown, TimeSpan.FromSeconds(1));
+            CoreApplication.Exit();
         }
 
         private async void OnUploadFileInDropboxCommandExecuteAsync()

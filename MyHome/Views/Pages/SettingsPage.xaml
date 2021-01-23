@@ -531,13 +531,13 @@
                     <Button
                         Width="140"
                         Command="{x:Bind ViewModel.RestartAppCommmand}"
-                        Content="App Neu Starten" />
+                        Content="Neu Starten" />
                     <Button
                         Width="140"
                         Margin="30,0,0,0"
                         Background="Orange"
                         Command="{x:Bind ViewModel.ShutDownCommand}"
-                        Content=" Herunterfahren" />
+                        Content="Beennden" />
                 </StackPanel>
                 <TextBlock
                     Margin="0,20"
