@@ -12,7 +12,6 @@
 - Kalender
 - Steuerung über Smartphone
 - Uhrzeit/ Datum
-- Radio
 - Interaktion (InkCanvas)
 
 # Controls
