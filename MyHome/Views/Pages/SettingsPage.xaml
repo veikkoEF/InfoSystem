@@ -537,7 +537,7 @@
                         Margin="30,0,0,0"
                         Background="Orange"
                         Command="{x:Bind ViewModel.ShutDownCommand}"
-                        Content="Beennden" />
+                        Content="Beenden" />
                 </StackPanel>
                 <TextBlock
                     Margin="0,20"
