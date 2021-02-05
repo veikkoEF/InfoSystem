@@ -11,7 +11,7 @@
   <Identity
     Name="MyHome"
     Publisher="CN=veikko"
-    Version="2.0.91.0" />
+    Version="2.0.92.0" />
 
   <mp:PhoneIdentity PhoneProductId="8544BE04-7D67-4622-BE58-D29D0F852409" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

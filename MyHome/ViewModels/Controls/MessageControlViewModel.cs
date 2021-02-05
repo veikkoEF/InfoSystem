@@ -14,8 +14,17 @@ namespace MyHome.ViewModels
         public MessageControlViewModel()
         {
             Messages = new ObservableCollection<MessageData>();
+            DeleteAllMessages = new RelayCommand(DeleteAllMessagesExecuteAsync);
             GetMessagagesFromBackendAsync();
         }
+
+        private void DeleteAllMessagesExecuteAsync()
+        {
+            BaaSCommunication baas = new BaaSCommunication();
+            baas.DeleteMessagesAsync();
+        }
+
+        public RelayCommand DeleteAllMessages { get; set; }
 
         public ObservableCollection<MessageData> Messages { get; set; }
 
