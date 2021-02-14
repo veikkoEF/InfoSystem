@@ -138,22 +138,25 @@ namespace MyHome.ViewModels
             var location = ProgrammSettings.Location;
             OpenWeatherMapProxyForecast openWeatherMapProxyForecast = new OpenWeatherMapProxyForecast(ProgrammSettings.OpenWeatherMapKey);
             RootObject myWeather = await openWeatherMapProxyForecast.GetWeather(location);
-            // Tag 1
-            TempDay1 = Math.Round(myWeather.list[0].main.temp, 0);
-            day1 = DateTime.Parse(myWeather.list[0].dt_txt, new CultureInfo("de-DE"));
-            IconDay1 = string.Format("ms-appx:///Assets/Weather/{0}.png", myWeather.list[0].weather[0].icon);
-            // Tag 2
-            TempDay2 = Math.Round(myWeather.list[8].main.temp, 0);
-            day2 = DateTime.Parse(myWeather.list[8].dt_txt, new CultureInfo("de-DE"));
-            IconDay2 = string.Format("ms-appx:///Assets/Weather/{0}.png", myWeather.list[8].weather[0].icon);
-            NameOfDay2 = day2.ToString("dddd", new CultureInfo("de-DE"));
-            // Tag 3
-            TempDay3 = Math.Round(myWeather.list[16].main.temp, 0);
-            day3 = DateTime.Parse(myWeather.list[16].dt_txt, new CultureInfo("de-DE"));
-            IconDay3 = string.Format("ms-appx:///Assets/Weather/{0}.png", myWeather.list[16].weather[0].icon);
-            NameOfDay3 = day3.ToString("dddd", new CultureInfo("de-DE"));
-            // allgemeine Zeitangabe
-            TimeOfTemps = "jeweils um " + day1.TimeOfDay.Hours + " Uhr";
+            if (myWeather != null)
+            {
+                // Tag 1
+                TempDay1 = Math.Round(myWeather.list[0].main.temp, 0);
+                day1 = DateTime.Parse(myWeather.list[0].dt_txt, new CultureInfo("de-DE"));
+                IconDay1 = string.Format("ms-appx:///Assets/Weather/{0}.png", myWeather.list[0].weather[0].icon);
+                // Tag 2
+                TempDay2 = Math.Round(myWeather.list[8].main.temp, 0);
+                day2 = DateTime.Parse(myWeather.list[8].dt_txt, new CultureInfo("de-DE"));
+                IconDay2 = string.Format("ms-appx:///Assets/Weather/{0}.png", myWeather.list[8].weather[0].icon);
+                NameOfDay2 = day2.ToString("dddd", new CultureInfo("de-DE"));
+                // Tag 3
+                TempDay3 = Math.Round(myWeather.list[16].main.temp, 0);
+                day3 = DateTime.Parse(myWeather.list[16].dt_txt, new CultureInfo("de-DE"));
+                IconDay3 = string.Format("ms-appx:///Assets/Weather/{0}.png", myWeather.list[16].weather[0].icon);
+                NameOfDay3 = day3.ToString("dddd", new CultureInfo("de-DE"));
+                // allgemeine Zeitangabe
+                TimeOfTemps = "jeweils um " + day1.TimeOfDay.Hours + " Uhr";
+            }
         }
     }
 }

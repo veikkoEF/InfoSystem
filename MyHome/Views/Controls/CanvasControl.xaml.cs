@@ -2,6 +2,7 @@
 using MyHome.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -64,18 +65,25 @@ namespace MyHome.Views
         private async void LoadFileAsync(string fileName)
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await storageFolder.GetFileAsync(fileName);
-            if (file != null)
+            try
             {
-                // Open a file stream for reading.
-                IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read);
-                // Read from file.
-                using (var inputStream = stream.GetInputStreamAt(0))
+                StorageFile file = await storageFolder.GetFileAsync(fileName);
+                if (file != null)
                 {
-                    await myCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                    // Open a file stream for reading.
+                    IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read);
+                    // Read from file.
+                    using (var inputStream = stream.GetInputStreamAt(0))
+                    {
+                        await myCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                    }
+                    stream.Dispose();
                 }
-                stream.Dispose();
             }
+            catch (FileNotFoundException e)
+            {
+            }
+            
         }
 
         /// <summary>

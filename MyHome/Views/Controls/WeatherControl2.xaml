@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:MyHome.Views"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="using:MyHome.ViewModels"
     d:DesignHeight="1080"
@@ -29,6 +30,7 @@
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="Blue" />
         </Style>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
     </UserControl.Resources>
     <Grid Background="#FFA9E5F9">
         <Grid Margin="20">
@@ -285,6 +287,16 @@
                 VerticalAlignment="Center"
                 Style="{StaticResource TextBlockStyle1}"
                 Text="{Binding Sunset}" />
+            <TextBlock
+                Visibility="{Binding NoDataAccess, Converter={StaticResource BoolToVisibilityConverter}}"
+                Grid.Row="4"
+                Grid.ColumnSpan="4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="55"
+                FontWeight="Bold"
+                Foreground="Red"
+                Text="Keine aktuellen Daten" />
         </Grid>
     </Grid>
 </UserControl>

@@ -36,6 +36,21 @@ namespace MyHome.ViewModels
         private double tempMaxDay3;
 
 
+        private bool noDataAccess;
+
+        public bool NoDataAccess
+        {
+            get
+            {
+                return noDataAccess;
+            }
+            set
+            {
+                noDataAccess = value;
+                OnPropertyChanged(nameof(NoDataAccess));
+            }
+
+        }
 
         public WeatherControlViewModel2()
         {
@@ -198,6 +213,7 @@ namespace MyHome.ViewModels
             RootObject myWeather = await openWeatherMapProxyForecast.GetWeather(location);
             if (myWeather != null)
             {
+                NoDataAccess = false;
                 // aktuelles Wetter
                 TempCurrent = Math.Round(myWeather.list[0].main.temp, 0).ToString() + " °C";
                 TimeCurrent = DateTimeOffset.FromUnixTimeSeconds(myWeather.list[0].dt).DateTime.ToLocalTime().ToString("HH:mm");
@@ -228,10 +244,6 @@ namespace MyHome.ViewModels
                 DateTime day1 = DateTime.Parse(myWeather.list[0].dt_txt, new CultureInfo("de-DE"));
                 NameOfDay1 = day1.ToString("dddd", new CultureInfo("de-DE"));
 
-                
-                
-
-
                 // Day 2
                 DateTime day2 = day1.AddDays(1);
                 NameOfDay2 = day2.ToString("dddd", new CultureInfo("de-DE"));
@@ -246,7 +258,7 @@ namespace MyHome.ViewModels
                 List<double> tempListDay3 = new List<double>();
                 for (int i = 0; i < myWeather.list.Count; i++)
                 {
-                    string nameOfDay=DateTime.Parse(myWeather.list[i].dt_txt, new CultureInfo("de-DE")).ToString("dddd", new CultureInfo("de-DE"));
+                    string nameOfDay = DateTime.Parse(myWeather.list[i].dt_txt, new CultureInfo("de-DE")).ToString("dddd", new CultureInfo("de-DE"));
                     if (NameOfDay1 == nameOfDay)
                     {
                         double temp = Math.Round(myWeather.list[i].main.temp, 0);
@@ -272,6 +284,8 @@ namespace MyHome.ViewModels
                 TempMinDay3 = tempListDay3.Min();
                 TempMaxDay3 = tempListDay3.Max();
             }
+            else
+                NoDataAccess = true;
         }
     }
 }

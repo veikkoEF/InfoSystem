@@ -33,8 +33,8 @@
                 HorizontalAlignment="Left"
                 Source="/Assets/Message.png" />
             <Button
-                HorizontalAlignment="Right"
                 Margin="0,0,70,0"
+                HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Background="Transparent">
                 <Button.Content>
