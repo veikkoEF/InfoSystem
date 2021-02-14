@@ -21,6 +21,21 @@ namespace MyHome.ViewModels
         private string timeOfTemps;
         private string nameOfDay2;
         private string nameOfDay3;
+        private bool noDataAccess;
+
+        public bool NoDataAccess
+        {
+            get
+            {
+                return noDataAccess;
+            }
+            set
+            {
+                noDataAccess = value;
+                OnPropertyChanged(nameof(NoDataAccess));
+            }
+
+        }
 
         public WeatherControlViewModel()
         {
@@ -140,6 +155,7 @@ namespace MyHome.ViewModels
             RootObject myWeather = await openWeatherMapProxyForecast.GetWeather(location);
             if (myWeather != null)
             {
+                NoDataAccess = false;
                 // Tag 1
                 TempDay1 = Math.Round(myWeather.list[0].main.temp, 0);
                 day1 = DateTime.Parse(myWeather.list[0].dt_txt, new CultureInfo("de-DE"));
@@ -157,6 +173,8 @@ namespace MyHome.ViewModels
                 // allgemeine Zeitangabe
                 TimeOfTemps = "jeweils um " + day1.TimeOfDay.Hours + " Uhr";
             }
+            else
+                NoDataAccess = true;
         }
     }
 }
