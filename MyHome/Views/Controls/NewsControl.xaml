@@ -25,15 +25,15 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <TextBlock
-                Visibility="{x:Bind ViewModel.NoDataAccess, Mode=OneWay}"
-                Grid.RowSpan="6"
-                Grid.ColumnSpan="4"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="55"
-                FontWeight="Bold"
-                Foreground="Red"
-                Text="Keine aktuellen Daten" />
+            Grid.RowSpan="6"
+            Grid.ColumnSpan="4"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="55"
+            FontWeight="Bold"
+            Foreground="Red"
+            Text="Keine aktuellen Daten"
+            Visibility="{x:Bind ViewModel.NoDataAccess, Mode=OneWay}" />
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"

@@ -43,12 +43,15 @@ namespace MyHome.ViewModels
             StorageFolder homeStorageFolder = ApplicationData.Current.LocalFolder;
             var currentFolder = await homeStorageFolder.GetFolderAsync(ProgrammSettings.NameOfCurrentDir);
             IReadOnlyList<StorageFile> files = await currentFolder.GetFilesAsync();
-            ItemsList.Clear();
-            foreach (var item in files)
+            if ((files != null) && (files.Count > 0))
             {
-                ItemsList.Add(item.Path);
+                ItemsList.Clear();
+                foreach (var item in files)
+                {
+                    ItemsList.Add(item.Path);
+                }
+                timer.Start();
             }
-            timer.Start();
         }
 
 
