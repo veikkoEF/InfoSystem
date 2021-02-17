@@ -35,6 +35,22 @@ namespace MyHome.ViewModels
             updateTimer.Tick += GetNewMessageFromCloud;
         }
 
+        private bool noDataAccess;
+
+        public bool NoDataAccess
+        {
+            get
+            {
+                return noDataAccess;
+            }
+            set
+            {
+                noDataAccess = value;
+                OnPropertyChanged(nameof(NoDataAccess));
+            }
+
+        }
+
         private void GetNewMessageFromCloud(object sender, object e)
         {
             GetNewsAsync();
@@ -113,19 +129,18 @@ namespace MyHome.ViewModels
         {
             if (newsArticles != null)
             {
-                try
-                {
-                    Headline = newsArticles[number].Title;
-                    MyPath = new Uri(newsArticles[number].ImageURL);
-                    Description = newsArticles[number].Description;
-                    Source = newsArticles[number].SourceName;
-                    Content = newsArticles[number].Content;
-                }
-                catch
-                {
-                }
-                
+                NoDataAccess = false;
+                Headline = newsArticles[number].Title;
+                MyPath = new Uri(newsArticles[number].ImageURL);
+                Description = newsArticles[number].Description;
+                Source = newsArticles[number].SourceName;
+                Content = newsArticles[number].Content;
             }
+            else
+            {
+                NoDataAccess = true;
+            }
+                
         }
     }
 }

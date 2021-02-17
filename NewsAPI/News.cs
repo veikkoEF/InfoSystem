@@ -18,17 +18,26 @@ namespace NewsAPI
         public async Task<INewsArticles> GetNewsFromServiceAsync(Category category)
         {
             //  https://github.com/hassie-dash/NewsAPI.NET
-            INewsClient newsClient = new ClientBuilder()
+            try
             {
-                ApiKey = apiKey
+                INewsClient newsClient = new ClientBuilder()
+                {
+                    ApiKey = apiKey
+                }
+                            .Build();
+                INewsArticles newsArticles = await newsClient.GetTopHeadlines(new TopHeadlinesBuilder()
+                    .WithCountryQuery(Country.DE)
+                    .WithLanguageQuery(Language.DE)
+                    .WithCategoryQuery(category)
+                    .Build());
+                return newsArticles;
             }
-            .Build();
-            INewsArticles newsArticles = await newsClient.GetTopHeadlines(new TopHeadlinesBuilder()
-                .WithCountryQuery(Country.DE)
-                .WithLanguageQuery(Language.DE)
-                .WithCategoryQuery(category)
-                .Build());
-            return newsArticles;
+            catch
+            {
+                return null;
+            }
+
+
         }
 
     }
