@@ -21,7 +21,7 @@ namespace MyHome
         {
             InitializeComponent();
 
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mzg3OTMxQDMxMzgyZTM0MmUzMFlvcXB0RFdLU0N2YmloN0UvTmdnNW5VaXY3Nk54Q2pLYnVHVFF4M3B2WlE9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDAxOTk0QDMxMzYyZTM0MmUzMFgzenpNTEVLSjNrS2w1cTBGYzhVMFgzK3FFL28velZpUEFNclNlSmRZMFk9");
 
             // Deferred execution until used. Check https://msdn.microsoft.com/library/dd642331(v=vs.110).aspx for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);

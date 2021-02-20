@@ -3,12 +3,7 @@
 
  * MapControl
 
- * Prüfung auf Internetverbindung, wenn nicht, dann Funktionen mit Internet abschalten und Hinweis
- * Prüfung auf Updates von Wetter, News, Bilder (Intervall)
 
 
- Next:
- ==================
- View: Message
 
  RSS-Feed, siehe Windows Toolkit

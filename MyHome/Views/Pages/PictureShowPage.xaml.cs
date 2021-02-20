@@ -14,11 +14,20 @@ namespace MyHome.Views
 
             PictureShowControlSingleView.Visibility = Visibility.Collapsed;
             PictureShowControlMultiView.Visibility = Visibility.Collapsed;
+            PictureShowControlCarousel.Visibility = Visibility.Collapsed;
+
+           
+
             switch (ProgrammSettings.ArtOfPicturePresentation)
             {
                 case ArtOfPicturePresentation.SinglePicture:
                     {
                         PictureShowControlSingleView.Visibility = Visibility.Visible;
+                        break;
+                    }
+                case ArtOfPicturePresentation.CarouselPicture:
+                    {
+                        PictureShowControlCarousel.Visibility = Visibility.Visible;
                         break;
                     }
                 case ArtOfPicturePresentation.MultiPicture:

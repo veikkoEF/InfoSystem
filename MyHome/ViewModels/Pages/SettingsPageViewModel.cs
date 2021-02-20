@@ -688,13 +688,20 @@ namespace MyHome.ViewModels
         {
             ProgrammSettings.NameOfCurrentDir = dirName;
             StorageFolder homeStorageFolder = ApplicationData.Current.LocalFolder;
-            var currentFolder = await homeStorageFolder.GetFolderAsync(dirName);
-            IReadOnlyList<StorageFile> files = await currentFolder.GetFilesAsync();
-            FileNames.Clear();
-            foreach (var item in files)
+            try
             {
-                FileNames.Add(item.Path);
+                var currentFolder = await homeStorageFolder.GetFolderAsync(dirName);
+                IReadOnlyList<StorageFile> files = await currentFolder.GetFilesAsync();
+                FileNames.Clear();
+                foreach (var item in files)
+                {
+                    FileNames.Add(item.Path);
+                }
             }
+            catch
+            {
+            }
+            
         }
 
         /// <summary>

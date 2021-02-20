@@ -1,4 +1,4 @@
 ﻿namespace MyHome.Settings
 {
-    public enum ArtOfPicturePresentation { SinglePicture, MultiPicture};
+    public enum ArtOfPicturePresentation { SinglePicture, MultiPicture, CarouselPicture };
 }

@@ -99,6 +99,7 @@ namespace MyHome.Settings
             // Section Pictures
             localSettings.Values["ShowDurationPictures"] = ShowDurationPictures;
             localSettings.Values["ArtOfPicturePresentation"] = (int)ArtOfPicturePresentation;
+            localSettings.Values["PictureSeletionMode"] = (int)PictureSeletionMode;
             localSettings.Values["DropBoxAppToken"] = DropBoxAppToken;
             localSettings.Values["TimeInSecondToChangeNewsMessage"] = TimeInSecondToChangeNewsMessage;
             localSettings.Values["NameOfCurrentDir"] = NameOfCurrentDir;
@@ -178,7 +179,7 @@ namespace MyHome.Settings
                 // Section Pictures
                 ShowDurationPictures = (int)localSettings.Values["ShowDurationPictures"];
                 ArtOfPicturePresentation = (ArtOfPicturePresentation)localSettings.Values["ArtOfPicturePresentation"];
-
+                PictureSeletionMode = (PictureSeletionMode)localSettings.Values["PictureSeletionMode"];
                 if (localSettings.Values["DropBoxAppToken"] == null)
                 {
                     DropBoxAppToken = "";

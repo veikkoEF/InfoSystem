@@ -1,5 +1,5 @@
 ﻿
-namespace MyHome.ViewModels.Controls
+namespace MyHome.ViewModels
 {
     public class CarouselViewPictureShowControlViewModel : PictureShowControlViewModel
     {

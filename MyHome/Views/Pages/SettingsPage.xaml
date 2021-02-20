@@ -156,6 +156,7 @@
                         SelectedIndex="{x:Bind ViewModel.ArtOfPicturePresentation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <ComboBoxItem Content="Ein Bild (Vollbild)" />
                         <ComboBoxItem Content="Mehrere Bilder" />
+                        <ComboBoxItem Content="Karusell" />
                     </ComboBox>
                     <TextBlock
                         Margin="0,20,0,0"

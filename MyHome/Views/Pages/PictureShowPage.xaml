@@ -11,5 +11,6 @@
     <Grid>
         <view:PictureShowControlSingle x:Name="PictureShowControlSingleView" Visibility="Visible" />
         <view:PictureSchowControlMulti x:Name="PictureShowControlMultiView" Visibility="Collapsed" />
+        <view:PictureShowControlCarousel x:Name="PictureShowControlCarousel" Visibility="Collapsed" />
     </Grid>
 </Page>

@@ -127,8 +127,14 @@
     <PackageReference Include="SixLabors.ImageSharp">
       <Version>1.0.2</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.SfCarousel.UWP">
+      <Version>16.4.0.52</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.SfProgressBar.UWP">
-      <Version>18.4.0.35</Version>
+      <Version>16.4.0.52</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.SfShared.UWP">
+      <Version>16.4.0.52</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +187,9 @@
     </Compile>
     <Compile Include="Views\Controls\MessageControl.xaml.cs">
       <DependentUpon>MessageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\PictureShowControlCarousel.xaml.cs">
+      <DependentUpon>PictureShowControlCarousel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\PictureShowControlSingle.xaml.cs">
       <DependentUpon>PictureShowControlSingle.xaml</DependentUpon>
@@ -278,6 +287,10 @@
     <Page Include="Views\Controls\MessageControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\PictureShowControlCarousel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\PictureShowControlSingle.xaml">
       <SubType>Designer</SubType>
