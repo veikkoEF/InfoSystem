@@ -159,7 +159,6 @@
     <Compile Include="Settings\PictureSeletionMode.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="ViewModels\Controls\CanvasControlViewModel.cs" />
-    <Compile Include="ViewModels\Controls\CarouselViewPictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\ClockControlDigitalViewModel.cs" />
     <Compile Include="ViewModels\Controls\MapControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\MessageControlViewModel.cs" />
