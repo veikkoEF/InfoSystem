@@ -12,36 +12,49 @@ namespace MyHome
     {
         public BaaSCommunication()
         {
-            // Parse Initlization
-            ParseClient.Initialize(new ParseClient.Configuration
+            try
             {
-                ApplicationId = Settings.ProgrammSettings.ApplicationId,
-                WindowsKey = Settings.ProgrammSettings.NetKey,
-                Server = Settings.ProgrammSettings.ServerURL
-            });
+                // Parse Initlization
+                ParseClient.Initialize(new ParseClient.Configuration
+                {
+                    ApplicationId = Settings.ProgrammSettings.ApplicationId,
+                    WindowsKey = Settings.ProgrammSettings.NetKey,
+                    Server = Settings.ProgrammSettings.ServerURL
+                });
+            }
+            catch
+            {
+
+            }
+            
         }
 
         public async Task<ObservableCollection<MessageData>> GetMessagesAsync()
         {
             var query = ParseObject.GetQuery("Message").OrderByDescending("createdAt");
-
-            IEnumerable<ParseObject> results = await query.FindAsync();
-            ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
-            foreach (var item in results)
+            if (query != null)
             {
-                string myMessage = item.Get<string>("Message");
-                string myUserName = item.Get<string>("UserName");
-                DateTime myDate = (DateTime) item.CreatedAt;
 
-                MessageData myMessageData = new MessageData();
-                myMessageData.Message = myMessage;
-                myMessageData.Date = myDate;
-                myMessageData.UserName = myUserName;
+                IEnumerable<ParseObject> results = await query.FindAsync();
+                ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
+                foreach (var item in results)
+                {
+                    string myMessage = item.Get<string>("Message");
+                    string myUserName = item.Get<string>("UserName");
+                    DateTime myDate = (DateTime)item.CreatedAt;
 
-                list.Add(myMessageData);
-                
+                    MessageData myMessageData = new MessageData();
+                    myMessageData.Message = myMessage;
+                    myMessageData.Date = myDate;
+                    myMessageData.UserName = myUserName;
+
+                    list.Add(myMessageData);
+
+                }
+                return list;
             }
-            return list;
+            else
+                return null;
         }
 
         public async void DeleteMessagesAsync()

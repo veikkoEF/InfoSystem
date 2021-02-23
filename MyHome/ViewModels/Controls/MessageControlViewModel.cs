@@ -37,9 +37,12 @@ namespace MyHome.ViewModels
         {
             BaaSCommunication baas = new BaaSCommunication();
             var newMessages  = await baas.GetMessagesAsync();
-            foreach (var item in newMessages)
+            if (newMessages != null)
             {
-                Messages.Add(item);
+                foreach (var item in newMessages)
+                {
+                    Messages.Add(item);
+                }
             }
         }
     }
