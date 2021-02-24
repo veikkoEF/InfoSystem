@@ -973,16 +973,26 @@ namespace MyHome.ViewModels
 
         private async void UpdateDirNamesAsync()
         {
+            
             DirNames.Clear();
             StorageFolder homeStorageFolder = ApplicationData.Current.LocalFolder;
-            var folders = await homeStorageFolder.GetFoldersAsync();
-            if (folders.Count > 0)
+            try
             {
-                foreach (var item in folders)
+                var folders = await homeStorageFolder.GetFoldersAsync();
+                if (folders.Count > 0)
                 {
-                    DirNames.Add(item.Name);
-                }     
+                    foreach (var item in folders)
+                    {
+                        DirNames.Add(item.Name);
+                    }
+                }
             }
+            catch
+            {
+
+            }
+            
+            
 
             if (DirNames.Count > 0)
             {

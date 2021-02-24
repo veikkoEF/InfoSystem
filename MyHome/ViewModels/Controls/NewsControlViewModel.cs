@@ -129,12 +129,20 @@ namespace MyHome.ViewModels
         {
             if (newsArticles != null)
             {
-                NoDataAccess = false;
-                Headline = newsArticles[number].Title;
-                MyPath = new Uri(newsArticles[number].ImageURL);
-                Description = newsArticles[number].Description;
-                Source = newsArticles[number].SourceName;
-                Content = newsArticles[number].Content;
+                try
+                {
+                    NoDataAccess = false;
+                    Headline = newsArticles[number].Title;
+                    MyPath = new Uri(newsArticles[number].ImageURL);
+                    Description = newsArticles[number].Description;
+                    Source = newsArticles[number].SourceName;
+                    Content = newsArticles[number].Content;
+                }
+                catch
+                {
+                    NoDataAccess = true;
+                }
+                
             }
             else
             {
