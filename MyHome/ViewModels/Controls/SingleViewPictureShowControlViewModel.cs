@@ -49,7 +49,12 @@ namespace MyHome.ViewModels
 
                     break;
             }
-            SelectedItem = ItemsList[selectedIndex];
+            if ((ItemsList != null) && (selectedIndex <= ItemsList.Count - 1))
+            {
+                SelectedItem = ItemsList[selectedIndex];
+            }
+            else
+                SelectedItem = null;
         }
 
 
