@@ -1,9 +1,0 @@
-﻿	
- * Modul: PictureShowControlCarousel
-
- * MapControl
-
-
-
-
- RSS-Feed, siehe Windows Toolkit

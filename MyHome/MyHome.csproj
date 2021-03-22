@@ -197,6 +197,9 @@
     <Compile Include="Views\Controls\PictureSchowControlMulti.xaml.cs">
       <DependentUpon>PictureSchowControlMulti.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\RSSFeedControl.xaml.cs">
+      <DependentUpon>RSSFeedControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\WeatherControl2.xaml.cs">
       <DependentUpon>WeatherControl2.xaml</DependentUpon>
     </Compile>
@@ -297,6 +300,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\PictureSchowControlMulti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\RSSFeedControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -443,7 +450,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="doc\UploadFolder.png" />
-    <Content Include="ToDo.txt" />
     <None Include="ClassDiagramPictureShowControlViewModel.cd" />
     <None Include="doc\UploadFolder.vpd" />
     <None Include="notes.md" />
