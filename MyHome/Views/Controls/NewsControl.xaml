@@ -67,13 +67,6 @@
             Text="{x:Bind ViewModel.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             TextAlignment="Justify"
             TextWrapping="WrapWholeWords" />
-        <!--<TextBlock
-            Grid.Row="3"
-            Grid.Column="1"
-            FontSize="16"
-            Margin="50,5"
-            Text="{x:Bind ViewModel.Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            TextWrapping="WrapWholeWords" />-->
         <StackPanel
             Grid.Row="4"
             Grid.Column="1"
