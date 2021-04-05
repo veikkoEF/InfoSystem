@@ -132,6 +132,7 @@ namespace MyHome.ViewModels
         /// </summary>
         public string AppVersion => "Version: " + Information.GetAppVersion();
 
+
         public int ArtOfPicturePresentation
         {
             get

@@ -1,4 +1,4 @@
-﻿using BaaSCommunication;
+﻿
 using Parse;
 using System;
 using System.Collections.Generic;
@@ -6,20 +6,20 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
-namespace MyHome
+namespace BaaSCommunication
 {
-    public class BaaSCommunication
+    public class BaaS
     {
-        public BaaSCommunication()
+        public BaaS(string applicationId, string netKey, string serverURL)
         {
             try
             {
                 // Parse Initlization
                 ParseClient.Initialize(new ParseClient.Configuration
                 {
-                    ApplicationId = Settings.ProgrammSettings.ApplicationId,
-                    WindowsKey = Settings.ProgrammSettings.NetKey,
-                    Server = Settings.ProgrammSettings.ServerURL
+                    ApplicationId = applicationId,
+                    WindowsKey = netKey,
+                    Server = serverURL
                 });
             }
             catch

@@ -1,1 +1,4 @@
-﻿public enum WeatherMode { TreeDaysSimple, TreeDaysComfort,  };
+﻿namespace MyHome.Settings
+{
+    public enum WeatherMode { TreeDaysSimple, TreeDaysComfort, };
+}
