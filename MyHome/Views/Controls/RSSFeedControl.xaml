@@ -35,10 +35,13 @@
             Margin="5"
             FontFamily="Times New Roman"
             FontSize="30"
+            LineHeight="45"
+            LineStackingStrategy="BlockLineHeight"
+            OpticalMarginAlignment="None"
             Text="In mehreren Thüringer Kommunen sollen Spielplätze auch für ältere Generationen attraktiver werden. Der generationenübergreifenden Nutzung wird immer mehr Rechnungen getragen, sagte Anja Schultz von der Stadtverwaltung Erfurt. So seien in den vergangenen Jahren unter anderem Fitnessgeräte oder Bänke"
             TextAlignment="Left"
-            LineHeight="45"
-            TextWrapping="WrapWholeWords" OpticalMarginAlignment="None" TextTrimming="None" LineStackingStrategy="BlockLineHeight" />
+            TextTrimming="None"
+            TextWrapping="WrapWholeWords" />
         <Image
             Grid.Row="1"
             Margin="20"

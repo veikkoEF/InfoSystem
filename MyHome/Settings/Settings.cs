@@ -76,6 +76,9 @@ namespace MyHome.Settings
         public static string ApplicationId;
         public static string NetKey;
 
+        // Section RSSFeed
+        public static string Feed { get; set; }
+        public static int ShowDurationRSSFeed { get; set; } = 20;
 
         public static void Save()
         {

@@ -160,6 +160,7 @@
     <Compile Include="ViewModels\Controls\MapControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\MessageControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\MultiViewPictureShowControlViewModel.cs" />
+    <Compile Include="ViewModels\Controls\RSSFeedControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\SingleViewPictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\PictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\WeatherControlViewModel2.cs" />

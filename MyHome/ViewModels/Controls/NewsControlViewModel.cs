@@ -14,7 +14,6 @@ namespace MyHome.ViewModels
     {
         private string description;
         private string headline;
-        //private string myPath = string.Empty;
         private Uri myPath;
         private INewsArticles newsArticles;
         private string source;

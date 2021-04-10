@@ -50,8 +50,8 @@
             <!--  RSSFeed Item  -->
             <NavigationViewItem
                 x:Name="RSSItem"
-                x:Uid="RSSItemItem"
-                Content="News"
+                x:Uid="RSSNavItem"
+                Content="RSS Feed"
                 Icon="Document"
                 Tag="rssfeed" />
             <!--  Picture Item  -->

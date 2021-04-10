@@ -74,7 +74,7 @@ namespace MyHome.Views
                 case "news":
                     type = ContentType.News;
                     break;
-                case "ressfeed":
+                case "rssfeed":
                     type = ContentType.RSSFeed;
                     break;
                 case "pictures":
@@ -135,7 +135,8 @@ namespace MyHome.Views
                     type = ContentType.Picture;
                     if (ProgrammSettings.RSSFeedIsActiv)
                     {
-
+                        ContentFrame.Navigate(typeof(RSSFeedPage), null, new DrillInNavigationTransitionInfo());
+                        uiTimer.Interval = new TimeSpan(0, 0, ProgrammSettings.ShowDurationRSSFeed);
                     }
                     else
                         uiTimer.Interval = new TimeSpan(0, 0, 1);
