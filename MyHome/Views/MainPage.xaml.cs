@@ -75,6 +75,8 @@ namespace MyHome.Views
                     type = ContentType.News;
                     break;
 
+
+
                 case "pictures":
                     type = ContentType.Picture;
                     break;

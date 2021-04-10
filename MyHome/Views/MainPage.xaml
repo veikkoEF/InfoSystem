@@ -47,13 +47,13 @@
                 Content="News"
                 Icon="Document"
                 Tag="news" />
-            <!--  News Item  -->
+            <!--  RSSFeed Item  -->
             <NavigationViewItem
                 x:Name="RSSItem"
                 x:Uid="RSSItemItem"
                 Content="News"
                 Icon="Document"
-                Tag="NewsLocal" />
+                Tag="rssfeed" />
             <!--  Picture Item  -->
             <NavigationViewItem
                 x:Name="PictureItem"
@@ -75,7 +75,7 @@
                 Content="Karte"
                 Icon="Map"
                 Tag="map" />
-            <!--Message Item-->
+            <!--  Message Item  -->
             <NavigationViewItem
                 x:Name="MessageItem"
                 x:Uid="MessageShowNavItem"
