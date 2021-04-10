@@ -229,6 +229,9 @@
     <Compile Include="Views\Pages\PictureShowPage.xaml.cs">
       <DependentUpon>PictureShowPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\RSSFeedPage.xaml.cs">
+      <DependentUpon>RSSFeedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -344,6 +347,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\PictureShowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\RSSFeedPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

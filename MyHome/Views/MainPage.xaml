@@ -47,6 +47,13 @@
                 Content="News"
                 Icon="Document"
                 Tag="news" />
+            <!--  News Item  -->
+            <NavigationViewItem
+                x:Name="RSSItem"
+                x:Uid="RSSItemItem"
+                Content="News"
+                Icon="Document"
+                Tag="NewsLocal" />
             <!--  Picture Item  -->
             <NavigationViewItem
                 x:Name="PictureItem"
