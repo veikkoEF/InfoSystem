@@ -74,9 +74,9 @@ namespace MyHome.Views
                 case "news":
                     type = ContentType.News;
                     break;
-
-
-
+                case "ressfeed":
+                    type = ContentType.RSSFeed;
+                    break;
                 case "pictures":
                     type = ContentType.Picture;
                     break;
@@ -121,11 +121,21 @@ namespace MyHome.Views
                     break;
 
                 case ContentType.News:
-                    type = ContentType.Picture;
+                    type = ContentType.RSSFeed;
                     if (ProgrammSettings.NewsIsActiv)
                     {
                         ContentFrame.Navigate(typeof(NewsPage), null, new DrillInNavigationTransitionInfo());
                         uiTimer.Interval = new TimeSpan(0, 0, ProgrammSettings.ShowDurationNews);
+                    }
+                    else
+                        uiTimer.Interval = new TimeSpan(0, 0, 1);
+                    break;
+
+                case ContentType.RSSFeed:
+                    type = ContentType.Picture;
+                    if (ProgrammSettings.RSSFeedIsActiv)
+                    {
+
                     }
                     else
                         uiTimer.Interval = new TimeSpan(0, 0, 1);

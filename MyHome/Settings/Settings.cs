@@ -62,6 +62,7 @@ namespace MyHome.Settings
         public static bool MapIsActiv { get; set; } = true;
         public static bool MessageIsActiv { get; set; } = true;
         public static bool CanvasIsActiv { get; set; } = true;
+        public static bool RSSFeedIsActiv { get; set; } = true;
 
         // Section Message
         public static int ShowDurationMessage { get; set; } = 30;
