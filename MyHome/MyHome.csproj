@@ -485,6 +485,10 @@
       <Project>{5e285804-6f0c-47c6-86fe-8b6f8247e67f}</Project>
       <Name>OpenWeatherAPI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RSSFeed\RSSFeed.csproj">
+      <Project>{43004920-4eb8-4593-a122-c9c3a9ef48fd}</Project>
+      <Name>RSSFeed</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

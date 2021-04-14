@@ -12,11 +12,18 @@ namespace RSSFeed
     public class RSSFeedParser
     {
         SyndicationFeed feed = null;
+        string rssFeed;
+
+        public RSSFeedParser(string _rssFeed)
+        {
+            rssFeed = _rssFeed;
+        }
+
         public void Parse()
         {
             try
             {
-                using (var reader = XmlReader.Create("https://visualstudiomagazine.com/rss-feeds/news.aspx"))
+                using (var reader = XmlReader.Create(rssFeed))
                 {
                     feed = SyndicationFeed.Load(reader);
                 }
@@ -26,8 +33,8 @@ namespace RSSFeed
             {
                 foreach (var element in feed.Items)
                 {
-                    // Console.WriteLine($"Title: {element.Title.Text}");
-                    // Console.WriteLine($"Summary: {element.Summary.Text}");
+                    var title = element.Title.Text;
+                    var sum = element.Summary.Text;
                 }
             }
 
