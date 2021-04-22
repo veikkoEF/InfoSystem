@@ -18,6 +18,44 @@ namespace MyHome.ViewModels
         private string date;
         private string source;
 
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                Set(ref title, value);
+            }
+        }
+
+        public Uri MyImagePath
+        {
+            get
+            {
+                return myImagePath;
+            }
+            set
+            {
+                Set(ref myImagePath, value);
+            }
+        }
+
+        public string Content
+        {
+            get
+            {
+                return content;
+            }
+            set
+            {
+                Set(ref content, value);
+            }
+        }
+
+
+
 
 
         public RSSFeedControlViewModel()
