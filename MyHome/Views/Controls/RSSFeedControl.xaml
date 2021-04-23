@@ -10,16 +10,18 @@
     mc:Ignorable="d">
     <Grid Background="#FFF8F8F8">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <ListView Margin="10">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="10">
-                        <Border Background="LightGray" Height="200" Width="400">
-                            <TextBlock Text="{Binding}" 
-                               FontSize="48" />
+                        <Border
+                            Width="400"
+                            Height="200"
+                            Background="LightGray">
+                            <TextBlock FontSize="48" Text="{Binding}" />
                         </Border>
                     </Grid>
                 </DataTemplate>
@@ -29,6 +31,9 @@
                 <x:String>Two</x:String>
             </ListView.Items>
         </ListView>
-        <WebView Margin="10" Grid.Column="1" Source="https://www.tagesschau.de/inland/coronavirus-neuinfektionen-impfkampagne-spahn-rki-101.html"/>
+
+        <WebView
+            Grid.Column="1"
+            Margin="10" />
     </Grid>
 </UserControl>
