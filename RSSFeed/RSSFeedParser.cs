@@ -7,11 +7,12 @@ using System.Xml;
 using System.ServiceModel.Syndication;
 using CodeHollow.FeedReader;
 using CodeHollow.FeedReader.Feeds;
+using System.Collections.ObjectModel;
 
 namespace RSSFeed
 {
     // https://github.com/codehollow/FeedReader/blob/master/FeedReader/Feeds/Base/FeedItemEnclosure.cs
-    
+
     public class RSSFeedParser
     {
         string rssFeed;
@@ -21,49 +22,43 @@ namespace RSSFeed
         }
 
 
-        public async void Parse()
+        public async Task<ObservableCollection<FeedItem>> Parse()
         {
-            List<MyFeedItem> items = new List<MyFeedItem>();
+            ObservableCollection<FeedItem> items = new ObservableCollection<FeedItem>();
 
             Feed feed = await FeedReader.ReadAsync(rssFeed);
 
             if (feed != null)
             {
-                if (feed.Type == FeedType.Rss_2_0)
+                foreach (var element in feed.Items)
                 {
-                    // Datenübernahme aus RSS20 Feed
-                    Rss20Feed rss20feed = (Rss20Feed)feed.SpecificFeed;
-                    foreach (var element in rss20feed.Items)
+                    FeedItem feedItem = new FeedItem();
+                    feedItem.Title = element.Title;
+                    feedItem.Description = element.Description;
+                    if (feed.Type == FeedType.Rss_2_0)
                     {
-                        // 
+
                     }
-                }
-                else
-                {
-                    // Datenübernahme aus Feed
-                    foreach (var element in feed.Items)
-                    {
-                         //items.Add(element);
-                    }
+
+                    items.Add(feedItem);
+
                 }
             }
-
-             
-            }
-
- 
+            return items;
         }
-
     }
 
-    public class MyFeedItem
+
+
+    public class FeedItem
     {
-        string Title { get; set; }
-        string Description { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
 
     }
     
 }
+
 
 
 
