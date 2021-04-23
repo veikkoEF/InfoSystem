@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.ServiceModel.Syndication;
 using CodeHollow.FeedReader;
+using CodeHollow.FeedReader.Feeds;
 
 namespace RSSFeed
 {
@@ -22,25 +23,33 @@ namespace RSSFeed
 
         public async void Parse()
         {
-            List<FeedItem> items = new List<FeedItem>();
+            List<MyFeedItem> items = new List<MyFeedItem>();
 
-            var feed = await FeedReader.ReadAsync(rssFeed);
+            Feed feed = await FeedReader.ReadAsync(rssFeed);
 
             if (feed != null)
             {
-                foreach (var element in feed.Items)
+                if (feed.Type == FeedType.Rss_2_0)
                 {
-                    items.Add(element);
+                    // Datenübernahme aus RSS20 Feed
+                    Rss20Feed rss20feed = (Rss20Feed)feed.SpecificFeed;
+                    foreach (var element in rss20feed.Items)
+                    {
+                        // 
+                    }
+                }
+                else
+                {
+                    // Datenübernahme aus Feed
+                    foreach (var element in feed.Items)
+                    {
+                         //items.Add(element);
+                    }
                 }
             }
 
-            if (feed.Type == FeedType.Rss_2_0)
-            {
-                var rss20feed = (CodeHollow.FeedReader.Feeds.Rss20Feed)feed.SpecificFeed;
-
+             
             }
-
-
 
  
         }
