@@ -14,7 +14,7 @@ namespace MyHome.ViewModels
 
         private string title;
         private Uri myImagePath;
-        private String content;
+        private string content;
         private string date;
         private string source;
 
@@ -54,14 +54,40 @@ namespace MyHome.ViewModels
             }
         }
 
+        public string Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                Set(ref date, value);
+            }
+        }
+
+        public string Source
+        {
+            get
+            {
+                return source;
+            }
+            set
+            {
+                Set(ref source, value);
+            }
+        }
+
 
 
 
 
         public RSSFeedControlViewModel()
         {
-            RSSFeedParser rSSFeedParser = new RSSFeedParser("https://www.tagesschau.de/xml/rss2/");
-            rSSFeedParser.Parse();
+            RSSFeedParser rSSFeedParser = new RSSFeedParser("http://newsfeed.zeit.de/all");
+            var items = rSSFeedParser.Parse();
+            Title = items[0].Title.Text;
+            
         }
     }
 }

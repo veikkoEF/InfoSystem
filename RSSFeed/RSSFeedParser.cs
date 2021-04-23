@@ -9,6 +9,8 @@ using System.ServiceModel.Syndication;
 
 namespace RSSFeed
 {
+    // https://github.com/codehollow/FeedReader/blob/master/FeedReader/Feeds/Base/FeedItemEnclosure.cs
+    
     public class RSSFeedParser
     {
         SyndicationFeed feed = null;
@@ -19,8 +21,9 @@ namespace RSSFeed
             rssFeed = _rssFeed;
         }
 
-        public void Parse()
+        public List<SyndicationItem> Parse()
         {
+            List<SyndicationItem> items = new List<SyndicationItem>();
             try
             {
                 using (var reader = XmlReader.Create(rssFeed))
@@ -33,10 +36,10 @@ namespace RSSFeed
             {
                 foreach (var element in feed.Items)
                 {
-                    var title = element.Title.Text;
-                    var sum = element.Summary.Text;
+                    items.Add(element);
                 }
             }
+            return items;
 
         }
     }
