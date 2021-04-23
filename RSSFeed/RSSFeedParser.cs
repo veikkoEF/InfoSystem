@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.ServiceModel.Syndication;
-
+using CodeHollow.FeedReader;
 
 namespace RSSFeed
 {
@@ -42,7 +42,36 @@ namespace RSSFeed
             return items;
 
         }
+
+        public async Task<List<FeedItem>> Parse2()
+        {
+            List<FeedItem> items = new List<FeedItem>();
+
+            var feed = await FeedReader.ReadAsync(rssFeed);
+
+            if (feed != null)
+            {
+                foreach (var element in feed.Items)
+                {
+                    items.Add(element);
+                }
+            }
+
+            if (feed.Type == FeedType.Rss_2_0)
+            {
+                var rss20feed = (CodeHollow.FeedReader.Feeds.Rss20Feed)feed.SpecificFeed;
+
+            }
+
+            return items;
+        }
+
+
+
+
     }
+
+    
 }
 
 

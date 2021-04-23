@@ -10,58 +10,25 @@
     mc:Ignorable="d">
     <Grid Background="#FFF8F8F8">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.3*" />
-            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="7*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <TextBlock
-            Grid.ColumnSpan="2"
-            Margin="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="65"
-            FontWeight="SemiBold"
-            Text="{x:Bind ViewModel.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            TextAlignment="Center"
-            TextWrapping="WrapWholeWords" />
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Margin="5"
-            FontFamily="Times New Roman"
-            FontSize="30"
-            LineHeight="45"
-            LineStackingStrategy="BlockLineHeight"
-            OpticalMarginAlignment="None"
-            Text="In mehreren Thüringer Kommunen sollen Spielplätze auch für ältere Generationen attraktiver werden. Der generationenübergreifenden Nutzung wird immer mehr Rechnungen getragen, sagte Anja Schultz von der Stadtverwaltung Erfurt. So seien in den vergangenen Jahren unter anderem Fitnessgeräte oder Bänke"
-            TextAlignment="Left"
-            TextTrimming="None"
-            TextWrapping="WrapWholeWords" />
-        <Image
-            Grid.Row="1"
-            Margin="20">
-            <Image.Source>
-                <BitmapImage CreateOptions="IgnoreImageCache" UriSource="{x:Bind ViewModel.MyImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </Image.Source>
-        </Image>
-        <TextBlock
-            Grid.Row="2"
-            Margin="20"
-            VerticalAlignment="Center"
-            FontSize="24"
-            Text="03.04.2021" />
-        <TextBlock
-            Grid.Row="2"
-            Grid.Column="1"
-            Margin="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="24"
-            Text="t-online.de" />
+        <ListView Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10">
+                        <Border Background="LightGray" Height="200" Width="400">
+                            <TextBlock Text="{Binding}" 
+                               FontSize="48" />
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Items>
+                <x:String>One</x:String>
+                <x:String>Two</x:String>
+            </ListView.Items>
+        </ListView>
+        <WebView Margin="10" Grid.Column="1" Source="https://www.tagesschau.de/inland/coronavirus-neuinfektionen-impfkampagne-spahn-rki-101.html"/>
     </Grid>
 </UserControl>

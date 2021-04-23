@@ -125,6 +125,9 @@
     <EmbeddedResource Include="Properties\RSSFeed.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CodeHollow.FeedReader">
+      <Version>1.2.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.11</Version>
     </PackageReference>
