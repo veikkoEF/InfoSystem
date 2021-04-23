@@ -13,37 +13,14 @@ namespace RSSFeed
     
     public class RSSFeedParser
     {
-        SyndicationFeed feed = null;
         string rssFeed;
-
         public RSSFeedParser(string _rssFeed)
         {
             rssFeed = _rssFeed;
         }
 
-        public List<SyndicationItem> Parse()
-        {
-            List<SyndicationItem> items = new List<SyndicationItem>();
-            try
-            {
-                using (var reader = XmlReader.Create(rssFeed))
-                {
-                    feed = SyndicationFeed.Load(reader);
-                }
-            }
-            catch { }
-            if (feed != null)
-            {
-                foreach (var element in feed.Items)
-                {
-                    items.Add(element);
-                }
-            }
-            return items;
 
-        }
-
-        public async Task<List<FeedItem>> Parse2()
+        public async void Parse()
         {
             List<FeedItem> items = new List<FeedItem>();
 
@@ -63,14 +40,19 @@ namespace RSSFeed
 
             }
 
-            return items;
+
+
+ 
         }
-
-
-
 
     }
 
+    public class MyFeedItem
+    {
+        string Title { get; set; }
+        string Description { get; set; }
+
+    }
     
 }
 

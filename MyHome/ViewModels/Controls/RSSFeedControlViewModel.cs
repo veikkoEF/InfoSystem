@@ -82,7 +82,7 @@ namespace MyHome.ViewModels
 
         private async void  GetNews()
         {
-            RSSFeedParser rSSFeedParser = new RSSFeedParser("http://newsfeed.zeit.de/all");
+            // RSSFeedParser rSSFeedParser = new RSSFeedParser("http://newsfeed.zeit.de/all");
 
             // RSSFeedParser rSSFeedParser = new RSSFeedParser("https://www.tagesschau.de/xml/rss2/");
 
@@ -92,7 +92,7 @@ namespace MyHome.ViewModels
             //var items = rSSFeedParser.Parse();
             // Title = items[0].Title.Text;
 
-            var items = await rSSFeedParser.Parse2();
+            // var items = await rSSFeedParser.Parse();
         }
 
         public RSSFeedControlViewModel()
