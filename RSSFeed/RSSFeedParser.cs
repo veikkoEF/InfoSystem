@@ -35,6 +35,7 @@ namespace RSSFeed
                     FeedItem feedItem = new FeedItem();
                     feedItem.Title = element.Title;
                     feedItem.Description = element.Description;
+                    feedItem.Link = element.Link;
                     if (feed.Type == FeedType.Rss_2_0)
                     {
 
@@ -54,6 +55,7 @@ namespace RSSFeed
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Link { get; set; }
 
     }
     
