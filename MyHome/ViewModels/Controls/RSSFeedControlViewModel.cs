@@ -17,12 +17,13 @@ namespace MyHome.ViewModels
 
         private async void  GetNews()
         {
-            RSSFeedParser rSSFeedParser = new RSSFeedParser("http://newsfeed.zeit.de/all");
+            //  RSSFeedParser rSSFeedParser = new RSSFeedParser("http://newsfeed.zeit.de/all");
 
-            // RSSFeedParser rSSFeedParser = new RSSFeedParser("https://www.tagesschau.de/xml/rss2/");
+            //  RSSFeedParser rSSFeedParser = new RSSFeedParser("https://www.tagesschau.de/xml/rss2/");
 
-            // RSSFeedParser rSSFeedParser = new RSSFeedParser("http://feeds.t-online.de/rss/erfurt");
+            //  RSSFeedParser rSSFeedParser = new RSSFeedParser("http://feeds.t-online.de/rss/erfurt");
 
+            RSSFeedParser rSSFeedParser = new RSSFeedParser("https://www.n-tv.de/181.rss");
 
             ObservableCollection<FeedItem> result = await rSSFeedParser.Parse();
             Items.Clear();

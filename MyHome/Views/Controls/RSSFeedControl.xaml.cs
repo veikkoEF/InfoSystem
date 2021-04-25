@@ -1,5 +1,6 @@
 ﻿using MyHome.ViewModels;
 using RSSFeed;
+using System;
 using Windows.UI.Xaml.Controls;
 
 // Die Elementvorlage "Benutzersteuerelement" wird unter https://go.microsoft.com/fwlink/?LinkId=234236 dokumentiert.
@@ -20,6 +21,7 @@ namespace MyHome.Views
             if (ListView.SelectedItem != null)
             {
                 FeedItem item = (FeedItem)ListView.SelectedItem;
+                WebView1.Source = new Uri(item.Link);
             }
         }
     }

@@ -30,6 +30,7 @@ namespace RSSFeed
 
             if (feed != null)
             {
+                
                 foreach (var element in feed.Items)
                 {
                     FeedItem feedItem = new FeedItem();

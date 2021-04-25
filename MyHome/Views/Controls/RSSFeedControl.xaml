@@ -9,19 +9,23 @@
     d:DesignWidth="1920"
     mc:Ignorable="d">
     <Grid Background="#FFF8F8F8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <ListView x:Name="ListView" Margin="20"   ItemsSource="{x:Bind ViewModel.Items}" SelectionChanged="ListView_SelectionChanged">
+        <ListView Grid.Row="1" x:Name="ListView" Margin="20"   ItemsSource="{x:Bind ViewModel.Items}" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:FeedItem">
-                    <Border CornerRadius="10" Background="LightGray" Margin="10">
+                    <Border CornerRadius="10" BorderBrush="DarkBlue" BorderThickness="2" Background="LightGray" Margin="10">
                         <StackPanel Margin="10" >
                             <TextBlock
                             FontSize="20"
                             Margin="10,0"
-                            FontWeight="Normal"
+                            FontWeight="SemiBold"
                             Text="{x:Bind Title}"
                             TextAlignment="Justify"
                             TextWrapping="WrapWholeWords" />
@@ -37,6 +41,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <WebView Grid.Column="1" Margin="10" />
+        <WebView x:Name="WebView1" Grid.Row="1" Grid.Column="1" Margin="10" />
     </Grid>
 </UserControl>
