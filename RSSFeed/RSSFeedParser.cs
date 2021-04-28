@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 namespace RSSFeed
 {
     // https://github.com/codehollow/FeedReader/blob/master/FeedReader/Feeds/Base/FeedItemEnclosure.cs
+    // https://validator.w3.org/feed/docs/rss2.html
 
     public class RSSFeedParser
     {
@@ -27,6 +28,7 @@ namespace RSSFeed
             ObservableCollection<FeedItem> items = new ObservableCollection<FeedItem>();
 
             Feed feed = await FeedReader.ReadAsync(rssFeed);
+            
 
             if (feed != null)
             {
@@ -48,9 +50,28 @@ namespace RSSFeed
             }
             return items;
         }
+
+        public async Task<FeedData> GetData()
+        {
+            Feed feed = await FeedReader.ReadAsync(rssFeed);
+
+            return null;
+        }
     }
 
 
+    
+
+    public class FeedData
+    {
+        public ObservableCollection<FeedItem>Items { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public FeedData()
+        {
+            Items = new ObservableCollection<FeedItem>();
+        }
+    }
 
     public class FeedItem
     {
