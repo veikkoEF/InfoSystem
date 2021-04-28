@@ -120,6 +120,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FeedData.cs" />
+    <Compile Include="FeedItem.cs" />
     <Compile Include="RSSFeedParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\RSSFeed.rd.xml" />

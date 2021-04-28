@@ -25,9 +25,12 @@ namespace MyHome.ViewModels
 
             RSSFeedParser rSSFeedParser = new RSSFeedParser("https://www.n-tv.de/181.rss");
 
-            ObservableCollection<FeedItem> result = await rSSFeedParser.Parse();
+            //ObservableCollection<FeedItem> result = await rSSFeedParser.Parse();
+
+            FeedData result = await rSSFeedParser.GetData();
+
             Items.Clear();
-            foreach (var item in result)
+            foreach (var item in result.Items)
             {
                 Items.Add(item);
             }

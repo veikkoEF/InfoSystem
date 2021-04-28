@@ -17,6 +17,7 @@
             <ColumnDefinition />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
+        <TextBlock Text="Headline" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="80" FontWeight="Bold" />
         <ListView Grid.Row="1" x:Name="ListView" Margin="20"   ItemsSource="{x:Bind ViewModel.Items}" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:FeedItem">

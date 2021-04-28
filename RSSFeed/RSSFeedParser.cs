@@ -7,7 +7,6 @@ using System.Xml;
 using System.ServiceModel.Syndication;
 using CodeHollow.FeedReader;
 using CodeHollow.FeedReader.Feeds;
-using System.Collections.ObjectModel;
 
 namespace RSSFeed
 {
@@ -22,17 +21,17 @@ namespace RSSFeed
             rssFeed = _rssFeed;
         }
 
-
-        public async Task<ObservableCollection<FeedItem>> Parse()
+        public async Task<FeedData> GetData()
         {
-            ObservableCollection<FeedItem> items = new ObservableCollection<FeedItem>();
+            FeedData feedData = new FeedData();
+            
 
             Feed feed = await FeedReader.ReadAsync(rssFeed);
-            
+            feedData.Title = feed.Title;
 
             if (feed != null)
             {
-                
+
                 foreach (var element in feed.Items)
                 {
                     FeedItem feedItem = new FeedItem();
@@ -43,42 +42,11 @@ namespace RSSFeed
                     {
 
                     }
-
-                    items.Add(feedItem);
-
+                    feedData.Items.Add(feedItem);
                 }
             }
-            return items;
+            return feedData;
         }
-
-        public async Task<FeedData> GetData()
-        {
-            Feed feed = await FeedReader.ReadAsync(rssFeed);
-
-            return null;
-        }
-    }
-
-
-    
-
-    public class FeedData
-    {
-        public ObservableCollection<FeedItem>Items { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public FeedData()
-        {
-            Items = new ObservableCollection<FeedItem>();
-        }
-    }
-
-    public class FeedItem
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Link { get; set; }
-
     }
     
 }
