@@ -28,6 +28,7 @@ namespace RSSFeed
 
             Feed feed = await FeedReader.ReadAsync(rssFeed);
             feedData.Title = feed.Title;
+            feedData.ImageUri = new Uri(feed.ImageUrl);
 
             if (feed != null)
             {

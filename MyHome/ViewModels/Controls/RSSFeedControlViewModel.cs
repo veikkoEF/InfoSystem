@@ -12,6 +12,32 @@ namespace MyHome.ViewModels
    
     public class RSSFeedControlViewModel : Observable
     {
+        private string title;
+        public string Title
+        {
+            get => title;
+            set
+            {
+                title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+
+        private Uri imagePath;
+        public Uri ImagePath
+        {
+            get
+            {
+                return imagePath;
+            }
+            set
+            {
+                imagePath = value;
+                OnPropertyChanged(nameof(ImagePath));
+            }
+
+
+        }
 
         public ObservableCollection<FeedItem> Items { get; set; } = new ObservableCollection<FeedItem>();
 
@@ -28,6 +54,8 @@ namespace MyHome.ViewModels
             //ObservableCollection<FeedItem> result = await rSSFeedParser.Parse();
 
             FeedData result = await rSSFeedParser.GetData();
+            Title = result.Title;
+            ImagePath = result.ImageUri;
 
             Items.Clear();
             foreach (var item in result.Items)
