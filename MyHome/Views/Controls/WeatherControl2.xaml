@@ -32,7 +32,7 @@
         </Style>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
-    <Grid Background="#FFA9E5F9">
+    <Grid Background="DarkGray">
         <Grid Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition />

@@ -9,7 +9,7 @@
     d:DesignHeight="1080"
     d:DesignWidth="1920"
     mc:Ignorable="d">
-    <Grid Background="LightGray">
+    <Grid Background="DarkGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition />
@@ -20,7 +20,6 @@
             <RowDefinition Height="20" />
             <RowDefinition Height="300" />
             <RowDefinition />
-            <RowDefinition Height="0" />
             <RowDefinition Height="50" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
@@ -36,12 +35,13 @@
             Visibility="{x:Bind ViewModel.NoDataAccess, Mode=OneWay}" />
         <TextBlock
             Grid.Row="1"
+            Margin="20"
             Grid.Column="1"
             Grid.ColumnSpan="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             CharacterSpacing="149"
-            FontSize="50"
+            FontSize="40"
             FontStretch="Undefined"
             FontWeight="Bold"
             Text="{x:Bind ViewModel.Headline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -51,6 +51,8 @@
         <Image
             Grid.Row="2"
             Grid.Column="1"
+            Margin="10"
+            VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Stretch="None">
             <Image.Source>
@@ -60,15 +62,15 @@
         <TextBlock
             Grid.Row="2"
             Grid.Column="2"
-            Margin="10,10,30,10"
+            Margin="20,10,30,10"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            FontSize="34"
+            FontSize="28"
             Text="{x:Bind ViewModel.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             TextAlignment="Justify"
             TextWrapping="WrapWholeWords" />
         <StackPanel
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.Column="1"
             Margin="0,0,0,5"
             HorizontalAlignment="Right"
