@@ -9,42 +9,18 @@
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <Grid>
-        <!--<controls:Carousel
-            InvertPositive="True"
-            ItemDepth="300"
-            ItemMargin="19"
-            ItemRotationX="0"
-            ItemRotationY="0"
-            ItemRotationZ="0"
-            ItemsSource="{x:Bind ViewModel.ItemsList}"
-            Orientation="Horizontal"
-            SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            <controls:Carousel.ItemTemplate>
-                <DataTemplate x:DataType="x:String">
-                    <Image>
-                        <Image.Source>
-                            <BitmapImage CreateOptions="IgnoreImageCache" UriSource="{x:Bind}" />
-                        </Image.Source>
-                    </Image>
-                </DataTemplate>
-            </controls:Carousel.ItemTemplate>
-            <controls:Carousel.EasingFunction>
-                <CubicEase EasingMode="EaseOut"/>
-            </controls:Carousel.EasingFunction>
-        </controls:Carousel>-->
+    <Grid Background="DarkGray">
         <layout:SfCarousel
             x:Name="carousel"
             Margin="20"
             ItemsSource="{x:Bind ViewModel.ItemsList}"
-            ScaleOffset="0.4"
+            ScaleOffset="4.0"
             SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             SelectedItemOffset="500"
             Offset="100">
             <layout:SfCarousel.EasingFunction>
                 <CubicEase />
             </layout:SfCarousel.EasingFunction>
-
             <layout:SfCarousel.ItemTemplate>
                 <DataTemplate x:DataType="x:String">
                     <Image>
