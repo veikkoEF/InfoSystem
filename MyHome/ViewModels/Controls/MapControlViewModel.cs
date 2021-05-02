@@ -10,7 +10,7 @@ namespace MyHome.ViewModels
     {
         private Geopoint homeLocation;
 
-         public IList<MapLayer> Layers { get; set; }
+         public IList<MapLayer> Layers { get; }
 
         public MapControlViewModel()
         {

@@ -22,7 +22,7 @@ namespace MyHome.ViewModels
 
         public RelayCommand DeleteAllMessages { get; set; }
 
-        public ObservableCollection<MessageData> Messages { get; set; }
+        public ObservableCollection<MessageData> Messages { get; }
 
 
 

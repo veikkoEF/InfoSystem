@@ -1,11 +1,9 @@
-﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
-using Hassie.NET.API.NewsAPI.API.v2;
+﻿using Hassie.NET.API.NewsAPI.API.v2;
 using System;
 using System.Collections.Generic;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Microsoft.Toolkit.Uwp.Helpers;
-using Windows.Foundation.Diagnostics;
 
 namespace MyHome.Settings
 {
@@ -73,12 +71,14 @@ namespace MyHome.Settings
 
         // Section Backend as a Service
         public const string ServerURL = "https://parseapi.back4app.com/";
-        public static string ApplicationId;
-        public static string NetKey;
+        private static string applicationId;
+        private static string netKey;
 
         // Section RSSFeed
         public static string Feed { get; set; }
         public static int ShowDurationRSSFeed { get; set; } = 20;
+        public static string ApplicationId { get => applicationId; set => applicationId = value; }
+        public static string NetKey { get => netKey; set => netKey = value; }
 
         public static void Save()
         {

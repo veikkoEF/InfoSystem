@@ -6,7 +6,9 @@ namespace MyHome.Helpers
 {
     public class BooleanToVisibilityConverter : IValueConverter
     {
+#pragma warning disable CA1822 // Member als statisch markieren
         private object GetVisibility(object value)
+#pragma warning restore CA1822 // Member als statisch markieren
         {
             if (!(value is bool))
                 return Visibility.Collapsed;

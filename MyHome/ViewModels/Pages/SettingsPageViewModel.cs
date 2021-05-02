@@ -493,7 +493,7 @@ namespace MyHome.ViewModels
 
         public RelayCommand SaveKeysCommand { get; set; }
 
-        public Object[] SelectedObjects
+        public object[] SelectedObjects
         {
             get
             {

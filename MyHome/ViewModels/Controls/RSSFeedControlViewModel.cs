@@ -39,7 +39,7 @@ namespace MyHome.ViewModels
 
         }
 
-        public ObservableCollection<FeedItem> Items { get; set; } = new ObservableCollection<FeedItem>();
+        public ObservableCollection<FeedItem> Items { get; } = new ObservableCollection<FeedItem>();
 
         private async void  GetNews()
         {

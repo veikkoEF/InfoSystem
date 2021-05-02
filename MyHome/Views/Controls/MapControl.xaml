@@ -14,7 +14,7 @@
             x:Name="MyMapControl"
             Center="{x:Bind ViewModel.HomeLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             DesiredPitch="30"
-            Layers="{x:Bind ViewModel.Layers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Layers="{x:Bind ViewModel.Layers}"
             ZoomLevel="17" />
     </Grid>
 </UserControl>
