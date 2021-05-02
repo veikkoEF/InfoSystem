@@ -16,7 +16,7 @@ namespace MyHome.ViewModels
 
         private void DeleteAllMessagesExecuteAsync()
         {
-            BaaSCommunication baas = new BaaSCommunication();
+            BaaS baas = new BaaS(Settings.ProgrammSettings.ApplicationId, Settings.ProgrammSettings.NetKey, Settings.ProgrammSettings.ServerURL);
             baas.DeleteMessagesAsync();
         }
 
@@ -31,8 +31,8 @@ namespace MyHome.ViewModels
 
         private async void GetMessagagesFromBackendAsync()
         {
-            BaaSCommunication baas = new BaaSCommunication();
-            var newMessages  = await baas.GetMessagesAsync();
+            BaaS baas = new BaaS(Settings.ProgrammSettings.ApplicationId, Settings.ProgrammSettings.NetKey, Settings.ProgrammSettings.ServerURL);
+            var newMessages = await baas.GetMessagesAsync();
             if (newMessages != null)
             {
                 foreach (var item in newMessages)

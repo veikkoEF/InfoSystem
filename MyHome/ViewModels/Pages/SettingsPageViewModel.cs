@@ -1,4 +1,5 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
+using BaaSCommunication;
 using Dropbox.Api.Files;
 using Dropbox.Api.Stone;
 using DropboxAPI;
@@ -73,7 +74,7 @@ namespace MyHome.ViewModels
 
         private  void OnDeleteAllMessageFromBaaSExecute()
         {
-            BaaSCommunication baas = new BaaSCommunication();
+            BaaS baas = new BaaS(ProgrammSettings.ApplicationId, ProgrammSettings.NetKey, ProgrammSettings.ServerURL);
             baas.DeleteMessagesAsync();
         }
 
@@ -130,7 +131,11 @@ namespace MyHome.ViewModels
         /// <summary>
         /// Abruf der aktuellen Version der App
         /// </summary>
-        public string AppVersion => "Version: " + Information.GetAppVersion();
+        public string AppVersion
+        {
+            get => "Version: " + Information.GetAppVersion();
+        }
+            
 
 
         public int ArtOfPicturePresentation
