@@ -69,7 +69,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             FontSize="35"
-                            Foreground="DarkBlue"
+                            Foreground="#FF2B77C0"
                             Text="{x:Bind UserName}" />
                         <TextBlock
                             Grid.Column="2"

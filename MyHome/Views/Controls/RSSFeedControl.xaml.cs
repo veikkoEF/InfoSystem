@@ -21,7 +21,7 @@ namespace MyHome.Views
             if (ListView.SelectedItem != null)
             {
                 FeedItem item = (FeedItem)ListView.SelectedItem;
-                WebView1.Source = new Uri(item.Link);
+                WebView1.Navigate(new Uri(item.Link));
             }
         }
     }

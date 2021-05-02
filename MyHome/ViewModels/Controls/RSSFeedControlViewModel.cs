@@ -69,11 +69,6 @@ namespace MyHome.ViewModels
         public RSSFeedControlViewModel()
         {
             GetNews();
-
-            //FeedItem item = new FeedItem();
-            //item.Title = "Test";
-            //Items.Add(item);
-
         }
     }
 }

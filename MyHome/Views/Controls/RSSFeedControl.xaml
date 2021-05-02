@@ -8,16 +8,16 @@
     d:DesignHeight="1080"
     d:DesignWidth="1920"
     mc:Ignorable="d">
-    <Grid Background="#FFF8F8F8">
+    <Grid Background="DarkGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  MaxWidth="600"/>
+            <ColumnDefinition MaxWidth="600" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <Image Margin="20" Stretch="None"  >
+        <Image Margin="20" Stretch="None">
             <Image.Source>
                 <BitmapImage CreateOptions="IgnoreImageCache" UriSource="{x:Bind ViewModel.ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </Image.Source>
@@ -39,11 +39,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:FeedItem">
                     <Border
+                        MaxWidth="500"
                         Margin="10"
                         Background="LightGray"
                         BorderBrush="DarkBlue"
                         BorderThickness="2"
-                        MaxWidth="500"
                         CornerRadius="10">
                         <StackPanel Margin="10">
                             <TextBlock

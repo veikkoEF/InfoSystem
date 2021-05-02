@@ -8,8 +8,9 @@
     d:DesignHeight="1080"
     d:DesignWidth="1920"
     mc:Ignorable="d">
-    <Grid Margin="20">
+    <Grid Background="DarkGray">
         <my:MapControl
+            Margin="20"
             x:Name="MyMapControl"
             Center="{x:Bind ViewModel.HomeLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             DesiredPitch="30"
