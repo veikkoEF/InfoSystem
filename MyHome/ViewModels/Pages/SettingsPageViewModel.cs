@@ -1,4 +1,5 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
+
 using BaaSCommunication;
 using Dropbox.Api.Files;
 using Dropbox.Api.Stone;
@@ -20,7 +21,6 @@ using Windows.Devices.Geolocation;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Search;
-using Windows.System;
 using Windows.UI.Popups;
 
 namespace MyHome.ViewModels
@@ -41,12 +41,10 @@ namespace MyHome.ViewModels
             }
             set
             {
-
                 selectedDirName = value;
                 OnPropertyChanged(nameof(SelectedDirName));
             }
         }
-
 
         /// <summary>
         /// Generiert ein neues Objekte der Klasse
@@ -72,7 +70,7 @@ namespace MyHome.ViewModels
             UpdateDirNamesAsync();
         }
 
-        private  void OnDeleteAllMessageFromBaaSExecute()
+        private void OnDeleteAllMessageFromBaaSExecute()
         {
             BaaS baas = new BaaS(ProgrammSettings.ApplicationId, ProgrammSettings.NetKey, ProgrammSettings.ServerURL);
             baas.DeleteMessagesAsync();
@@ -103,7 +101,6 @@ namespace MyHome.ViewModels
                 dropbox.DeleteFolderAsync(SelectedDirName);
                 UpdateDirNamesAsync();
             }
-
         }
 
         internal void OnDeleteFilesCommandExecute()
@@ -117,7 +114,7 @@ namespace MyHome.ViewModels
                     Progress++;
                     // Datei lokal löschen
                     string fileNameLocal = item.ToString();
-                     File.Delete(fileNameLocal);
+                    File.Delete(fileNameLocal);
                     var fileNameDropBox = Path.GetFileName(item.ToString());
                     // Datei in der Dropbox löschen
                     DropboxCommunication dropbox = new DropboxCommunication(ProgrammSettings.DropBoxAppToken);
@@ -128,6 +125,8 @@ namespace MyHome.ViewModels
             }
         }
 
+        
+
         /// <summary>
         /// Abruf der aktuellen Version der App
         /// </summary>
@@ -135,8 +134,6 @@ namespace MyHome.ViewModels
         {
             get => "Version: " + Information.GetAppVersion();
         }
-            
-
 
         public int ArtOfPicturePresentation
         {
@@ -280,8 +277,6 @@ namespace MyHome.ViewModels
 
         public RelayCommand GetLocationCommand { get; set; }
 
-        
-
         public bool HomeIsActiv
         {
             get { return ProgrammSettings.HomeIsActiv; }
@@ -306,7 +301,6 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(Location));
             }
         }
-
 
         public bool MapIsActiv
         {
@@ -382,7 +376,6 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(ApplicationId));
             }
         }
-
 
         public string Message
         {
@@ -505,6 +498,7 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(SelectedObjects));
             }
         }
+
         public int ShowDurationClock
         {
             get
@@ -543,7 +537,6 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(ShowDurationMap));
             }
         }
-
 
         public int ShowDurationCanvas
         {
@@ -635,7 +628,6 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(ShowDate));
             }
         }
-            
 
         public RelayCommand ShutDownCommand { get; set; }
 
@@ -707,7 +699,6 @@ namespace MyHome.ViewModels
             catch
             {
             }
-            
         }
 
         /// <summary>
@@ -779,7 +770,6 @@ namespace MyHome.ViewModels
             foreach (var item in folders)
             {
                 await item.DeleteAsync();
-
             }
 
             DropboxCommunication dropboxCommunication = new DropboxCommunication(ProgrammSettings.DropBoxAppToken);
@@ -810,7 +800,6 @@ namespace MyHome.ViewModels
                         {
                             (await file.GetContentAsStreamAsync()).CopyTo(fileStream);
                         }
-
                     }
                 }
             }
@@ -818,7 +807,6 @@ namespace MyHome.ViewModels
             UpdateDirNamesAsync();
             if (DirNames.Count > 0)
                 UpdateFilesNamesAsync(DirNames[0]);
-
         }
 
         /// <summary>
@@ -828,6 +816,7 @@ namespace MyHome.ViewModels
         {
             BreakOperation = true;
         }
+
         private async void OnCheckLocationCommandExecuteAsync()
         {
             var location = Location;
@@ -943,6 +932,7 @@ namespace MyHome.ViewModels
         {
             ProgrammSettings.SaveKeysAsync();
         }
+
         private void OnShutDownCommandExecute()
         {
             CoreApplication.Exit();
@@ -979,7 +969,6 @@ namespace MyHome.ViewModels
 
         private async void UpdateDirNamesAsync()
         {
-            
             DirNames.Clear();
             StorageFolder homeStorageFolder = ApplicationData.Current.LocalFolder;
             try
@@ -995,10 +984,7 @@ namespace MyHome.ViewModels
             }
             catch
             {
-
             }
-            
-            
 
             if (DirNames.Count > 0)
             {

@@ -1,5 +1,5 @@
 ﻿using MyHome.Helpers;
-using MyHome.Settings;
+using Windows.UI.Xaml;
 
 namespace MyHome.ViewModels
 {

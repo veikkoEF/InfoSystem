@@ -2,17 +2,20 @@
     x:Class="MyHome.Views.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Custom="using:Microsoft.Extensions.Primitives"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:MyHome.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:notification="using:Syncfusion.UI.Xaml.Controls.Notification"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
     <Page.Resources>
         <local:FileNameConverter x:Key="ConverterFileName" />
     </Page.Resources>
+    <Page.Background>
+        <ThemeResource ResourceKey="ApplicationPageBackgroundThemeBrush" />
+    </Page.Background>
     <controls:TabView x:Name="Tabs">
         <!--#region   Home-->
         <controls:TabViewItem Header="Home">
@@ -23,7 +26,7 @@
                     Margin="0,10,20,10"
                     HorizontalAlignment="Left"
                     PlaceholderText="Familiy"
-                    Text="{x:Bind ViewModel.Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{x:Bind Mode=TwoWay, Path=ViewModel.Message, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </controls:TabViewItem>
         <!--#endregion-->
@@ -37,14 +40,14 @@
                         Margin="0,10,20,0"
                         HorizontalAlignment="Left"
                         PlaceholderText="Erfurt"
-                        Text="{x:Bind ViewModel.Location, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{x:Bind Mode=TwoWay, Path=ViewModel.Location, UpdateSourceTrigger=PropertyChanged}" />
                     <Button
                         Margin="0,10,10,0"
-                        Command="{x:Bind ViewModel.GetLocationCommand}"
+                        Command="{x:Bind Path=ViewModel.GetLocationCommand}"
                         Content="Lokalisieren" />
                     <Button
                         Margin="0,10,10,0"
-                        Command="{x:Bind ViewModel.CheckLocationCommand}"
+                        Command="{x:Bind Path=ViewModel.CheckLocationCommand}"
                         Content="Check" />
                 </StackPanel>
                 <TextBlock
@@ -54,7 +57,7 @@
                 <ComboBox
                     Width="300"
                     Margin="0,10"
-                    SelectedIndex="{x:Bind ViewModel.WeatherModus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.WeatherModus, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem Content="3 Tages Vorhersage (Einfach)" />
                     <ComboBoxItem Content="3 Tages Vorhersage (Komfort)" />
                 </ComboBox>
@@ -67,7 +70,7 @@
                         Width="500"
                         HorizontalAlignment="Left"
                         PlaceholderText="Key"
-                        Text="{x:Bind ViewModel.OpenWeatherMapKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{x:Bind Mode=TwoWay, Path=ViewModel.OpenWeatherMapKey, UpdateSourceTrigger=PropertyChanged}" />
                     <HyperlinkButton
                         Margin="30,0"
                         Content="Info"
@@ -87,7 +90,7 @@
                     Width="300"
                     Margin="0,10"
                     HorizontalAlignment="Left"
-                    SelectedIndex="{x:Bind ViewModel.NewsCategoryIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.NewsCategoryIndex, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem Content="Business" />
                     <ComboBoxItem Content="Unterhaltung" />
                     <ComboBoxItem Content="Allgemein" />
@@ -106,7 +109,7 @@
                     HorizontalAlignment="Left"
                     Maximum="60"
                     Minimum="5"
-                    Value="{x:Bind ViewModel.TimeInSecondToChangeNewsMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Value="{x:Bind Mode=TwoWay, Path=ViewModel.TimeInSecondToChangeNewsMessage, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock
                     Margin="0,20,0,0"
                     FontWeight="Bold"
@@ -116,7 +119,7 @@
                         Width="500"
                         HorizontalAlignment="Left"
                         PlaceholderText="Key"
-                        Text="{x:Bind ViewModel.NewsAPIKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{x:Bind Mode=TwoWay, Path=ViewModel.NewsAPIKey, UpdateSourceTrigger=PropertyChanged}" />
                     <HyperlinkButton
                         Margin="30,0"
                         Content="Info"
@@ -125,6 +128,16 @@
             </StackPanel>
         </controls:TabViewItem>
         <!--#endregion-->
+        <controls:TabViewItem Header="RSS-Reader">
+            <StackPanel Margin="70,20">
+                <TextBlock FontWeight="Bold" Text="RSS-Feed:" />
+                <ComboBox Width="300" Margin="0,10,20,10">
+                    <ComboBoxItem Content="https://www.n-tv.de/181.rss" />
+                    <ComboBoxItem Content="http://newsfeed.zeit.de/all" />
+                </ComboBox>
+            </StackPanel>
+        </controls:TabViewItem>
+        <!--#region RSS Reader-->
         <!--#region  Bilder-->
         <controls:TabViewItem Header="Bilder">
             <Grid x:Name="grid">
@@ -145,7 +158,7 @@
                         HorizontalAlignment="Left"
                         Maximum="60"
                         Minimum="5"
-                        Value="{x:Bind ViewModel.TimeInSecondToChangePicture, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.TimeInSecondToChangePicture, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock
                         Margin="0,20,0,0"
                         FontWeight="Bold"
@@ -153,7 +166,7 @@
                     <ComboBox
                         Width="300"
                         Margin="0,10"
-                        SelectedIndex="{x:Bind ViewModel.ArtOfPicturePresentation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.ArtOfPicturePresentation, UpdateSourceTrigger=PropertyChanged}">
                         <ComboBoxItem Content="Ein Bild (Vollbild)" />
                         <ComboBoxItem Content="Mehrere Bilder" />
                         <ComboBoxItem Content="Karusell" />
@@ -162,7 +175,7 @@
                         Margin="0,20,0,0"
                         FontWeight="Bold"
                         Text="Anzeigereihenfolge:" />
-                    <ComboBox Margin="0,10" SelectedIndex="{x:Bind ViewModel.PictureSelectionIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBox Margin="0,10" SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.PictureSelectionIndex, UpdateSourceTrigger=PropertyChanged}">
                         <ComboBoxItem Content="Nacheinander" />
                         <ComboBoxItem Content="Zufall" />
                     </ComboBox>
@@ -175,7 +188,7 @@
                             Width="500"
                             HorizontalAlignment="Left"
                             PlaceholderText="App-Tooken"
-                            Text="{x:Bind ViewModel.DropBoxAppToken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Text="{x:Bind Mode=TwoWay, Path=ViewModel.DropBoxAppToken, UpdateSourceTrigger=PropertyChanged}" />
                         <HyperlinkButton
                             Margin="30,0"
                             Content="Info"
@@ -191,22 +204,22 @@
                     VerticalSpacing="20">
                     <Button
                         Width="115"
-                        Command="{x:Bind ViewModel.DownloadFromDropBoxCommand}"
+                        Command="{x:Bind Path=ViewModel.DownloadFromDropBoxCommand}"
                         Content="Download" />
                     <Button
                         Width="115"
                         Margin="20,0,0,0"
-                        Command="{x:Bind ViewModel.CreateFolderAndUploadFilesInDropboxCommand}"
+                        Command="{x:Bind Path=ViewModel.CreateFolderAndUploadFilesInDropboxCommand}"
                         Content="Upload Ordner..." />
                     <Button
                         Width="115"
                         Margin="20,0,0,0"
-                        Command="{x:Bind ViewModel.UploadFileInDropboxCommand}"
+                        Command="{x:Bind Path=ViewModel.UploadFileInDropboxCommand}"
                         Content="Upload Bild..." />
                     <Button
                         Width="115"
                         Margin="20,0,0,0"
-                        Command="{x:Bind ViewModel.DeleteDirectoryCommand}"
+                        Command="{x:Bind Path=ViewModel.DeleteDirectoryCommand}"
                         Content="Ordner löschen" />
                     <Button
                         x:Name="ButtonDelete"
@@ -219,15 +232,15 @@
                         Width="200"
                         Margin="20,0,0,0"
                         DisplayContentMode="Value"
-                        Maximum="{x:Bind ViewModel.NumberOfFiles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Maximum="{x:Bind Mode=TwoWay, Path=ViewModel.NumberOfFiles, UpdateSourceTrigger=PropertyChanged}"
                         Minimum="0"
                         ProgressType="SolidLinear"
-                        Value="{x:Bind ViewModel.Progress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.Progress, UpdateSourceTrigger=PropertyChanged}" />
                     <Button
                         Width="110"
                         Margin="20,0"
                         VerticalAlignment="Center"
-                        Command="{x:Bind ViewModel.BreakUploadCommand}"
+                        Command="{x:Bind Path=ViewModel.BreakUploadCommand}"
                         Content="Abbrechen" />
 
                 </controls:WrapPanel>
@@ -237,14 +250,14 @@
                     Margin="70,0"
                     IsItemClickEnabled="True"
                     ItemClick="ListView_ItemClick"
-                    ItemsSource="{x:Bind ViewModel.DirNames}" />
+                    ItemsSource="{x:Bind Path=ViewModel.DirNames}" />
                 <ScrollViewer
                     Grid.Row="2"
                     Grid.Column="1"
                     Margin="70,0">
                     <GridView
                         x:Name="GridView"
-                        ItemsSource="{x:Bind ViewModel.FileNames}"
+                        ItemsSource="{x:Bind Path=ViewModel.FileNames}"
                         SelectionMode="Multiple">
                         <GridView.ItemTemplate>
                             <DataTemplate x:DataType="x:String">
@@ -279,23 +292,23 @@
                 <ComboBox
                     Width="100"
                     Margin="0,10"
-                    SelectedIndex="{x:Bind ViewModel.ClockModus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.ClockModus, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem Content="Analog" />
                     <ComboBoxItem Content="Digital" />
                 </ComboBox>
                 <CheckBox
                     Margin="0,10"
                     Content="Sekunden anzeigen"
-                    IsChecked="{x:Bind ViewModel.ShowSeconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.ShowSeconds, UpdateSourceTrigger=PropertyChanged}" />
                 <CheckBox
                     Margin="0,10"
                     Content="Datum anzeigen"
-                    IsChecked="{x:Bind ViewModel.ShowDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDate, UpdateSourceTrigger=PropertyChanged}" />
                 <StackPanel Orientation="Vertical">
                     <CheckBox
                         Margin="0,10"
                         Content="Farbe automatisch"
-                        IsChecked="{x:Bind ViewModel.AutomaticColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.AutomaticColor, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <TextBlock
                     Margin="0,20,0,0"
@@ -350,7 +363,7 @@
                         Width="500"
                         HorizontalAlignment="Left"
                         PlaceholderText="Key"
-                        Text="{x:Bind ViewModel.MapsAPIKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{x:Bind Mode=TwoWay, Path=ViewModel.MapsAPIKey, UpdateSourceTrigger=PropertyChanged}" />
                     <HyperlinkButton
                         Margin="30,0"
                         Content="Info"
@@ -371,7 +384,7 @@
                         Width="500"
                         HorizontalAlignment="Left"
                         PlaceholderText="ApplicationID"
-                        Text="{x:Bind ViewModel.ApplicationID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{x:Bind Mode=TwoWay, Path=ViewModel.ApplicationID, UpdateSourceTrigger=PropertyChanged}" />
                     <HyperlinkButton
                         Margin="30,0"
                         Content="Info"
@@ -382,21 +395,22 @@
                     Margin="0,10,0,0"
                     HorizontalAlignment="Left"
                     PlaceholderText="NETKey"
-                    Text="{x:Bind ViewModel.NETKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{x:Bind Mode=TwoWay, Path=ViewModel.NETKey, UpdateSourceTrigger=PropertyChanged}" />
                 <Button
                     Width="200"
                     Margin="0,10,0,0"
-                    Command="{x:Bind ViewModel.DeleteAllMessageFromBaaS}"
+                    Command="{x:Bind Path=ViewModel.DeleteAllMessageFromBaaS}"
                     Content="Alle Meldungen löschen" />
             </StackPanel>
         </controls:TabViewItem>
+        <!--#endregion-->
         <!--#region App-->
         <controls:TabViewItem Header="App">
             <StackPanel Margin="70,20">
                 <CheckBox
                     Margin="0,0"
                     Content="Automatischer Wechsel zwischen Bereichen"
-                    IsChecked="{x:Bind ViewModel.AutoChangeContentSections, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.AutoChangeContentSections, UpdateSourceTrigger=PropertyChanged}" />
                 <StackPanel Margin="0,20" Orientation="Horizontal">
                     <TextBlock FontWeight="Bold" Text="Aktive Elemente" />
                     <TextBlock
@@ -408,7 +422,7 @@
                     <CheckBox
                         x:Name="checkBoxHome"
                         Content="Home"
-                        IsChecked="{x:Bind ViewModel.HomeIsActiv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.HomeIsActiv, UpdateSourceTrigger=PropertyChanged}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -416,13 +430,13 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxHome}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind ViewModel.ShowDurationHome, Mode=TwoWay}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationHome}" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
                         x:Name="checkBoxWeather"
                         Content="Wetter"
-                        IsChecked="{x:Bind ViewModel.WeatherIsActiv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.WeatherIsActiv, UpdateSourceTrigger=PropertyChanged}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -430,13 +444,13 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxWeather}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind ViewModel.ShowDurationWeather, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationWeather, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
                         x:Name="checkBoxNews"
                         Content="News"
-                        IsChecked="{x:Bind ViewModel.NewsIsActiv, Mode=TwoWay}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.NewsIsActiv}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -444,13 +458,13 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxNews}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind ViewModel.ShowDurationNews, Mode=TwoWay}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationNews}" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
                         x:Name="checkBoxPictures"
                         Content="Bilder"
-                        IsChecked="{x:Bind ViewModel.PictureIsActiv, Mode=TwoWay}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.PictureIsActiv}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -458,13 +472,13 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxPictures}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind ViewModel.ShowDurationPictures, Mode=TwoWay}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationPictures}" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
                         x:Name="checkBoxClock"
                         Content="Uhr"
-                        IsChecked="{x:Bind ViewModel.ClockIsActiv, Mode=TwoWay}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.ClockIsActiv}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -472,13 +486,13 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxClock}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind ViewModel.ShowDurationClock, Mode=TwoWay}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationClock}" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
                         x:Name="checkBoxMap"
                         Content="Karte"
-                        IsChecked="{x:Bind ViewModel.MapIsActiv, Mode=TwoWay}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.MapIsActiv}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -486,13 +500,13 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxMap}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind ViewModel.ShowDurationMap, Mode=TwoWay}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationMap}" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
                         x:Name="checkBoxMessage"
                         Content="Message"
-                        IsChecked="{x:Bind ViewModel.MessageIsActiv, Mode=TwoWay}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.MessageIsActiv}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -500,13 +514,13 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxMessage}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind ViewModel.ShowDurationMessage, Mode=TwoWay}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationMessage}" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
                         x:Name="checkBoxCanvas"
                         Content="Zeichenfläche"
-                        IsChecked="{x:Bind ViewModel.CanvasIsActiv, Mode=TwoWay}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.CanvasIsActiv}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -514,36 +528,36 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxCanvas}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind ViewModel.ShowDurationCanvas, Mode=TwoWay}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationCanvas}" />
                 </StackPanel>
                 <!--  App neu starten / Herunterfahren  -->
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <Button
                         Width="140"
-                        Command="{x:Bind ViewModel.SaveKeysCommand}"
+                        Command="{x:Bind Path=ViewModel.SaveKeysCommand}"
                         Content="API Keys speichern" />
                     <Button
                         Width="140"
                         Margin="30,0,0,0"
-                        Command="{x:Bind ViewModel.LoadKeysCommand}"
+                        Command="{x:Bind Path=ViewModel.LoadKeysCommand}"
                         Content="API keys laden" />
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <Button
                         Width="140"
-                        Command="{x:Bind ViewModel.RestartAppCommmand}"
+                        Command="{x:Bind Path=ViewModel.RestartAppCommmand}"
                         Content="Neu Starten" />
                     <Button
                         Width="140"
                         Margin="30,0,0,0"
                         Background="Orange"
-                        Command="{x:Bind ViewModel.ShutDownCommand}"
+                        Command="{x:Bind Path=ViewModel.ShutDownCommand}"
                         Content="Beenden" />
                 </StackPanel>
                 <TextBlock
                     Margin="0,20"
                     HorizontalAlignment="Left"
-                    Text="{x:Bind ViewModel.AppVersion}" />
+                    Text="{x:Bind Path=ViewModel.AppVersion}" />
             </StackPanel>
         </controls:TabViewItem>
         <controls:TabViewItem Header="MyHome">

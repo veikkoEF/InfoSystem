@@ -71,14 +71,13 @@ namespace MyHome.Settings
 
         // Section Backend as a Service
         public const string ServerURL = "https://parseapi.back4app.com/";
-        private static string applicationId;
-        private static string netKey;
+        public static string ApplicationId { get; set; }
+        public static string NetKey { get; set; }
 
         // Section RSSFeed
         public static string Feed { get; set; }
         public static int ShowDurationRSSFeed { get; set; } = 20;
-        public static string ApplicationId { get => applicationId; set => applicationId = value; }
-        public static string NetKey { get => netKey; set => netKey = value; }
+        public static string RSSFeed { get; set; }
 
         public static void Save()
         {
