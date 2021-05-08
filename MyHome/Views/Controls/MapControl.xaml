@@ -10,7 +10,7 @@
     mc:Ignorable="d">
     <Grid Background="DarkGray">
         <my:MapControl
-            Margin="20"
+            Margin="40"
             x:Name="MyMapControl"
             Center="{x:Bind ViewModel.HomeLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             DesiredPitch="30"
