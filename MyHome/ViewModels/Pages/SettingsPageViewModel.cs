@@ -696,7 +696,7 @@ namespace MyHome.ViewModels
                     FileNames.Add(item.Path);
                 }
             }
-            catch
+            catch (IOException)
             {
             }
         }

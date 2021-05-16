@@ -39,7 +39,7 @@ namespace MyHome.Settings
         public static bool AutomaticColor { get; set; } = true;
 
         private const string fileNameOfKeys = "keys.txt";
-        private static UISettings _uiSettings = new UISettings();
+        private static readonly UISettings _uiSettings = new UISettings();
         public static Windows.UI.Color ForegroundColor { get; set; } = _uiSettings.GetColorValue(UIColorType.Background);
         public static Windows.UI.Color BackgroundColor { get; set; } = _uiSettings.GetColorValue(UIColorType.Accent);
         public static bool ShowSeconds { get; set; }
@@ -278,7 +278,7 @@ namespace MyHome.Settings
             // https://docs.microsoft.com/de-de/windows/uwp/get-started/fileio-learning-track
             // aktueller Ordner
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            bool result = await StorageFileHelper.FileExistsAsync(storageFolder, fileNameOfKeys, false);
+            bool result = await StorageFileHelper.FileExistsAsync(storageFolder, fileNameOfKeys, false).ConfigureAwait(true);
             if (result == true)
             {
                 StorageFile file = await storageFolder.GetFileAsync(fileNameOfKeys);

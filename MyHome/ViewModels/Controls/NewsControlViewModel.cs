@@ -19,8 +19,8 @@ namespace MyHome.ViewModels
         private string source;
         private string content;
         private int currentNumber;
-        private DispatcherTimer uiTimer = new DispatcherTimer(); // neue Nachricht
-        private DispatcherTimer updateTimer = new DispatcherTimer(); // neuer Download der Nachrichten
+        private readonly DispatcherTimer uiTimer = new DispatcherTimer(); // neue Nachricht
+        private readonly DispatcherTimer updateTimer = new DispatcherTimer(); // neuer Download der Nachrichten
 
         public NewsControlViewModel()
         {

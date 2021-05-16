@@ -32,7 +32,7 @@ namespace MyHome.ViewModels
         private async void GetMessagagesFromBackendAsync()
         {
             BaaS baas = new BaaS(Settings.ProgrammSettings.ApplicationId, Settings.ProgrammSettings.NetKey, Settings.ProgrammSettings.ServerURL);
-            var newMessages = await baas.GetMessagesAsync();
+            var newMessages = await baas.GetMessagesAsync().ConfigureAwait(true);
             if (newMessages != null)
             {
                 foreach (var item in newMessages)

@@ -53,7 +53,7 @@ namespace MyHome.ViewModels
 
             //ObservableCollection<FeedItem> result = await rSSFeedParser.Parse();
 
-            FeedData result = await rSSFeedParser.GetData();
+            FeedData result = await rSSFeedParser.GetData().ConfigureAwait(true);
             Title = result.Title;
             ImagePath = result.ImageUri;
 

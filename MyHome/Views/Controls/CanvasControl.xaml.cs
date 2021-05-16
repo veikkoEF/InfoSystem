@@ -80,7 +80,7 @@ namespace MyHome.Views
                     stream.Dispose();
                 }
             }
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException)
             {
             }
             

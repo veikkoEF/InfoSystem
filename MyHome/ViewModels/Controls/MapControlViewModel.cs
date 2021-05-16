@@ -29,9 +29,9 @@ namespace MyHome.ViewModels
             }
         }
 
-        private async void GetCurrentPosition()
+        public async void GetCurrentPosition()
         {
-            Geoposition position = await LocationService.GetPositionAsync();
+            Geoposition position = await LocationService.GetPositionAsync().ConfigureAwait(true);
             if (position != null)
             {
                 HomeLocation = new Geopoint(new BasicGeoposition() { Latitude = position.Coordinate.Point.Position.Latitude, Longitude = position.Coordinate.Point.Position.Longitude });

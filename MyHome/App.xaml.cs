@@ -10,7 +10,7 @@ namespace MyHome
 {
     public sealed partial class App : Application
     {
-        private Lazy<ActivationService> _activationService;
+        private readonly Lazy<ActivationService> _activationService;
 
         private ActivationService ActivationService
         {
