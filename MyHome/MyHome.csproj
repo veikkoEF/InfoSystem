@@ -126,7 +126,7 @@
       <Version>6.1.1</Version>
     </PackageReference>
     <PackageReference Include="SixLabors.ImageSharp">
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.SfCarousel.UWP">
       <Version>16.4.0.52</Version>
