@@ -129,13 +129,10 @@
       <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.SfCarousel.UWP">
-      <Version>16.4.0.52</Version>
+      <Version>19.1.0.63</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.SfProgressBar.UWP">
-      <Version>16.4.0.52</Version>
-    </PackageReference>
-    <PackageReference Include="Syncfusion.SfShared.UWP">
-      <Version>16.4.0.52</Version>
+      <Version>19.1.0.63</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
