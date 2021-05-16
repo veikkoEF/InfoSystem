@@ -38,8 +38,7 @@ namespace MyHome.Views
 
         private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            string src = "ms-appx-web:///Assets/MyHome/MyHome.html";
-            this.MyWebView.Navigate(new Uri(src));
+            
         }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)

@@ -4,11 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Custom="using:Microsoft.Extensions.Primitives"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:MyHome.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:notification="using:Syncfusion.UI.Xaml.Controls.Notification"
-    Loaded="Page_Loaded"
     mc:Ignorable="d">
     <Page.Resources>
         <local:FileNameConverter x:Key="ConverterFileName" />
@@ -16,9 +16,9 @@
     <Page.Background>
         <ThemeResource ResourceKey="ApplicationPageBackgroundThemeBrush" />
     </Page.Background>
-    <controls:TabView x:Name="Tabs">
+    <muxc:TabView x:Name="Tabs" >
         <!--#region   Home-->
-        <controls:TabViewItem Header="Home">
+        <muxc:TabViewItem Header="Home" >
             <StackPanel Margin="70,20">
                 <TextBlock FontWeight="Bold" Text="Meldung:" />
                 <TextBox
@@ -28,10 +28,10 @@
                     PlaceholderText="Familiy"
                     Text="{x:Bind Mode=TwoWay, Path=ViewModel.Message, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
-        </controls:TabViewItem>
+        </muxc:TabViewItem>
         <!--#endregion-->
         <!--#region   Wetter-->
-        <controls:TabViewItem Header="Wetter">
+        <muxc:TabViewItem Header="Wetter">
             <StackPanel Margin="70,20">
                 <TextBlock FontWeight="Bold" Text="Ort:" />
                 <StackPanel Orientation="Horizontal">
@@ -77,10 +77,10 @@
                         NavigateUri="https://home.openweathermap.org/users/sign_up" />
                 </StackPanel>
             </StackPanel>
-        </controls:TabViewItem>
+        </muxc:TabViewItem>
         <!--#endregion-->
         <!--#region  News-->
-        <controls:TabViewItem Header="News">
+        <muxc:TabViewItem Header="News">
             <StackPanel Margin="70,20">
                 <TextBlock
                     Margin="0,0"
@@ -126,9 +126,9 @@
                         NavigateUri="https://newsapi.org/register" />
                 </StackPanel>
             </StackPanel>
-        </controls:TabViewItem>
+        </muxc:TabViewItem>
         <!--#endregion-->
-        <controls:TabViewItem Header="RSS-Reader">
+        <muxc:TabViewItem Header="RSS-Reader">
             <StackPanel Margin="70,20">
                 <TextBlock FontWeight="Bold" Text="RSS-Feed:" />
                 <ComboBox Width="300" Margin="0,10,20,10">
@@ -136,10 +136,10 @@
                     <ComboBoxItem Content="http://newsfeed.zeit.de/all" />
                 </ComboBox>
             </StackPanel>
-        </controls:TabViewItem>
+        </muxc:TabViewItem>
         <!--#region RSS Reader-->
         <!--#region  Bilder-->
-        <controls:TabViewItem Header="Bilder">
+        <muxc:TabViewItem Header="Bilder">
             <Grid x:Name="grid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" MinHeight="150" />
@@ -280,10 +280,10 @@
                     </GridView>
                 </ScrollViewer>
             </Grid>
-        </controls:TabViewItem>
+        </muxc:TabViewItem>
         <!--#endregion-->
         <!--#region  Uhr-->
-        <controls:TabViewItem Header="Uhr">
+        <muxc:TabViewItem Header="Uhr">
             <StackPanel Margin="70,20">
                 <TextBlock
                     Margin="0,0"
@@ -349,10 +349,10 @@
                         IsHexInputVisible="False" />
                 </Viewbox>
             </StackPanel>
-        </controls:TabViewItem>
+        </muxc:TabViewItem>
         <!--#endregion-->
         <!--#region  Karte-->
-        <controls:TabViewItem Header="Karte">
+        <muxc:TabViewItem Header="Karte">
             <StackPanel Margin="70,20">
                 <TextBlock
                     Margin="0,20,0,0"
@@ -370,10 +370,10 @@
                         NavigateUri="https://www.bingmapsportal.com/" />
                 </StackPanel>
             </StackPanel>
-        </controls:TabViewItem>
+        </muxc:TabViewItem>
         <!--#endregion-->
         <!--#region  Message-->
-        <controls:TabViewItem Header="Message">
+        <muxc:TabViewItem Header="Message">
             <StackPanel Margin="70,20">
                 <TextBlock
                     Margin="0,20,0,0"
@@ -402,10 +402,10 @@
                     Command="{x:Bind Path=ViewModel.DeleteAllMessageFromBaaS}"
                     Content="Alle Meldungen löschen" />
             </StackPanel>
-        </controls:TabViewItem>
+        </muxc:TabViewItem>
         <!--#endregion-->
         <!--#region App-->
-        <controls:TabViewItem Header="App">
+        <muxc:TabViewItem Header="App">
             <StackPanel Margin="70,20">
                 <CheckBox
                     Margin="0,0"
@@ -559,13 +559,6 @@
                     HorizontalAlignment="Left"
                     Text="{x:Bind Path=ViewModel.AppVersion}" />
             </StackPanel>
-        </controls:TabViewItem>
-        <controls:TabViewItem Header="MyHome">
-            <WebView
-                x:Name="MyWebView"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch" />
-        </controls:TabViewItem>
-        <!--#endregion-->
-    </controls:TabView>
+        </muxc:TabViewItem>
+    </muxc:TabView>
 </Page>

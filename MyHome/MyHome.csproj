@@ -123,7 +123,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>6.1.1</Version>
+      <Version>7.0.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.5.0</Version>
@@ -444,7 +444,6 @@
     <Content Include="Assets\Weather\13n.png" />
     <Content Include="Assets\Weather\50d.png" />
     <Content Include="Assets\Weather\50n.png" />
-    <Content Include="Assets\MyHome\MyHome.html" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
