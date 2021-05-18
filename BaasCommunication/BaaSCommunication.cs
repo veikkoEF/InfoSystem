@@ -40,6 +40,8 @@ namespace BaaSCommunication
                 {
                     string myMessage = item.Get<string>("Message");
                     string myUserName = item.Get<string>("UserName");
+                   
+                   //  var imageFile = item.Get<ParseFile>("imageFile");
                     DateTime myDate = (DateTime)item.CreatedAt;
 
                     MessageData myMessageData = new MessageData();
