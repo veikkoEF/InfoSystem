@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace BaaSCommunication
 {
@@ -7,7 +8,8 @@ namespace BaaSCommunication
         public string Message { get; set; }
         public DateTime Date { get; set; }
         public string UserName { get; set; }
-        public string ImageURL { get; set; }
+        // public string ImageURL { get; set; }
+        public BitmapImage BitmapImage { get; set; }
 
         public MessageData()
         {

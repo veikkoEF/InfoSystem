@@ -59,13 +59,13 @@
                             <ColumnDefinition Width="300" />
                             <ColumnDefinition Width="150" />
                         </Grid.ColumnDefinitions>
-                        <!--<Image
+                        <Image
                             Width="100"
                             Height="100"
                             Grid.Column="3"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
-                            Source="{x:Bind ImageURL}" />-->
+                            Source="{x:Bind BitmapImage}" />
                         <TextBlock
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
