@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
@@ -40,14 +41,20 @@ namespace BaaSCommunication
                 {
                     string myMessage = item.Get<string>("Message");
                     string myUserName = item.Get<string>("UserName");
-                   
-                   //  var imageFile = item.Get<ParseFile>("imageFile");
+                    string imageFileURL = null;
                     DateTime myDate = (DateTime)item.CreatedAt;
-
+                    // Opionale Elemente
+                    if (item.ContainsKey("imageFile"))
+                    {
+                        imageFileURL = item.Get<ParseFile>("imageFile").Url.AbsoluteUri;
+                        //var img  = new HttpClient().GetStreamAsync(imageFileURL);
+                    }
+                       
                     MessageData myMessageData = new MessageData();
                     myMessageData.Message = myMessage;
                     myMessageData.Date = myDate;
                     myMessageData.UserName = myUserName;
+                    myMessageData.ImageURL = imageFileURL;
 
                     list.Add(myMessageData);
 
