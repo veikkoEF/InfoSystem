@@ -41,23 +41,16 @@ namespace BaaSCommunication
                 ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
                 foreach (var item in results)
                 {
-                    
                     MessageData myMessageData = new MessageData();
-
                     string myMessage = item.Get<string>("Message");
                     string myUserName = item.Get<string>("UserName");
-                    string imageFileURL = null;
                     DateTime myDate = (DateTime)item.CreatedAt;
-
-                    
 
                     // Opionale Elemente
                     if (item.ContainsKey("imageFile"))
                     {
-                        // imageFileURL = item.Get<ParseFile>("imageFile").Url.AbsoluteUri;
                         var url = item.Get<ParseFile>("imageFile").Url;
                         //var img  = new HttpClient().GetStreamAsync(url);
-                        // myMessageData.ImageURL = url;
 
                         var httpClient = new HttpClient();
                         Stream st = await httpClient.GetStreamAsync(url);
@@ -70,13 +63,9 @@ namespace BaaSCommunication
                         myMessageData.BitmapImage = bitmapImage;
 
                     }
-                       
-                    
                     myMessageData.Message = myMessage;
                     myMessageData.Date = myDate;
                     myMessageData.UserName = myUserName;
-                    // myMessageData.ImageURL = imageFileURL;
-
                     list.Add(myMessageData);
 
                 }
