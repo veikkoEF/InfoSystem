@@ -54,7 +54,7 @@
             <NavigationViewItem
                 x:Name="RSSItem"
                 x:Uid="RSSNavItem"
-                Content="RSS Feed"
+                Content="News Feed"
                 Tag="rssfeed">
                 <NavigationViewItem.Icon>
                     <BitmapIcon UriSource="/Assets/rss.png" />
@@ -88,7 +88,7 @@
                 Content="Nachrichten"
                 Icon="Message"
                 Tag="message" />
-            <!-- Canvas Item  -->
+            <!--  Canvas Item  -->
             <NavigationViewItem
                 x:Name="CanvasItem"
                 x:Uid="CanvasShowNavItem"
