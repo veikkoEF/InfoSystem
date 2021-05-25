@@ -18,7 +18,10 @@
     </Page.Background>
     <muxc:TabView x:Name="Tabs" >
         <!--#region   Home-->
-        <muxc:TabViewItem Header="Home" >
+        <muxc:TabViewItem Header="Home">
+            <muxc:TabViewItem.IconSource>
+                <muxc:SymbolIconSource Symbol="Home"/>
+            </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
                 <TextBlock FontWeight="Bold" Text="Meldung:" />
                 <TextBox
@@ -32,6 +35,9 @@
         <!--#endregion-->
         <!--#region   Wetter-->
         <muxc:TabViewItem Header="Wetter">
+            <muxc:TabViewItem.IconSource>
+                <muxc:BitmapIconSource UriSource="/Assets/Weather/03d.png"/>
+            </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
                 <TextBlock FontWeight="Bold" Text="Ort:" />
                 <StackPanel Orientation="Horizontal">

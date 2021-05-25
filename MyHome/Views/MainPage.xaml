@@ -45,15 +45,21 @@
                 x:Name="NewsItem"
                 x:Uid="NewsNavItem"
                 Content="News"
-                Icon="Document"
-                Tag="news" />
+                Tag="news">
+                <NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="/Assets/News.jpg" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
             <!--  RSSFeed Item  -->
             <NavigationViewItem
                 x:Name="RSSItem"
                 x:Uid="RSSNavItem"
                 Content="RSS Feed"
-                Icon="Document"
-                Tag="rssfeed" />
+                Tag="rssfeed">
+                <NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="/Assets/rss.png" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
             <!--  Picture Item  -->
             <NavigationViewItem
                 x:Name="PictureItem"
@@ -82,12 +88,16 @@
                 Content="Nachrichten"
                 Icon="Message"
                 Tag="message" />
+            <!-- Canvas Item  -->
             <NavigationViewItem
                 x:Name="CanvasItem"
                 x:Uid="CanvasShowNavItem"
                 Content="Schreiben"
-                Icon="Font"
-                Tag="canvas" />
+                Tag="canvas">
+                <NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="/Assets/drawing.png" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
         </NavigationView.MenuItems>
         <Frame x:Name="ContentFrame">
             <Frame.ContentTransitions>
