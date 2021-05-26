@@ -47,7 +47,7 @@
                 Content="News"
                 Tag="news">
                 <NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="/Assets/News.jpg" />
+                    <BitmapIcon UriSource="/Assets/news.png" />
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
             <!--  RSSFeed Item  -->

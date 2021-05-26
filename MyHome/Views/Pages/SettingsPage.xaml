@@ -88,7 +88,7 @@
         <!--#region  News-->
         <muxc:TabViewItem Header="News">
             <muxc:TabViewItem.IconSource>
-                <muxc:BitmapIconSource UriSource="/Assets/News.jpg" />
+                <muxc:BitmapIconSource UriSource="/Assets/news.png" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
                 <TextBlock
@@ -137,7 +137,10 @@
             </StackPanel>
         </muxc:TabViewItem>
         <!--#endregion-->
-        <muxc:TabViewItem Header="News-Feed">
+        <muxc:TabViewItem Header="News Feed">
+            <muxc:TabViewItem.IconSource>
+                <muxc:BitmapIconSource UriSource="/Assets/rss.png" />
+            </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
                 <TextBlock FontWeight="Bold" Text="RSS-Feed:" />
                 <ComboBox Width="300" Margin="0,10,20,10">
@@ -149,6 +152,9 @@
         <!--#region RSS Reader-->
         <!--#region  Bilder-->
         <muxc:TabViewItem Header="Bilder">
+            <muxc:TabViewItem.IconSource>
+                <muxc:SymbolIconSource Symbol="Pictures" />
+            </muxc:TabViewItem.IconSource>
             <Grid x:Name="grid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" MinHeight="150" />
@@ -293,6 +299,9 @@
         <!--#endregion-->
         <!--#region  Uhr-->
         <muxc:TabViewItem Header="Uhr">
+            <muxc:TabViewItem.IconSource>
+                <muxc:SymbolIconSource Symbol="Clock" />
+            </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
                 <TextBlock
                     Margin="0,0"
@@ -362,6 +371,9 @@
         <!--#endregion-->
         <!--#region  Karte-->
         <muxc:TabViewItem Header="Karte">
+            <muxc:TabViewItem.IconSource>
+                <muxc:SymbolIconSource Symbol="Map" />
+            </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
                 <TextBlock
                     Margin="0,20,0,0"
@@ -383,6 +395,9 @@
         <!--#endregion-->
         <!--#region  Message-->
         <muxc:TabViewItem Header="Message">
+            <muxc:TabViewItem.IconSource>
+                <muxc:SymbolIconSource Symbol="Message" />
+            </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
                 <TextBlock
                     Margin="0,20,0,0"
@@ -415,6 +430,9 @@
         <!--#endregion-->
         <!--#region App-->
         <muxc:TabViewItem Header="App">
+            <muxc:TabViewItem.IconSource>
+                <muxc:SymbolIconSource Symbol="Setting" />
+            </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
                 <CheckBox
                     Margin="0,0"
