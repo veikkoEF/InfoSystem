@@ -11,6 +11,17 @@ namespace MyHome
     public sealed partial class App : Application
     {
         private readonly Lazy<ActivationService> _activationService;
+        private DispatcherTimer appTimer;
+
+        public void StartAppTimer()
+        {
+            appTimer.Start();
+        }
+
+        public void StopAppTimer()
+        {
+            appTimer.Stop();
+        }
 
         private ActivationService ActivationService
         {
