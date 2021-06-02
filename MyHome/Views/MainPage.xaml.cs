@@ -14,8 +14,6 @@ namespace MyHome.Views
         private ContentType type;
         private DispatcherTimer uiTimer = new DispatcherTimer();
 
-        
-
         public MainPage()
         {
             this.InitializeComponent();

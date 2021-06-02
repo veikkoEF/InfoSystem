@@ -99,6 +99,11 @@
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
         </NavigationView.MenuItems>
+        <NavigationView.PaneFooter>
+            <NavigationViewItem 
+                Content="Timer Stopp"
+                Icon="Stop"/>
+        </NavigationView.PaneFooter>
         <Frame x:Name="ContentFrame">
             <Frame.ContentTransitions>
                 <TransitionCollection>
