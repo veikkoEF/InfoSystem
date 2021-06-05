@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Microsoft.Toolkit.Uwp.Helpers;
+using System.ComponentModel;
+using MyHome.Helpers;
 
 namespace MyHome.Settings
 {
-
-    public static class ProgrammSettings
+    public static  class ProgrammSettings
     {
         // Section Home
         public static string Message { get; set; } = "Family";
@@ -51,7 +52,7 @@ namespace MyHome.Settings
         public static string MapsAPIKey { get; set; }
 
         // Section App
-        public static bool AutoChangeContentSections { get; set; } = true;
+        public static bool AutoChangeContentSections { get; set; }
         public static bool HomeIsActiv { get; set; } = true;
         public static bool WeatherIsActiv { get; set; } = true;
         public static bool NewsIsActiv { get; set; } = true;

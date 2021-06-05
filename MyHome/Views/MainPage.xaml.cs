@@ -215,6 +215,7 @@ namespace MyHome.Views
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA1801:Nicht verwendete Parameter überprüfen", Justification = "<Ausstehend>")]
         private void NavView_PaneOpened(NavigationView sender, object args)
         {
+            this.Bindings.Update();
             // Menüeinträge modifizieren
             HomeItem.Visibility = ProgrammSettings.HomeIsActiv ? Visibility.Visible : Visibility.Collapsed;
             WeatherItem.Visibility = ProgrammSettings.WeatherIsActiv ? Visibility.Visible : Visibility.Collapsed;
@@ -223,6 +224,14 @@ namespace MyHome.Views
             ClockItem.Visibility = ProgrammSettings.ClockIsActiv ? Visibility.Visible : Visibility.Collapsed;
             MapItem.Visibility = ProgrammSettings.MapIsActiv ? Visibility.Visible : Visibility.Collapsed;
             MessageItem.Visibility = ProgrammSettings.MessageIsActiv ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)CheckedAuto.IsChecked)
+                uiTimer.Start();
+            else
+                uiTimer.Stop();
         }
     }
 }

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="using:MyHome.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    NavigationCacheMode="Disabled"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewmodel:MainPageViewModel />
@@ -99,6 +100,14 @@
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
         </NavigationView.MenuItems>
+        <NavigationView.PaneFooter>
+            <CheckBox
+                x:Name="CheckedAuto"
+                Margin="12"
+                Click="CheckBox_Click"
+                Content="  Auto"
+                IsChecked="{x:Bind ViewModel.AutoChangeContentSections, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </NavigationView.PaneFooter>
         <Frame x:Name="ContentFrame">
             <Frame.ContentTransitions>
                 <TransitionCollection>
