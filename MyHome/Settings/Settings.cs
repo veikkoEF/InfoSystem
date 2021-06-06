@@ -33,7 +33,7 @@ namespace MyHome.Settings
         public static ArtOfPicturePresentation ArtOfPicturePresentation { get; set; } = ArtOfPicturePresentation.SinglePicture;
         public static string DropBoxAppToken { get; set; }
         public static int TimeInSecondToChangePicture { get; set; } = 5;
-        public static string NameOfCurrentDir { get; set; }
+        public static string NameOfCurrentDir { get; set; } = "";
 
         // Section Clock
         public static int ShowDurationClock { get; set; } = 20;
@@ -119,9 +119,11 @@ namespace MyHome.Settings
 
             // Section Map
             localSettings.Values["MapsAPIKey"] = MapsAPIKey;
-
+            
             // Section Message
             localSettings.Values["ShowDurationMessage"] = ShowDurationMessage;
+            localSettings.Values["ApplicationId"] = ApplicationId;
+            localSettings.Values["NetKey"] = NetKey;
 
             // Section Canvas
             localSettings.Values["ShowDurationCanvas"] = ShowDurationCanvas;
@@ -138,9 +140,6 @@ namespace MyHome.Settings
             localSettings.Values["MapIsActiv"] = MapIsActiv;
             localSettings.Values["MessageIsActiv"] = MessageIsActiv;
 
-            // Backend as a Service Keys
-            localSettings.Values["ApplicationId"] = ApplicationId;
-            localSettings.Values["NetKey"] = NetKey;
         }
 
         public static void Load()
@@ -216,6 +215,8 @@ namespace MyHome.Settings
 
                 // Section Message
                 ShowDurationMessage = (int)localSettings.Values["ShowDurationMessage"];
+                ApplicationId = localSettings.Values["ApplicationId"].ToString();
+                NetKey = localSettings.Values["NetKey"].ToString();
 
                 // Section Canvas
                 ShowDurationCanvas = (int)localSettings.Values["ShowDurationCanvas"];
@@ -246,10 +247,6 @@ namespace MyHome.Settings
                     MapIsActiv = false;
 
                 MessageIsActiv = (bool)localSettings.Values["MessageIsActiv"];
-
-                // Backend as a Service
-                ApplicationId = localSettings.Values["ApplicationId"].ToString();
-                NetKey = localSettings.Values["NetKey"].ToString();
             }
             catch
             {

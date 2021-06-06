@@ -19,7 +19,7 @@
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>MyHome_TemporaryKey.pfx</PackageCertificateKeyFile>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-    <PackageCertificateThumbprint>253B2075D5A280CC9953CCD3F7F7F3BE31C20879</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>83A1B885224427E062891351C68E3DA55AAD8CCA</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
@@ -456,11 +456,11 @@
     <None Include="doc\UploadFolder.vpd" />
     <None Include="doc\notes.md" />
     <Content Include="Properties\Default.rd.xml" />
+    <None Include="MyHome_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
     <Content Include="Settings.json" />
-    <None Include="MyHome_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

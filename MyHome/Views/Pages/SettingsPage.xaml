@@ -266,34 +266,33 @@
                     IsItemClickEnabled="True"
                     ItemClick="ListView_ItemClick"
                     ItemsSource="{x:Bind Path=ViewModel.DirNames}" />
-                <ScrollViewer
+
+                <GridView
+                    x:Name="GridView"
                     Grid.Row="2"
                     Grid.Column="1"
-                    Margin="70,0">
-                    <GridView
-                        x:Name="GridView"
-                        ItemsSource="{x:Bind Path=ViewModel.FileNames}"
-                        SelectionMode="Multiple">
-                        <GridView.ItemTemplate>
-                            <DataTemplate x:DataType="x:String">
-                                <StackPanel>
-                                    <TextBlock
-                                        Margin="0,5"
-                                        HorizontalAlignment="Center"
-                                        Text="{x:Bind Converter={StaticResource ConverterFileName}}" />
-                                    <Image
-                                        Width="150"
-                                        Height="150"
-                                        HorizontalAlignment="Center">
-                                        <Image.Source>
-                                            <BitmapImage DecodePixelWidth="150" UriSource="{x:Bind Mode=OneWay}" />
-                                        </Image.Source>
-                                    </Image>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridView.ItemTemplate>
-                    </GridView>
-                </ScrollViewer>
+                    Margin="70,0"
+                    ItemsSource="{x:Bind Path=ViewModel.FileNames}"
+                    SelectionMode="Multiple">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <StackPanel>
+                                <TextBlock
+                                    Margin="0,5"
+                                    HorizontalAlignment="Center"
+                                    Text="{x:Bind Converter={StaticResource ConverterFileName}}" />
+                                <Image
+                                    Width="150"
+                                    Height="150"
+                                    HorizontalAlignment="Center">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelWidth="150" UriSource="{x:Bind Mode=OneWay}" />
+                                    </Image.Source>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
             </Grid>
         </muxc:TabViewItem>
         <!--#endregion-->
