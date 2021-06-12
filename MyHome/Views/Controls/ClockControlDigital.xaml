@@ -10,9 +10,9 @@
     mc:Ignorable="d">
     <Grid Background="{Binding Background}">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition Height="4*" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock
             HorizontalAlignment="Left"
@@ -21,7 +21,7 @@
             FontSize="60"
             FontWeight="SemiBold"
             Foreground="{x:Bind ViewModel.Foreground}"
-            Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             Grid.Row="1"
             HorizontalAlignment="Center"

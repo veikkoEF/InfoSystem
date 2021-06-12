@@ -135,6 +135,20 @@ namespace MyHome.ViewModels
             get => "Version: " + Information.GetAppVersion();
         }
 
+        public string RSSFeed
+        {
+            get
+            {
+                return ProgrammSettings.RSSFeed;
+            }
+            set
+            {
+                ProgrammSettings.RSSFeed = value;
+                OnPropertyChanged(nameof(RSSFeed));
+            }
+        }
+
+
         public int ArtOfPicturePresentation
         {
             get

@@ -137,19 +137,20 @@
             </StackPanel>
         </muxc:TabViewItem>
         <!--#endregion-->
+        <!--#region RSS Reader-->
         <muxc:TabViewItem Header="News Feed">
             <muxc:TabViewItem.IconSource>
                 <muxc:BitmapIconSource UriSource="/Assets/rss.png" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
-                <TextBlock FontWeight="Bold" Text="RSS-Feed:" />
-                <ComboBox Width="300" Margin="0,10,20,10">
-                    <ComboBoxItem Content="https://www.n-tv.de/181.rss" />
-                    <ComboBoxItem Content="http://newsfeed.zeit.de/all" />
-                </ComboBox>
+                <TextBox
+                    Width="400"
+                    HorizontalAlignment="Left"
+                    Text="{x:Bind ViewModel.RSSFeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Header="RSS-Feed:" />
             </StackPanel>
         </muxc:TabViewItem>
-        <!--#region RSS Reader-->
+        <!--#endregion-->
         <!--#region  Bilder-->
         <muxc:TabViewItem Header="Bilder">
             <muxc:TabViewItem.IconSource>

@@ -76,9 +76,8 @@ namespace MyHome.Settings
         public static string NetKey { get; set; }
 
         // Section RSSFeed
-        public static string Feed { get; set; }
         public static int ShowDurationRSSFeed { get; set; } = 20;
-        public static string RSSFeed { get; set; }
+        public static string RSSFeed { get; set; } = "https://www.n-tv.de/181.rss";
 
         public static void Save()
         {
