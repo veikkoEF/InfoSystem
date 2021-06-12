@@ -36,10 +36,7 @@ namespace MyHome.Views
             ViewModel.BackgroundColor = sender.Color;
         }
 
-        private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            
-        }
+       
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -47,5 +44,11 @@ namespace MyHome.Views
             ViewModel.SelectedDirName = nameOfDir;
             ViewModel.UpdateFilesNamesAsync(nameOfDir);
         }
+
+        private void comboboxRSSFeed_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ViewModel.RSSFeed = comboboxRSSFeed.Text;
+        }
+
     }
 }

@@ -143,11 +143,20 @@
                 <muxc:BitmapIconSource UriSource="/Assets/rss.png" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
-                <TextBox
+                <ComboBox
+                    x:Name="comboboxRSSFeed"
                     Width="400"
                     HorizontalAlignment="Left"
-                    Text="{x:Bind ViewModel.RSSFeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    Header="RSS-Feed:" />
+                    Header="RSS-Feed:"
+                    IsEditable="True"
+                    Text="{x:Bind ViewModel.RSSFeed, Mode=OneWay}"
+                    SelectionChanged="comboboxRSSFeed_SelectionChanged">
+                    <ComboBox.Items>
+                        <x:String>http://newsfeed.zeit.de/all</x:String>
+                        <x:String>https://www.n-tv.de/181.rss/</x:String>
+                        <x:String>http://feeds.t-online.de/rss/erfurt</x:String>
+                    </ComboBox.Items>
+                </ComboBox>
             </StackPanel>
         </muxc:TabViewItem>
         <!--#endregion-->
