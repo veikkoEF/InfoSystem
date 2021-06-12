@@ -5,13 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:MyHome.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewmodel="using:MyHome.ViewModels"
     d:DesignHeight="1000"
     d:DesignWidth="1600"
     mc:Ignorable="d">
-    <UserControl.DataContext>
-        <viewmodel:ClockControlDigital />
-    </UserControl.DataContext>
     <Grid Background="{Binding Background}">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -24,8 +20,8 @@
             FontFamily="Consolas"
             FontSize="60"
             FontWeight="SemiBold"
-            Foreground="{Binding Foreground}"
-            Text="{Binding Date}"/>
+            Foreground="{x:Bind ViewModel.Foreground}"
+            Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock
             Grid.Row="1"
             HorizontalAlignment="Center"
@@ -33,7 +29,7 @@
             FontFamily="Consolas"
             FontSize="250"
             FontWeight="SemiBold"
-            Foreground="{Binding Foreground}"
-            Text="{Binding Time}" />
+            Foreground="{x:Bind ViewModel.Foreground}"
+            Text="{x:Bind ViewModel.Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </UserControl>
