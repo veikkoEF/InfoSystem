@@ -23,30 +23,35 @@ namespace RSSFeed
 
         public async Task<FeedData> GetData()
         {
-            FeedData feedData = new FeedData();
-            
-
-            Feed feed = await FeedReader.ReadAsync(rssFeed);
-            feedData.Title = feed.Title;
-            feedData.ImageUri = new Uri(feed.ImageUrl);
-
-            if (feed != null)
+            try
             {
+                FeedData feedData = new FeedData();
+                Feed feed = await FeedReader.ReadAsync(rssFeed);
+                feedData.Title = feed.Title;
+                feedData.ImageUri = new Uri(feed.ImageUrl);
 
-                foreach (var element in feed.Items)
+                if (feed != null)
                 {
-                    FeedItem feedItem = new FeedItem();
-                    feedItem.Title = element.Title;
-                    feedItem.Description = element.Description;
-                    feedItem.Link = element.Link;
-                    if (feed.Type == FeedType.Rss_2_0)
-                    {
 
+                    foreach (var element in feed.Items)
+                    {
+                        FeedItem feedItem = new FeedItem();
+                        feedItem.Title = element.Title;
+                        feedItem.Description = element.Description;
+                        feedItem.Link = element.Link;
+                        if (feed.Type == FeedType.Rss_2_0)
+                        {
+
+                        }
+                        feedData.Items.Add(feedItem);
                     }
-                    feedData.Items.Add(feedItem);
                 }
+                return feedData;
             }
-            return feedData;
+            catch
+            {
+                return null;
+            }
         }
     }
     

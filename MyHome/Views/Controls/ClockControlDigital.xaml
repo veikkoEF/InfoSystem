@@ -21,7 +21,7 @@
             FontSize="60"
             FontWeight="SemiBold"
             Foreground="{x:Bind ViewModel.Foreground}"
-            Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{x:Bind ViewModel.Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             Grid.Row="1"
             HorizontalAlignment="Center"

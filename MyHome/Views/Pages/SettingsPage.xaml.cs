@@ -15,7 +15,7 @@ namespace MyHome.Views
         {
             this.InitializeComponent();
             ViewModel = new SettingsPageViewModel();
-            comboboxRSSFeed.SelectedItem = ViewModel.RSSFeed;
+            comboboxRSSFeed.SelectedItem = ViewModel.NewsFeed;
         }
 
 
@@ -48,7 +48,7 @@ namespace MyHome.Views
 
         private void comboboxRSSFeed_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ViewModel.RSSFeed = comboboxRSSFeed.Text;
+            ViewModel.NewsFeed = comboboxRSSFeed.Text;
         }
 
     }

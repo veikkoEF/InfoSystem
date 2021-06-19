@@ -135,7 +135,7 @@ namespace MyHome.ViewModels
             get => "Version: " + Information.GetAppVersion();
         }
 
-        public string RSSFeed
+        public string NewsFeed
         {
             get
             {
@@ -427,6 +427,17 @@ namespace MyHome.ViewModels
             }
         }
 
+        public bool NewsFeedIsActiv
+        {
+            get { return ProgrammSettings.NewsFeedIsActiv; }
+            set
+            {
+                ProgrammSettings.NewsIsActiv = value;
+                OnPropertyChanged(nameof(NewsFeedIsActiv));
+            }
+        }
+
+
         public bool NewsIsActiv
         {
             get { return ProgrammSettings.NewsIsActiv; }
@@ -575,6 +586,19 @@ namespace MyHome.ViewModels
             {
                 ProgrammSettings.ShowDurationMessage = value;
                 OnPropertyChanged(nameof(ShowDurationMessage));
+            }
+        }
+
+        public int ShowDurationNewsFeed
+        {
+            get
+            {
+                return ProgrammSettings.ShowDurationNewsFeed;
+            }
+            set
+            {
+                ProgrammSettings.ShowDurationNews = value;
+                OnPropertyChanged(nameof(ShowDurationNewsFeed));
             }
         }
 

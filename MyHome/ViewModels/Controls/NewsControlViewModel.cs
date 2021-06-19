@@ -4,9 +4,7 @@ using MyHome.Helpers;
 using MyHome.Settings;
 using NewsAPI;
 using System;
-using System.IO;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace MyHome.ViewModels
 {
@@ -21,6 +19,17 @@ namespace MyHome.ViewModels
         private int currentNumber;
         private readonly DispatcherTimer uiTimer = new DispatcherTimer(); // neue Nachricht
         private readonly DispatcherTimer updateTimer = new DispatcherTimer(); // neuer Download der Nachrichten
+
+
+        public void StartUITimer()
+        {
+            uiTimer.Start();
+        }
+
+        public void StopUITimer()
+        {
+            uiTimer.Stop();
+        }
 
         public NewsControlViewModel()
         {

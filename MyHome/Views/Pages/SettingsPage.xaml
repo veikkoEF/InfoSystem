@@ -137,7 +137,7 @@
             </StackPanel>
         </muxc:TabViewItem>
         <!--#endregion-->
-        <!--#region RSS Reader-->
+        <!--#region News Feed-->
         <muxc:TabViewItem Header="News Feed">
             <muxc:TabViewItem.IconSource>
                 <muxc:BitmapIconSource UriSource="/Assets/rss.png" />
@@ -149,8 +149,8 @@
                     HorizontalAlignment="Left"
                     Header="RSS-Feed:"
                     IsEditable="True"
-                    Text="{x:Bind ViewModel.RSSFeed, Mode=OneWay}"
-                    SelectionChanged="comboboxRSSFeed_SelectionChanged">
+                    SelectionChanged="comboboxRSSFeed_SelectionChanged"
+                    Text="{x:Bind ViewModel.NewsFeed, Mode=OneWay}">
                     <ComboBox.Items>
                         <x:String>http://newsfeed.zeit.de/all</x:String>
                         <x:String>https://www.n-tv.de/181.rss/</x:String>
@@ -500,7 +500,7 @@
                     <CheckBox
                         x:Name="checkBoxNewsFeed"
                         Content="News-Feed"
-                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.NewsIsActiv}" />
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.NewsFeedIsActiv}" />
                     <Slider
                         Width="300"
                         Margin="50,0"
@@ -508,7 +508,7 @@
                         IsEnabled="{Binding IsChecked, ElementName=checkBoxNews}"
                         Maximum="120"
                         Minimum="1"
-                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationNews}" />
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationNewsFeed}" />
 
                 </StackPanel>
 

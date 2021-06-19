@@ -136,7 +136,7 @@ namespace MyHome.Views
                     if (ProgrammSettings.NewsFeedIsActiv)
                     {
                         ContentFrame.Navigate(typeof(NewsFeedPage), null, new DrillInNavigationTransitionInfo());
-                        uiTimer.Interval = new TimeSpan(0, 0, ProgrammSettings.ShowDurationRSSFeed);
+                        uiTimer.Interval = new TimeSpan(0, 0, ProgrammSettings.ShowDurationNewsFeed);
                     }
                     else
                         uiTimer.Interval = new TimeSpan(0, 0, 1);

@@ -13,5 +13,15 @@ namespace MyHome.Views
             this.InitializeComponent();
             ViewModel = new NewsControlViewModel();
         }
+
+        private void userControl_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.StartUITimer();
+        }
+
+        private void userControl_Unloaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.StopUITimer();
+        }
     }
 }

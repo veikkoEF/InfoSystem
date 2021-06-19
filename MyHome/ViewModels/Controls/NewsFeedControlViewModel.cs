@@ -3,25 +3,31 @@ using MyHome.Settings;
 using RSSFeed;
 using System;
 using System.Collections.ObjectModel;
-
+using Windows.UI.Xaml;
 
 namespace MyHome.ViewModels
 {
    
     public class NewsFeedControlViewModel : Observable
     {
+        private readonly DispatcherTimer uiTimer = new DispatcherTimer();
+        private Uri imagePath;
+        private int index;
+        private bool noDataAccess;
         private string title;
-        public string Title
+        public NewsFeedControlViewModel()
         {
-            get => title;
-            set
-            {
-                title = value;
-                OnPropertyChanged(nameof(Title));
-            }
+            GetNewsAsync();
+            uiTimer.Interval = new TimeSpan(0, 0, 30);
+            uiTimer.Start();
+            uiTimer.Tick += UpdateNewsShowMessage;
         }
 
-        private Uri imagePath;
+        private void UpdateNewsShowMessage(object sender, object e)
+        {
+            // 
+        }
+
         public Uri ImagePath
         {
             get
@@ -37,27 +43,77 @@ namespace MyHome.ViewModels
 
         }
 
+        // neue Nachricht
+        public int Index
+        {
+            get
+            {
+                return index;
+            }
+            set
+            {
+                Set(ref index, value);
+            }
+        }
+
         public ObservableCollection<FeedItem> Items { get; } = new ObservableCollection<FeedItem>();
 
-        private async void  GetNews()
+        public bool NoDataAccess
         {
-            RSSFeedParser rSSFeedParser = new RSSFeedParser(ProgrammSettings.NewsFeed);
-            FeedData result = await rSSFeedParser.GetData().ConfigureAwait(true);
-            Title = result.Title;
-            ImagePath = result.ImageUri;
-
-            Items.Clear();
-            foreach (var item in result.Items)
+            get
             {
-                Items.Add(item);
+                return noDataAccess;
             }
-
+            set
+            {
+                noDataAccess = value;
+                OnPropertyChanged(nameof(NoDataAccess));
+            }
 
         }
 
-        public NewsFeedControlViewModel()
+        public string Title
         {
-            GetNews();
+            get => title;
+            set
+            {
+                title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+        public void StartUITimer()
+        {
+            uiTimer.Start();
+        }
+
+        public void StopUITimer()
+        {
+            uiTimer.Stop();
+        }
+        private async void  GetNewsAsync()
+        {
+            RSSFeedParser rSSFeedParser = new RSSFeedParser(ProgrammSettings.NewsFeed);
+            FeedData result = await rSSFeedParser.GetData().ConfigureAwait(true);
+            if (result != null)
+            {
+                NoDataAccess = false;
+                Title = result.Title;
+                ImagePath = result.ImageUri;
+                Items.Clear();
+                foreach (var item in result.Items)
+                {
+                    Items.Add(item);
+                }
+            }
+            else
+                NoDataAccess = true;
+            ShowNewsArticle(2);
+        }
+
+        private void ShowNewsArticle(int number = 0)
+        {
+            if ((number >= 0) && (number < Items.Count))
+                Index = number;
         }
     }
 }

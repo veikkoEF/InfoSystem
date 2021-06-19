@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Microsoft.Toolkit.Uwp.Helpers;
-using System.ComponentModel;
-using MyHome.Helpers;
 
 namespace MyHome.Settings
 {
@@ -26,6 +24,10 @@ namespace MyHome.Settings
         public static Category NewsCategory { get; set; } = Category.GENERAL;
         public static int TimeInSecondToChangeNewsMessage { get; set; } = 15;
         public static string NewsAPIKey { get; set; }
+
+        // Section NewsFeed
+        public static int ShowDurationNewsFeed { get; set; } = 20;
+        public static string NewsFeed { get; set; } = "https://www.n-tv.de/181.rss";
 
         // Section Pictures
         public static int ShowDurationPictures { get; set; } = 60;
@@ -75,9 +77,7 @@ namespace MyHome.Settings
         public static string ApplicationId { get; set; }
         public static string NetKey { get; set; }
 
-        // Section NewsFeed
-        public static int ShowDurationRSSFeed { get; set; } = 20;
-        public static string NewsFeed { get; set; } = "https://www.n-tv.de/181.rss";
+        
 
         public static void Save()
         {
