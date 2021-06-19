@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 namespace MyHome.ViewModels
 {
    
-    public class RSSFeedControlViewModel : Observable
+    public class NewsFeedControlViewModel : Observable
     {
         private string title;
         public string Title
@@ -55,7 +55,7 @@ namespace MyHome.ViewModels
 
         }
 
-        public RSSFeedControlViewModel()
+        public NewsFeedControlViewModel()
         {
             GetNews();
         }

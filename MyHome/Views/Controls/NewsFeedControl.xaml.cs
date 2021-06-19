@@ -9,11 +9,11 @@ namespace MyHome.Views
 {
     public sealed partial class NewsFeedControl : UserControl
     {
-        public RSSFeedControlViewModel ViewModel { get; set; }
+        public NewsFeedControlViewModel ViewModel { get; set; }
         public NewsFeedControl()
         {
             this.InitializeComponent();
-            ViewModel = new RSSFeedControlViewModel();
+            ViewModel = new NewsFeedControlViewModel();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
