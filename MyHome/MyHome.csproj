@@ -198,8 +198,8 @@
     <Compile Include="Views\Controls\PictureSchowControlMulti.xaml.cs">
       <DependentUpon>PictureSchowControlMulti.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\RSSFeedControl.xaml.cs">
-      <DependentUpon>RSSFeedControl.xaml</DependentUpon>
+    <Compile Include="Views\Controls\NewsFeedControl.xaml.cs">
+      <DependentUpon>NewsFeedControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\WeatherControl2.xaml.cs">
       <DependentUpon>WeatherControl2.xaml</DependentUpon>
@@ -234,8 +234,8 @@
     <Compile Include="Views\Pages\PictureShowPage.xaml.cs">
       <DependentUpon>PictureShowPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\RSSFeedPage.xaml.cs">
-      <DependentUpon>RSSFeedPage.xaml</DependentUpon>
+    <Compile Include="Views\Pages\NewsFeedPage.xaml.cs">
+      <DependentUpon>NewsFeedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -307,7 +307,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Controls\RSSFeedControl.xaml">
+    <Page Include="Views\Controls\NewsFeedControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -355,7 +355,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\RSSFeedPage.xaml">
+    <Page Include="Views\Pages\NewsFeedPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

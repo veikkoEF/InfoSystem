@@ -2,11 +2,8 @@
 using MyHome.Settings;
 using RSSFeed;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MyHome.ViewModels
 {
@@ -44,7 +41,7 @@ namespace MyHome.ViewModels
 
         private async void  GetNews()
         {
-            RSSFeedParser rSSFeedParser = new RSSFeedParser(ProgrammSettings.RSSFeed);
+            RSSFeedParser rSSFeedParser = new RSSFeedParser(ProgrammSettings.NewsFeed);
             FeedData result = await rSSFeedParser.GetData().ConfigureAwait(true);
             Title = result.Title;
             ImagePath = result.ImageUri;

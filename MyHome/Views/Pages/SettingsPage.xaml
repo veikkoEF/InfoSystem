@@ -498,6 +498,22 @@
                 </StackPanel>
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
+                        x:Name="checkBoxNewsFeed"
+                        Content="News-Feed"
+                        IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.NewsIsActiv}" />
+                    <Slider
+                        Width="300"
+                        Margin="50,0"
+                        HorizontalAlignment="Left"
+                        IsEnabled="{Binding IsChecked, ElementName=checkBoxNews}"
+                        Maximum="120"
+                        Minimum="1"
+                        Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationNews}" />
+
+                </StackPanel>
+
+                <StackPanel Margin="0,10" Orientation="Horizontal">
+                    <CheckBox
                         x:Name="checkBoxPictures"
                         Content="Bilder"
                         IsChecked="{x:Bind Mode=TwoWay, Path=ViewModel.PictureIsActiv}" />

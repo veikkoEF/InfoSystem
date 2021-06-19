@@ -56,12 +56,12 @@ namespace MyHome.Settings
         public static bool HomeIsActiv { get; set; } = true;
         public static bool WeatherIsActiv { get; set; } = true;
         public static bool NewsIsActiv { get; set; } = true;
+        public static bool NewsFeedIsActiv { get; set; } = true;
         public static bool PictureIsActiv { get; set; } = true;
         public static bool ClockIsActiv { get; set; } = true;
         public static bool MapIsActiv { get; set; } = true;
         public static bool MessageIsActiv { get; set; } = true;
         public static bool CanvasIsActiv { get; set; } = true;
-        public static bool RSSFeedIsActiv { get; set; } = true;
 
         // Section Message
         public static int ShowDurationMessage { get; set; } = 30;
@@ -75,9 +75,9 @@ namespace MyHome.Settings
         public static string ApplicationId { get; set; }
         public static string NetKey { get; set; }
 
-        // Section RSSFeed
+        // Section NewsFeed
         public static int ShowDurationRSSFeed { get; set; } = 20;
-        public static string RSSFeed { get; set; } = "https://www.n-tv.de/181.rss";
+        public static string NewsFeed { get; set; } = "https://www.n-tv.de/181.rss";
 
         public static void Save()
         {

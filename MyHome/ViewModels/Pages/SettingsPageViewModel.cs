@@ -139,11 +139,11 @@ namespace MyHome.ViewModels
         {
             get
             {
-                return ProgrammSettings.RSSFeed;
+                return ProgrammSettings.NewsFeed;
             }
             set
             {
-                ProgrammSettings.RSSFeed = value;
+                ProgrammSettings.NewsFeed = value;
                 OnPropertyChanged(nameof(RSSFeed));
             }
         }

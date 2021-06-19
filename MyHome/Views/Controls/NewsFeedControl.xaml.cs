@@ -7,10 +7,10 @@ using Windows.UI.Xaml.Controls;
 
 namespace MyHome.Views
 {
-    public sealed partial class RSSFeedControl : UserControl
+    public sealed partial class NewsFeedControl : UserControl
     {
         public RSSFeedControlViewModel ViewModel { get; set; }
-        public RSSFeedControl()
+        public NewsFeedControl()
         {
             this.InitializeComponent();
             ViewModel = new RSSFeedControlViewModel();

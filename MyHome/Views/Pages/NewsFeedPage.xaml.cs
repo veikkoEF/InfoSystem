@@ -20,9 +20,9 @@ namespace MyHome.Views
     /// <summary>
     /// Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
     /// </summary>
-    public sealed partial class RSSFeedPage : Page
+    public sealed partial class NewsFeedPage : Page
     {
-        public RSSFeedPage()
+        public NewsFeedPage()
         {
             this.InitializeComponent();
         }
