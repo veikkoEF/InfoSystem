@@ -14,6 +14,7 @@ namespace MyHome.ViewModels
 
         private void OnShutDownCommandExecute()
         {
+            ProgrammSettings.Save();
             CoreApplication.Exit();
         }
 
