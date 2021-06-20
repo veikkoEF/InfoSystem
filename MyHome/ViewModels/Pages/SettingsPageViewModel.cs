@@ -665,6 +665,19 @@ namespace MyHome.ViewModels
 
         public RelayCommand ShutDownCommand { get; set; }
 
+        public int TimeInSecondToChangeNewsFeed
+        {
+            get
+            {
+                return ProgrammSettings.TimeInSecondToChangeNewsFeed;
+            }
+            set
+            {
+                ProgrammSettings.TimeInSecondToChangeNewsFeed = value;
+                OnPropertyChanged(nameof(TimeInSecondToChangeNewsFeed));
+            }
+        }
+
         public int TimeInSecondToChangeNewsMessage
         {
             get

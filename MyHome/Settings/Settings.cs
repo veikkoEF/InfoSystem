@@ -30,6 +30,7 @@ namespace MyHome.Settings
 
         // Section NewsFeed
         public static int ShowDurationNewsFeed { get; set; } = 60;
+        public static int TimeInSecondToChangeNewsFeed { get; set; } = 15;
 
         public static string NewsFeed { get; set; } = "https://www.n-tv.de/181.rss";
 
@@ -86,6 +87,7 @@ namespace MyHome.Settings
 
         public static string ApplicationId { get; set; }
         public static string NetKey { get; set; }
+        
 
         public static void Save()
         {
@@ -101,22 +103,23 @@ namespace MyHome.Settings
             localSettings.Values["Location"] = Location;
             localSettings.Values["OpenWeatherMapKey"] = OpenWeatherMapKey;
 
-            // Section New
+            // Section News
             localSettings.Values["ShowDurationNews"] = ShowDurationNews;
             localSettings.Values["NewsCategory"] = (int)NewsCategory;
-            localSettings.Values["TimeInSecondToChangePicture"] = TimeInSecondToChangePicture;
+            localSettings.Values["TimeInSecondToChangeNewsMessage"] = TimeInSecondToChangeNewsMessage;
             localSettings.Values["NewsAPIKey"] = NewsAPIKey;
 
             // Section NewsFeed
             localSettings.Values["ShowDurationNewsFeed"] = ShowDurationNewsFeed;
             localSettings.Values["NewsFeed"] = NewsFeed;
+            localSettings.Values["TimeInSecondToChangeNewsFeed"] = TimeInSecondToChangeNewsFeed;
 
             // Section Pictures
             localSettings.Values["ShowDurationPictures"] = ShowDurationPictures;
             localSettings.Values["ArtOfPicturePresentation"] = (int)ArtOfPicturePresentation;
             localSettings.Values["PictureSeletionMode"] = (int)PictureSeletionMode;
             localSettings.Values["DropBoxAppToken"] = DropBoxAppToken;
-            localSettings.Values["TimeInSecondToChangeNewsMessage"] = TimeInSecondToChangeNewsMessage;
+            localSettings.Values["TimeInSecondToChangePicture"] = TimeInSecondToChangePicture;
             localSettings.Values["NameOfCurrentDir"] = NameOfCurrentDir;
 
             // Section Clock
@@ -191,6 +194,7 @@ namespace MyHome.Settings
                 // Section NewsFeed
                 ShowDurationNewsFeed = (int)localSettings.Values["ShowDurationNewsFeed"];
                 NewsFeed = localSettings.Values["NewsFeed"].ToString();
+                TimeInSecondToChangeNewsFeed = (int)localSettings.Values["TimeInSecondToChangeNewsFeed"];
 
                 // Section Pictures
                 ShowDurationPictures = (int)localSettings.Values["ShowDurationPictures"];

@@ -23,11 +23,11 @@
                 <muxc:SymbolIconSource Symbol="Home" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
-                <TextBlock FontWeight="Bold" Text="Meldung:" />
                 <TextBox
                     Width="300"
                     Margin="0,10,20,10"
                     HorizontalAlignment="Left"
+                    Header="Meldung:"
                     PlaceholderText="Familiy"
                     Text="{x:Bind Mode=TwoWay, Path=ViewModel.Message, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
@@ -39,12 +39,12 @@
                 <muxc:BitmapIconSource UriSource="/Assets/Weather/03d.png" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
-                <TextBlock FontWeight="Bold" Text="Ort:" />
                 <StackPanel Orientation="Horizontal">
                     <TextBox
                         Width="300"
                         Margin="0,10,20,0"
                         HorizontalAlignment="Left"
+                        Header="Ort:"
                         PlaceholderText="Erfurt"
                         Text="{x:Bind Mode=TwoWay, Path=ViewModel.Location, UpdateSourceTrigger=PropertyChanged}" />
                     <Button
@@ -56,25 +56,19 @@
                         Command="{x:Bind Path=ViewModel.CheckLocationCommand}"
                         Content="Check" />
                 </StackPanel>
-                <TextBlock
-                    Margin="0,20,0,0"
-                    FontWeight="Bold"
-                    Text="Darstellung:" />
                 <ComboBox
                     Width="300"
-                    Margin="0,10"
+                    Margin="0,20"
+                    Header="Darstellung:"
                     SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.WeatherModus, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem Content="3 Tages Vorhersage (Einfach)" />
                     <ComboBoxItem Content="3 Tages Vorhersage (Komfort)" />
                 </ComboBox>
-                <TextBlock
-                    Margin="0,20,0,0"
-                    FontWeight="Bold"
-                    Text="OpenWeatherMap.org Integration (Key)" />
                 <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
                     <TextBox
                         Width="500"
                         HorizontalAlignment="Left"
+                        Header="OpenWeatherMap.org Integration (Key):"
                         PlaceholderText="Key"
                         Text="{x:Bind Mode=TwoWay, Path=ViewModel.OpenWeatherMapKey, UpdateSourceTrigger=PropertyChanged}" />
                     <HyperlinkButton
@@ -91,14 +85,11 @@
                 <muxc:BitmapIconSource UriSource="/Assets/news.png" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
-                <TextBlock
-                    Margin="0,0"
-                    FontWeight="Bold"
-                    Text="Bereich:" />
                 <ComboBox
                     Width="300"
-                    Margin="0,10"
+                    Margin="0,20,0,0"
                     HorizontalAlignment="Left"
+                    Header="Bereich:"
                     SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.NewsCategoryIndex, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem Content="Business" />
                     <ComboBoxItem Content="Unterhaltung" />
@@ -108,25 +99,19 @@
                     <ComboBoxItem Content="Sport" />
                     <ComboBoxItem Content="Technologie" />
                 </ComboBox>
-                <TextBlock
-                    Margin="0,0"
-                    FontWeight="Bold"
-                    Text="Zeit zwischen zwei Meldungen:" />
                 <Slider
                     Width="300"
-                    Margin="0,10"
+                    Margin="0,20,0,0"
                     HorizontalAlignment="Left"
+                    Header="Zeit zwischen zwei Meldungen:"
                     Maximum="60"
                     Minimum="5"
                     Value="{x:Bind Mode=TwoWay, Path=ViewModel.TimeInSecondToChangeNewsMessage, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBlock
-                    Margin="0,20,0,0"
-                    FontWeight="Bold"
-                    Text="NewsAPI.org Integration (Key)" />
                 <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
                     <TextBox
                         Width="500"
                         HorizontalAlignment="Left"
+                        Header="NewsAPI.org Integration (Key):"
                         PlaceholderText="Key"
                         Text="{x:Bind Mode=TwoWay, Path=ViewModel.NewsAPIKey, UpdateSourceTrigger=PropertyChanged}" />
                     <HyperlinkButton
@@ -146,6 +131,7 @@
                 <ComboBox
                     x:Name="comboboxRSSFeed"
                     Width="400"
+                    Margin="0,20,0,0"
                     HorizontalAlignment="Left"
                     Header="RSS-Feed:"
                     IsEditable="True"
@@ -157,6 +143,14 @@
                         <x:String>http://feeds.t-online.de/rss/erfurt</x:String>
                     </ComboBox.Items>
                 </ComboBox>
+                <Slider
+                    Width="300"
+                    Margin="0,20"
+                    HorizontalAlignment="Left"
+                    Header="Zeit zwischen zwei Meldungen:"
+                    Maximum="60"
+                    Minimum="5"
+                    Value="{x:Bind Mode=TwoWay, Path=ViewModel.TimeInSecondToChangeNewsFeed, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </muxc:TabViewItem>
         <!--#endregion-->
@@ -176,42 +170,35 @@
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.ColumnSpan="2" Margin="70,20,0,0">
-                    <TextBlock FontWeight="Bold" Text="Zeit zwischen Bildwechsel:" />
                     <Slider
                         Width="300"
-                        Margin="0,10,0,0"
+                        Margin="0,20,0,0"
                         HorizontalAlignment="Left"
+                        Header="Zeit zwischen Bildwechsel:"
                         Maximum="60"
                         Minimum="5"
                         Value="{x:Bind Mode=TwoWay, Path=ViewModel.TimeInSecondToChangePicture, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBlock
-                        Margin="0,20,0,0"
-                        FontWeight="Bold"
-                        Text="Darstellung:" />
                     <ComboBox
                         Width="300"
-                        Margin="0,10"
+                        Margin="0,20,0,0"
+                        Header="Darstellung:"
                         SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.ArtOfPicturePresentation, UpdateSourceTrigger=PropertyChanged}">
                         <ComboBoxItem Content="Ein Bild (Vollbild)" />
                         <ComboBoxItem Content="Mehrere Bilder" />
                         <ComboBoxItem Content="Karusell" />
                     </ComboBox>
-                    <TextBlock
+                    <ComboBox
                         Margin="0,20,0,0"
-                        FontWeight="Bold"
-                        Text="Anzeigereihenfolge:" />
-                    <ComboBox Margin="0,10" SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.PictureSelectionIndex, UpdateSourceTrigger=PropertyChanged}">
+                        Header="Anzeigereihenfolge:"
+                        SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.PictureSelectionIndex, UpdateSourceTrigger=PropertyChanged}">
                         <ComboBoxItem Content="Nacheinander" />
                         <ComboBoxItem Content="Zufall" />
                     </ComboBox>
-                    <TextBlock
-                        Margin="0,20,0,0"
-                        FontWeight="Bold"
-                        Text="Dropbox-Integration (App-Tooken)" />
-                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                         <TextBox
                             Width="500"
                             HorizontalAlignment="Left"
+                            Header="Dropbox-Integration (App-Tooken):"
                             PlaceholderText="App-Tooken"
                             Text="{x:Bind Mode=TwoWay, Path=ViewModel.DropBoxAppToken, UpdateSourceTrigger=PropertyChanged}" />
                         <HyperlinkButton
@@ -311,13 +298,10 @@
                 <muxc:SymbolIconSource Symbol="Clock" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
-                <TextBlock
-                    Margin="0,0"
-                    FontWeight="Bold"
-                    Text="Anzeige" />
                 <ComboBox
                     Width="100"
                     Margin="0,10"
+                    Header="Anzeige:"
                     SelectedIndex="{x:Bind Mode=TwoWay, Path=ViewModel.ClockModus, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem Content="Analog" />
                     <ComboBoxItem Content="Digital" />
@@ -383,13 +367,10 @@
                 <muxc:SymbolIconSource Symbol="Map" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
-                <TextBlock
-                    Margin="0,20,0,0"
-                    FontWeight="Bold"
-                    Text="Bing Maps Integration (Key)" />
-                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                     <TextBox
                         Width="500"
+                        Header="Bing Maps Integration (Key):"
                         HorizontalAlignment="Left"
                         PlaceholderText="Key"
                         Text="{x:Bind Mode=TwoWay, Path=ViewModel.MapsAPIKey, UpdateSourceTrigger=PropertyChanged}" />
@@ -407,15 +388,11 @@
                 <muxc:SymbolIconSource Symbol="Message" />
             </muxc:TabViewItem.IconSource>
             <StackPanel Margin="70,20">
-                <TextBlock
-                    Margin="0,20,0,0"
-                    FontWeight="Bold"
-                    Text="Back4App Integration" />
-                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                     <TextBox
                         Width="500"
+                        Header="ApplicationID (Back4App Integration):"
                         HorizontalAlignment="Left"
-                        PlaceholderText="ApplicationID"
                         Text="{x:Bind Mode=TwoWay, Path=ViewModel.ApplicationID, UpdateSourceTrigger=PropertyChanged}" />
                     <HyperlinkButton
                         Margin="30,0"
@@ -426,7 +403,7 @@
                     Width="500"
                     Margin="0,10,0,0"
                     HorizontalAlignment="Left"
-                    PlaceholderText="NETKey"
+                    Header="NETKey (Back4App Integration):"
                     Text="{x:Bind Mode=TwoWay, Path=ViewModel.NETKey, UpdateSourceTrigger=PropertyChanged}" />
                 <Button
                     Width="200"

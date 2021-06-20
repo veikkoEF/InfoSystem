@@ -20,7 +20,7 @@ namespace MyHome.ViewModels
         {
             GetNewsAsync();
             currentNumber = 0;
-            uiTimer.Interval = new TimeSpan(0, 0, 15);
+            uiTimer.Interval = new TimeSpan(0, 0, ProgrammSettings.TimeInSecondToChangeNewsFeed);
             uiTimer.Start();
             uiTimer.Tick += UpdateNewsShowMessage;
         }
