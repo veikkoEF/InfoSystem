@@ -1,11 +1,10 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
-using DropboxAPI;
+
 using MyHome.Helpers;
 using MyHome.Settings;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Xaml;
 
@@ -29,7 +28,6 @@ namespace MyHome.ViewModels
 
         protected PictureShowControlViewModel()
         {
-
             timer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromSeconds(ProgrammSettings.TimeInSecondToChangePicture)
@@ -38,7 +36,6 @@ namespace MyHome.ViewModels
             timer.Tick += TimerTickAsync;
 
             GetItemsFromCurrentDirAsync();
-           
         }
 
         // <summary>
@@ -63,7 +60,5 @@ namespace MyHome.ViewModels
                 timer.Start();
             }
         }
-
-
     }
 }

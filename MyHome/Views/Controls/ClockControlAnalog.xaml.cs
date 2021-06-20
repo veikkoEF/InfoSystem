@@ -1,6 +1,5 @@
 ﻿using MyHome.Settings;
 using System;
-using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -49,7 +48,6 @@ namespace MyHome.Views
             UISettings _uiSettings = new UISettings();
             if (ProgrammSettings.AutomaticColor)
             {
-                
                 _foreground = new SolidColorBrush(_uiSettings.GetColorValue(UIColorType.Background));
                 _background = new SolidColorBrush(_uiSettings.GetColorValue(UIColorType.Accent));
             }
@@ -157,7 +155,6 @@ namespace MyHome.Views
             }
         }
 
-        
         private void Layout(ref Canvas canvas)
         {
             canvas.Children.Clear();
@@ -225,6 +222,7 @@ namespace MyHome.Views
                 _face.Children.Remove(hand);
             }
         }
+
         private void SecondHand(int seconds)
         {
             RemoveHand(ref _secondsHand);
@@ -259,6 +257,7 @@ namespace MyHome.Views
             transformGroup.Children.Add(secondTranslate);
             return transformGroup;
         }
+
         private void UpdateClockView()
         {
             if (IsRealTime) Time = DateTime.Now;

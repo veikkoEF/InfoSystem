@@ -38,9 +38,9 @@
             </Image.Source>
         </Image>
         <TextBlock
-            Grid.Column="2"
-            Margin="727,0,0,0"
-            HorizontalAlignment="Left"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="80"
             FontWeight="Bold"

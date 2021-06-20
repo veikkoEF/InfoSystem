@@ -1,4 +1,5 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
+
 using MyHome.Helpers;
 using MyHome.Settings;
 using OpenWeatherForecast;
@@ -35,7 +36,6 @@ namespace MyHome.ViewModels
         private double tempMinDay3;
         private double tempMaxDay3;
 
-
         private bool noDataAccess;
 
         public bool NoDataAccess
@@ -49,7 +49,6 @@ namespace MyHome.ViewModels
                 noDataAccess = value;
                 OnPropertyChanged(nameof(NoDataAccess));
             }
-
         }
 
         public WeatherControlViewModel2()
@@ -141,11 +140,13 @@ namespace MyHome.ViewModels
             get => nameOfDay2;
             set => Set(ref nameOfDay2, value);
         }
+
         public string NameOfDay3
         {
             get => nameOfDay3;
             set => Set(ref nameOfDay3, value);
         }
+
         public string Sunrise
         {
             get => sunrise;
@@ -157,7 +158,6 @@ namespace MyHome.ViewModels
             get => sunset;
             set => Set(ref sunset, value);
         }
-
 
         public string Temp3h
         {
@@ -206,6 +206,7 @@ namespace MyHome.ViewModels
             get => timeCurrent;
             set => Set(ref timeCurrent, value);
         }
+
         private async void GetWeatherDateFromServiceAsync()
         {
             var location = ProgrammSettings.Location;

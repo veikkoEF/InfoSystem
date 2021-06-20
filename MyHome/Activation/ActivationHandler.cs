@@ -1,4 +1,5 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
+
 using System.Threading.Tasks;
 
 namespace MyHome.Activation

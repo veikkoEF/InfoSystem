@@ -1,9 +1,5 @@
-﻿using DropboxAPI;
-using MyHome.Helpers;
-using MyHome.Settings;
+﻿using MyHome.Settings;
 using System;
-using System.Collections.ObjectModel;
-using Windows.UI.Xaml;
 
 namespace MyHome.ViewModels
 {
@@ -12,7 +8,6 @@ namespace MyHome.ViewModels
         private int selectedIndex;
         private string selectedItem;
         private readonly Random random;
-        
 
         public SingleViewPictureShowControlViewModel()
         {
@@ -56,7 +51,6 @@ namespace MyHome.ViewModels
             else
                 SelectedItem = null;
         }
-
 
         public string SelectedItem
         {

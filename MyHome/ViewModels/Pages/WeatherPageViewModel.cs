@@ -1,12 +1,8 @@
-﻿
-using MyHome.Helpers;
-using MyHome.Settings;
-using Windows.UI.Xaml;
+﻿using MyHome.Helpers;
 
 namespace MyHome.ViewModels
 {
     public class WeatherPageViewModel : Observable
     {
-        
     }
 }

@@ -26,9 +26,7 @@ namespace BaaSCommunication
             }
             catch
             {
-
             }
-            
         }
 
         public async Task<ObservableCollection<MessageData>> GetMessagesAsync()
@@ -36,7 +34,6 @@ namespace BaaSCommunication
             var query = ParseObject.GetQuery("Message").OrderByDescending("createdAt");
             if (query != null)
             {
-
                 IEnumerable<ParseObject> results = await query.FindAsync();
                 ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
                 foreach (var item in results)
@@ -61,13 +58,11 @@ namespace BaaSCommunication
                         bitmapImage.SetSource(memoryStream.AsRandomAccessStream());
 
                         myMessageData.BitmapImage = bitmapImage;
-
                     }
                     myMessageData.Message = myMessage;
                     myMessageData.Date = myDate;
                     myMessageData.UserName = myUserName;
                     list.Add(myMessageData);
-
                 }
                 return list;
             }
@@ -97,8 +92,5 @@ namespace BaaSCommunication
                 }
             }
         }
-
-
-
     }
 }

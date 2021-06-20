@@ -1,4 +1,5 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
+
 using MyHome.Helpers;
 using MyHome.Settings;
 using OpenWeatherForecast;
@@ -34,7 +35,6 @@ namespace MyHome.ViewModels
                 noDataAccess = value;
                 OnPropertyChanged(nameof(NoDataAccess));
             }
-
         }
 
         public WeatherControlViewModel()

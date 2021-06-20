@@ -20,6 +20,7 @@ namespace MyHome.Views
                 case ClockMode.Analog:
                     ViewBoxClockControlAnalog.Visibility = Windows.UI.Xaml.Visibility.Visible;
                     break;
+
                 case ClockMode.Digital:
                 default:
                     ViewBoxClockControlDigital.Visibility = Windows.UI.Xaml.Visibility.Visible;
@@ -27,5 +28,4 @@ namespace MyHome.Views
             }
         }
     }
-   
 }

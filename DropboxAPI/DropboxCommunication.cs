@@ -1,12 +1,8 @@
 ﻿using Dropbox.Api;
 using Dropbox.Api.Files;
 using Dropbox.Api.Stone;
-using System;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using Windows.Storage;
 
 namespace DropboxAPI
 {
@@ -29,7 +25,6 @@ namespace DropboxAPI
                     var folder = await dbx.Files.CreateFolderV2Async(folderArg);
                     return folder.Metadata;
                 }
-
             }
             catch
             {
@@ -48,9 +43,7 @@ namespace DropboxAPI
             }
             catch
             { }
-            }
-
-        
+        }
 
         public async void DeleteFileAsync(string dirName, string fileName)
         {

@@ -12,7 +12,6 @@ namespace BaaSCommunication
 
         public MessageData()
         {
-
         }
     }
 }

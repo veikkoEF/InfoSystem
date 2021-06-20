@@ -8,19 +8,19 @@ using Windows.UI.Xaml.Media;
 
 namespace MyHome.ViewModels
 {
-    public class ClockControlDigitalViewModel:Observable
+    public class ClockControlDigitalViewModel : Observable
     {
         private DispatcherTimer timer;
         private string time;
-        private  UISettings uiSettings = new UISettings();
+        private UISettings uiSettings = new UISettings();
 
         private string date;
+
         public string Date
         {
             get => date;
             set => Set(ref date, value);
         }
-
 
         public ClockControlDigitalViewModel()
         {
@@ -73,7 +73,5 @@ namespace MyHome.ViewModels
             get => time;
             set => Set(ref time, value);
         }
-
-
     }
 }

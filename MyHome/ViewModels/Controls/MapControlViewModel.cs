@@ -10,7 +10,7 @@ namespace MyHome.ViewModels
     {
         private Geopoint homeLocation;
 
-         public IList<MapLayer> Layers { get; }
+        public IList<MapLayer> Layers { get; }
 
         public MapControlViewModel()
         {
@@ -42,7 +42,7 @@ namespace MyHome.ViewModels
         {
             var MyLandmarks = new List<MapElement>();
 
-            BasicGeoposition snPosition = new BasicGeoposition { Latitude = 50.987474, Longitude = 11.017008 }; 
+            BasicGeoposition snPosition = new BasicGeoposition { Latitude = 50.987474, Longitude = 11.017008 };
             Geopoint snPoint = new Geopoint(snPosition);
 
             var spaceNeedleIcon = new MapIcon
@@ -63,9 +63,6 @@ namespace MyHome.ViewModels
 
             HomeLocation = snPoint;
             Layers.Add(LandmarksLayer);
-
-  
-
         }
     }
 }

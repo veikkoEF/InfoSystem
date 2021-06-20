@@ -1,7 +1,6 @@
 ﻿using MyHome.Helpers;
 using MyHome.Settings;
 using Windows.ApplicationModel.Core;
-using Windows.UI.Xaml;
 
 namespace MyHome.ViewModels
 {
@@ -19,6 +18,7 @@ namespace MyHome.ViewModels
         }
 
         public RelayCommand ShutDownCommand { get; set; }
+
         public bool AutoChangeContentSections
         {
             get

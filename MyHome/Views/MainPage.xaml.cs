@@ -74,9 +74,11 @@ namespace MyHome.Views
                 case "news":
                     type = ContentType.News;
                     break;
+
                 case "rssfeed":
                     type = ContentType.NewsFeed;
                     break;
+
                 case "pictures":
                     type = ContentType.Picture;
                     break;
@@ -196,7 +198,6 @@ namespace MyHome.Views
                     else
                         uiTimer.Interval = new TimeSpan(0, 0, 1);
                     break;
-
 
                 case ContentType.Home:
                 default:

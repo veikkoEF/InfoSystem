@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Hassie.NET.API.NewsAPI.Utils
 {
@@ -11,7 +10,7 @@ namespace Hassie.NET.API.NewsAPI.Utils
         {
             string query = null;
 
-            for(int i = 0; i < Keys.Count; i++)
+            for (int i = 0; i < Keys.Count; i++)
             {
                 if (i == 0)
                 {

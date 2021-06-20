@@ -24,10 +24,7 @@ namespace MyHome.ViewModels
 
         public ObservableCollection<MessageData> Messages { get; }
 
-
-
         public string LiveTime => DateTime.Now.ToString("dddd, dd. MMMM yyyy");
-
 
         private async void GetMessagagesFromBackendAsync()
         {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Hassie.NET.API.NewsAPI.Client
+﻿namespace Hassie.NET.API.NewsAPI.Client
 {
     public class ClientBuilder
     {

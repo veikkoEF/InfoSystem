@@ -6,11 +6,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    mc:Ignorable="d" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
-    <Grid  Background="DarkGray">
+    Loaded="UserControl_Loaded"
+    Unloaded="UserControl_Unloaded"
+    mc:Ignorable="d">
+    <Grid Background="DarkGray">
         <FlipView
-            Margin="10"
             x:Name="flipView"
+            Margin="10"
             Background="DarkGray"
             ItemsSource="{x:Bind ViewModel.ItemsList}"
             SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">

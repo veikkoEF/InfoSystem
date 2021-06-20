@@ -1,36 +1,41 @@
 ﻿using Hassie.NET.API.NewsAPI.API.v2;
+using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
-using Microsoft.Toolkit.Uwp.Helpers;
 
 namespace MyHome.Settings
 {
-    public static  class ProgrammSettings
+    public static class ProgrammSettings
     {
         // Section Home
         public static string Message { get; set; } = "Family";
+
         public static int ShowDurationHome { get; set; } = 5;
 
         // Section Weather
         public static int ShowDurationWeather { get; set; } = 20;
+
         public static WeatherMode WeatherModus { get; set; } = WeatherMode.TreeDaysComfort;
         public static string Location { get; set; } = "Erfurt";
         public static string OpenWeatherMapKey { get; set; }
 
         // Section News
         public static int ShowDurationNews { get; set; } = 60;
+
         public static Category NewsCategory { get; set; } = Category.GENERAL;
         public static int TimeInSecondToChangeNewsMessage { get; set; } = 15;
         public static string NewsAPIKey { get; set; }
 
         // Section NewsFeed
         public static int ShowDurationNewsFeed { get; set; } = 60;
+
         public static string NewsFeed { get; set; } = "https://www.n-tv.de/181.rss";
 
         // Section Pictures
         public static int ShowDurationPictures { get; set; } = 60;
+
         public static PictureSeletionMode PictureSeletionMode { get; set; } = PictureSeletionMode.ByRandom;
         public static ArtOfPicturePresentation ArtOfPicturePresentation { get; set; } = ArtOfPicturePresentation.SinglePicture;
         public static string DropBoxAppToken { get; set; }
@@ -39,6 +44,7 @@ namespace MyHome.Settings
 
         // Section Clock
         public static int ShowDurationClock { get; set; } = 20;
+
         public static bool AutomaticColor { get; set; } = true;
 
         private const string fileNameOfKeys = "keys.txt";
@@ -51,10 +57,12 @@ namespace MyHome.Settings
 
         // Section Map
         public static int ShowDurationMap { get; set; } = 35;
+
         public static string MapsAPIKey { get; set; }
 
         // Section App
         public static bool AutoChangeContentSections { get; set; }
+
         public static bool HomeIsActiv { get; set; } = true;
         public static bool WeatherIsActiv { get; set; } = true;
         public static bool NewsIsActiv { get; set; } = true;
@@ -70,14 +78,14 @@ namespace MyHome.Settings
 
         // Section Canvas
         public static int ShowDurationCanvas { get; set; } = 20;
+
         public static string LastFileNameFromCanvas { get; set; } = "inkfileYellow.gif";
 
         // Section Backend as a Service
         public const string ServerURL = "https://parseapi.back4app.com/";
+
         public static string ApplicationId { get; set; }
         public static string NetKey { get; set; }
-
-        
 
         public static void Save()
         {
@@ -122,7 +130,7 @@ namespace MyHome.Settings
 
             // Section Map
             localSettings.Values["MapsAPIKey"] = MapsAPIKey;
-            
+
             // Section Message
             localSettings.Values["ShowDurationMessage"] = ShowDurationMessage;
             localSettings.Values["ApplicationId"] = ApplicationId;
@@ -131,7 +139,6 @@ namespace MyHome.Settings
             // Section Canvas
             localSettings.Values["ShowDurationCanvas"] = ShowDurationCanvas;
             localSettings.Values["LastFileNameFromCanvas"] = LastFileNameFromCanvas;
-
 
             // Section App
             localSettings.Values["AutoChangeContentSections"] = AutoChangeContentSections;
@@ -143,7 +150,6 @@ namespace MyHome.Settings
             localSettings.Values["ClockIsActiv"] = ClockIsActiv;
             localSettings.Values["MapIsActiv"] = MapIsActiv;
             localSettings.Values["MessageIsActiv"] = MessageIsActiv;
-
         }
 
         public static void Load()
@@ -183,9 +189,8 @@ namespace MyHome.Settings
                 }
 
                 // Section NewsFeed
-                ShowDurationNewsFeed= (int)localSettings.Values["ShowDurationNewsFeed"];
-                NewsFeed= localSettings.Values["NewsFeed"].ToString();
-
+                ShowDurationNewsFeed = (int)localSettings.Values["ShowDurationNewsFeed"];
+                NewsFeed = localSettings.Values["NewsFeed"].ToString();
 
                 // Section Pictures
                 ShowDurationPictures = (int)localSettings.Values["ShowDurationPictures"];
@@ -200,7 +205,7 @@ namespace MyHome.Settings
                     DropBoxAppToken = localSettings.Values["DropBoxAppToken"].ToString();
                 }
                 TimeInSecondToChangePicture = (int)localSettings.Values["TimeInSecondToChangePicture"];
-                NameOfCurrentDir=localSettings.Values["NameOfCurrentDir"].ToString();
+                NameOfCurrentDir = localSettings.Values["NameOfCurrentDir"].ToString();
 
                 // Section Clock
                 ShowDurationClock = (int)localSettings.Values["ShowDurationClock"];
@@ -228,8 +233,7 @@ namespace MyHome.Settings
 
                 // Section Canvas
                 ShowDurationCanvas = (int)localSettings.Values["ShowDurationCanvas"];
-                LastFileNameFromCanvas= localSettings.Values["LastFileNameFromCanvas"].ToString();
-
+                LastFileNameFromCanvas = localSettings.Values["LastFileNameFromCanvas"].ToString();
 
                 // Section App
                 AutoChangeContentSections = (bool)localSettings.Values["AutoChangeContentSections"];
@@ -245,7 +249,7 @@ namespace MyHome.Settings
                 if (DropBoxAppToken == "")
                     PictureIsActiv = false;
                 ClockIsActiv = (bool)localSettings.Values["ClockIsActiv"];
-                MapIsActiv= (bool)localSettings.Values["MapIsActiv"];
+                MapIsActiv = (bool)localSettings.Values["MapIsActiv"];
                 if (MapsAPIKey == "")
                     MapIsActiv = false;
                 MessageIsActiv = (bool)localSettings.Values["MessageIsActiv"];
@@ -266,7 +270,7 @@ namespace MyHome.Settings
             // Datei generieren
             StorageFile file = await storageFolder.CreateFileAsync(fileNameOfKeys, CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, DropBoxAppToken + "\r\n");
-            var keys = new List<string> { OpenWeatherMapKey, NewsAPIKey, MapsAPIKey, ApplicationId, NetKey};
+            var keys = new List<string> { OpenWeatherMapKey, NewsAPIKey, MapsAPIKey, ApplicationId, NetKey };
             await FileIO.AppendLinesAsync(file, keys);
         }
 

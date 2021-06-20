@@ -1,16 +1,13 @@
-﻿using DropboxAPI;
-using MyHome.Settings;
-using System.IO;
+﻿using MyHome.ViewModels;
 using System.Linq;
 using Windows.UI.Xaml.Controls;
-using MyHome.ViewModels;
-using System;
 
 namespace MyHome.Views
 {
     public sealed partial class SettingsPage : Page
     {
         public SettingsPageViewModel ViewModel { get; set; }
+
         public SettingsPage()
         {
             this.InitializeComponent();
@@ -18,10 +15,9 @@ namespace MyHome.Views
             comboboxRSSFeed.SelectedItem = ViewModel.NewsFeed;
         }
 
-
         private void ButtonDelete_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ViewModel.SelectedObjects= GridView.SelectedItems.ToArray();
+            ViewModel.SelectedObjects = GridView.SelectedItems.ToArray();
             ViewModel.OnDeleteFilesCommandExecute();
         }
 
@@ -37,8 +33,6 @@ namespace MyHome.Views
             ViewModel.BackgroundColor = sender.Color;
         }
 
-       
-
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             string nameOfDir = (e.ClickedItem).ToString();
@@ -50,6 +44,5 @@ namespace MyHome.Views
         {
             ViewModel.NewsFeed = comboboxRSSFeed.Text;
         }
-
     }
 }

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using CodeHollow.FeedReader;
+using System;
 using System.Threading.Tasks;
-using System.Xml;
-using System.ServiceModel.Syndication;
-using CodeHollow.FeedReader;
-using CodeHollow.FeedReader.Feeds;
 
 namespace RSSFeed
 {
@@ -15,7 +9,8 @@ namespace RSSFeed
 
     public class RSSFeedParser
     {
-        string rssFeed;
+        private string rssFeed;
+
         public RSSFeedParser(string _rssFeed)
         {
             rssFeed = _rssFeed;
@@ -32,7 +27,6 @@ namespace RSSFeed
 
                 if (feed != null)
                 {
-
                     foreach (var element in feed.Items)
                     {
                         FeedItem feedItem = new FeedItem();
@@ -41,7 +35,6 @@ namespace RSSFeed
                         feedItem.Link = element.Link;
                         if (feed.Type == FeedType.Rss_2_0)
                         {
-
                         }
                         feedData.Items.Add(feedItem);
                     }
@@ -54,16 +47,4 @@ namespace RSSFeed
             }
         }
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-

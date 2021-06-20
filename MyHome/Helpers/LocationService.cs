@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 
 namespace MyHome.Helpers
 {
-
     public static class LocationService
     {
         public static async Task<Geoposition> GetPositionAsync()
@@ -24,9 +20,11 @@ namespace MyHome.Helpers
                     // Carry out the operation
                     geoPosition = await geolocator.GetGeopositionAsync();
                     break;
+
                 case GeolocationAccessStatus.Denied:
                     // notify user: Access to location is denied
                     break;
+
                 case GeolocationAccessStatus.Unspecified:
                     // notify user: Unspecified error
                     break;

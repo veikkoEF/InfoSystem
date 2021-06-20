@@ -7,7 +7,6 @@ using Windows.UI.Xaml;
 
 namespace MyHome.ViewModels
 {
-   
     public class NewsFeedControlViewModel : Observable
     {
         private readonly DispatcherTimer uiTimer = new DispatcherTimer();
@@ -16,6 +15,7 @@ namespace MyHome.ViewModels
         private int index;
         private bool noDataAccess;
         private string title;
+
         public NewsFeedControlViewModel()
         {
             GetNewsAsync();
@@ -36,8 +36,6 @@ namespace MyHome.ViewModels
                 imagePath = value;
                 OnPropertyChanged(nameof(ImagePath));
             }
-
-
         }
 
         // neue Nachricht
@@ -66,7 +64,6 @@ namespace MyHome.ViewModels
                 noDataAccess = value;
                 OnPropertyChanged(nameof(NoDataAccess));
             }
-
         }
 
         public string Title

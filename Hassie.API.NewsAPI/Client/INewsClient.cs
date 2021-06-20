@@ -1,8 +1,5 @@
 ﻿using Hassie.NET.API.NewsAPI.API.v2;
 using Hassie.NET.API.NewsAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Hassie.NET.API.NewsAPI.Client

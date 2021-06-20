@@ -8,6 +8,7 @@ namespace MyHome.Views
     public sealed partial class MessageControl : UserControl
     {
         public MessageControlViewModel ViewModel { get; set; }
+
         public MessageControl()
         {
             this.InitializeComponent();

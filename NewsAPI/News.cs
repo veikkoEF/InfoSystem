@@ -14,7 +14,6 @@ namespace NewsAPI
             this.apiKey = apiKey;
         }
 
-
         public async Task<INewsArticles> GetNewsFromServiceAsync(Category category)
         {
             //  https://github.com/hassie-dash/NewsAPI.NET
@@ -36,9 +35,6 @@ namespace NewsAPI
             {
                 return null;
             }
-
-
         }
-
     }
 }

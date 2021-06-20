@@ -267,7 +267,6 @@
                         VerticalAlignment="Center"
                         Command="{x:Bind Path=ViewModel.BreakUploadCommand}"
                         Content="Abbrechen" />
-
                 </controls:WrapPanel>
                 <ListView
                     x:Name="MyDirNamesListView"

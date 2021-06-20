@@ -16,6 +16,7 @@ namespace MyHome.ViewModels
         private string selectedItem2;
         private string selectedItem3;
         private string selectedItem4;
+
         public MultiViewPictureShowControlViewModel()
         {
             random = new Random();
@@ -40,11 +41,13 @@ namespace MyHome.ViewModels
             get => image3Visibility;
             set => Set(ref image3Visibility, value);
         }
+
         public Visibility Image4Visibility
         {
             get => image4Visibility;
             set => Set(ref image4Visibility, value);
         }
+
         public string SelectedItem1
         {
             get => selectedItem1;

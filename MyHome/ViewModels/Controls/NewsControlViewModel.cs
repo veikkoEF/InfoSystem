@@ -1,4 +1,5 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
+
 using Hassie.NET.API.NewsAPI.Models;
 using MyHome.Helpers;
 using MyHome.Settings;
@@ -19,7 +20,6 @@ namespace MyHome.ViewModels
         private int currentNumber;
         private readonly DispatcherTimer uiTimer = new DispatcherTimer(); // neue Nachricht
         private readonly DispatcherTimer updateTimer = new DispatcherTimer(); // neuer Download der Nachrichten
-
 
         public void StartUITimer()
         {
@@ -56,13 +56,11 @@ namespace MyHome.ViewModels
                 noDataAccess = value;
                 OnPropertyChanged(nameof(NoDataAccess));
             }
-
         }
 
         private void GetNewMessageFromCloud(object sender, object e)
         {
             GetNewsAsync();
-            
         }
 
         private void UpdateNewsShowMessage(object sender, object e)
@@ -103,8 +101,6 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(MyPath));
             }
         }
-
-        
 
         public string Source
         {
@@ -150,13 +146,11 @@ namespace MyHome.ViewModels
                 {
                     NoDataAccess = true;
                 }
-                
             }
             else
             {
                 NoDataAccess = true;
             }
-                
         }
     }
 }

@@ -8,6 +8,7 @@ namespace MyHome.Views
     public sealed partial class NewsControl : UserControl
     {
         public NewsControlViewModel ViewModel { get; set; }
+
         public NewsControl()
         {
             this.InitializeComponent();

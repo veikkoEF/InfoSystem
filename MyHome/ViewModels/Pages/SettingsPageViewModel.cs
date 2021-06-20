@@ -125,8 +125,6 @@ namespace MyHome.ViewModels
             }
         }
 
-        
-
         /// <summary>
         /// Abruf der aktuellen Version der App
         /// </summary>
@@ -147,7 +145,6 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(RSSFeed));
             }
         }
-
 
         public int ArtOfPicturePresentation
         {
@@ -436,7 +433,6 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(NewsFeedIsActiv));
             }
         }
-
 
         public bool NewsIsActiv
         {

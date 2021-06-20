@@ -8,6 +8,7 @@ namespace MyHome.Views
     public sealed partial class PictureShowControlSingle : UserControl
     {
         public SingleViewPictureShowControlViewModel ViewModel { get; set; }
+
         public PictureShowControlSingle()
         {
             this.InitializeComponent();

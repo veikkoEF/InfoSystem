@@ -1,7 +1,5 @@
 ﻿using Hassie.NET.API.NewsAPI.Utils;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Hassie.NET.API.NewsAPI.API.v2
 {

@@ -8,13 +8,12 @@ namespace MyHome.Views
     public sealed partial class PictureSchowControlMulti : UserControl
     {
         public MultiViewPictureShowControlViewModel ViewModel { get; set; }
+
         public PictureSchowControlMulti()
         {
             this.InitializeComponent();
             ViewModel = new MultiViewPictureShowControlViewModel();
         }
-
-       
 
         private void userControl_Unloaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

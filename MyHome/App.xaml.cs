@@ -1,4 +1,5 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
+
 using MyHome.Helpers;
 using MyHome.Settings;
 using System;
@@ -27,7 +28,6 @@ namespace MyHome
             _activationService = new Lazy<ActivationService>(CreateActivationService);
 
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
-
         }
 
         protected override async void OnLaunched(LaunchActivatedEventArgs args)

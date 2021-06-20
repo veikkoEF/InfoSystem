@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Hassie.NET.API.NewsAPI.Models
 {
@@ -15,7 +13,7 @@ namespace Hassie.NET.API.NewsAPI.Models
         private readonly string url;
         private readonly string content;
 
-        public NewsArticle(string author, string description, string imageURL, DateTimeOffset publishTime, 
+        public NewsArticle(string author, string description, string imageURL, DateTimeOffset publishTime,
             string sourceName, string title, string url, string content)
         {
             this.author = author;
