@@ -13,5 +13,15 @@ namespace MyHome.Views
             this.InitializeComponent();
             ViewModel = new SingleViewPictureShowControlViewModel();
         }
+
+        private void UserControl_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.StartUITimer();
+        }
+
+        private void UserControl_Unloaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.StopUITimer();
+        }
     }
 }

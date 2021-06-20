@@ -26,7 +26,7 @@ namespace MyHome.Settings
         public static string NewsAPIKey { get; set; }
 
         // Section NewsFeed
-        public static int ShowDurationNewsFeed { get; set; } = 20;
+        public static int ShowDurationNewsFeed { get; set; } = 60;
         public static string NewsFeed { get; set; } = "https://www.n-tv.de/181.rss";
 
         // Section Pictures
@@ -99,6 +99,10 @@ namespace MyHome.Settings
             localSettings.Values["TimeInSecondToChangePicture"] = TimeInSecondToChangePicture;
             localSettings.Values["NewsAPIKey"] = NewsAPIKey;
 
+            // Section NewsFeed
+            localSettings.Values["ShowDurationNewsFeed"] = ShowDurationNewsFeed;
+            localSettings.Values["NewsFeed"] = NewsFeed;
+
             // Section Pictures
             localSettings.Values["ShowDurationPictures"] = ShowDurationPictures;
             localSettings.Values["ArtOfPicturePresentation"] = (int)ArtOfPicturePresentation;
@@ -134,6 +138,7 @@ namespace MyHome.Settings
             localSettings.Values["HomeIsActiv"] = HomeIsActiv;
             localSettings.Values["WeatherIsActiv"] = WeatherIsActiv;
             localSettings.Values["NewsIsActiv"] = NewsIsActiv;
+            localSettings.Values["NewsFeedIsActiv"] = NewsFeedIsActiv;
             localSettings.Values["PictureIsActiv"] = PictureIsActiv;
             localSettings.Values["ClockIsActiv"] = ClockIsActiv;
             localSettings.Values["MapIsActiv"] = MapIsActiv;
@@ -177,7 +182,11 @@ namespace MyHome.Settings
                     NewsAPIKey = localSettings.Values["NewsAPIKey"].ToString();
                 }
 
-                
+                // Section NewsFeed
+                ShowDurationNewsFeed= (int)localSettings.Values["ShowDurationNewsFeed"];
+                NewsFeed= localSettings.Values["NewsFeed"].ToString();
+
+
                 // Section Pictures
                 ShowDurationPictures = (int)localSettings.Values["ShowDurationPictures"];
                 ArtOfPicturePresentation = (ArtOfPicturePresentation)localSettings.Values["ArtOfPicturePresentation"];
@@ -224,27 +233,21 @@ namespace MyHome.Settings
 
                 // Section App
                 AutoChangeContentSections = (bool)localSettings.Values["AutoChangeContentSections"];
-
                 HomeIsActiv = (bool)localSettings.Values["HomeIsActiv"];
-
                 WeatherIsActiv = (bool)localSettings.Values["WeatherIsActiv"];
                 if (OpenWeatherMapKey == "")
                     WeatherIsActiv = false;
-
                 NewsIsActiv = (bool)localSettings.Values["NewsIsActiv"];
                 if (NewsAPIKey == "")
                     NewsIsActiv = false;
-
+                NewsFeedIsActiv = (bool)localSettings.Values["NewsFeedIsActiv"];
                 PictureIsActiv = (bool)localSettings.Values["PictureIsActiv"];
                 if (DropBoxAppToken == "")
                     PictureIsActiv = false;
-
                 ClockIsActiv = (bool)localSettings.Values["ClockIsActiv"];
-
                 MapIsActiv= (bool)localSettings.Values["MapIsActiv"];
                 if (MapsAPIKey == "")
                     MapIsActiv = false;
-
                 MessageIsActiv = (bool)localSettings.Values["MessageIsActiv"];
             }
             catch

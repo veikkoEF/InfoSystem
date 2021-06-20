@@ -597,7 +597,7 @@ namespace MyHome.ViewModels
             }
             set
             {
-                ProgrammSettings.ShowDurationNews = value;
+                ProgrammSettings.ShowDurationNewsFeed = value;
                 OnPropertyChanged(nameof(ShowDurationNewsFeed));
             }
         }

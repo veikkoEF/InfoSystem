@@ -11,6 +11,7 @@ namespace MyHome.ViewModels
     public class NewsFeedControlViewModel : Observable
     {
         private readonly DispatcherTimer uiTimer = new DispatcherTimer();
+        private int currentNumber;
         private Uri imagePath;
         private int index;
         private bool noDataAccess;
@@ -18,14 +19,10 @@ namespace MyHome.ViewModels
         public NewsFeedControlViewModel()
         {
             GetNewsAsync();
-            uiTimer.Interval = new TimeSpan(0, 0, 30);
+            currentNumber = 0;
+            uiTimer.Interval = new TimeSpan(0, 0, 15);
             uiTimer.Start();
             uiTimer.Tick += UpdateNewsShowMessage;
-        }
-
-        private void UpdateNewsShowMessage(object sender, object e)
-        {
-            // 
         }
 
         public Uri ImagePath
@@ -81,6 +78,7 @@ namespace MyHome.ViewModels
                 OnPropertyChanged(nameof(Title));
             }
         }
+
         public void StartUITimer()
         {
             uiTimer.Start();
@@ -90,7 +88,8 @@ namespace MyHome.ViewModels
         {
             uiTimer.Stop();
         }
-        private async void  GetNewsAsync()
+
+        private async void GetNewsAsync()
         {
             RSSFeedParser rSSFeedParser = new RSSFeedParser(ProgrammSettings.NewsFeed);
             FeedData result = await rSSFeedParser.GetData().ConfigureAwait(true);
@@ -107,13 +106,22 @@ namespace MyHome.ViewModels
             }
             else
                 NoDataAccess = true;
-            ShowNewsArticle(2);
+            ShowNewsArticle(0);
         }
 
         private void ShowNewsArticle(int number = 0)
         {
             if ((number >= 0) && (number < Items.Count))
                 Index = number;
+        }
+
+        private void UpdateNewsShowMessage(object sender, object e)
+        {
+            // Update News
+            currentNumber++;
+            if (currentNumber > 19)
+                currentNumber = 0;
+            ShowNewsArticle(currentNumber);
         }
     }
 }

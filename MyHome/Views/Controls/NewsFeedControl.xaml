@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1080"
     d:DesignWidth="1920"
+    Loaded="UserControl_Loaded"
+    Unloaded="UserControl_Unloaded"
     mc:Ignorable="d">
     <Grid Background="DarkGray">
         <Grid.RowDefinitions>
@@ -14,28 +16,31 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MaxWidth="600" />
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="200*" MaxWidth="600" />
+            <ColumnDefinition Width="181*" />
+            <ColumnDefinition Width="259*" />
         </Grid.ColumnDefinitions>
         <TextBlock
-            Grid.RowSpan="6"
-            Grid.ColumnSpan="4"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Margin="76,303,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="55"
             FontWeight="Bold"
             Foreground="Red"
             Text="Keine aktuellen Daten"
             Visibility="{x:Bind ViewModel.NoDataAccess, Mode=OneWay}" />
-        <Image Margin="20" Stretch="None">
+        <Image Margin="20,20,20,20" Stretch="None">
             <Image.Source>
                 <BitmapImage CreateOptions="IgnoreImageCache" UriSource="{x:Bind ViewModel.ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </Image.Source>
         </Image>
         <TextBlock
-            Grid.Column="1"
-            Margin="0,0,50,0"
-            HorizontalAlignment="Right"
+            Grid.Column="2"
+            Margin="727,0,0,0"
+            HorizontalAlignment="Left"
             VerticalAlignment="Center"
             FontSize="80"
             FontWeight="Bold"
@@ -43,9 +48,9 @@
         <ListView
             x:Name="ListView"
             Grid.Row="1"
-            SelectedIndex="{x:Bind ViewModel.Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            Margin="20"
+            Margin="20,20,20,20"
             ItemsSource="{x:Bind ViewModel.Items}"
+            SelectedIndex="{x:Bind ViewModel.Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:FeedItem">
@@ -80,6 +85,7 @@
             x:Name="WebView1"
             Grid.Row="1"
             Grid.Column="1"
-            Margin="10" />
+            Grid.ColumnSpan="2"
+            Margin="10,10,10,10" />
     </Grid>
 </UserControl>

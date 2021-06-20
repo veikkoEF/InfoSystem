@@ -13,5 +13,17 @@ namespace MyHome.Views
             this.InitializeComponent();
             ViewModel = new MultiViewPictureShowControlViewModel();
         }
+
+       
+
+        private void userControl_Unloaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.StopUITimer();
+        }
+
+        private void userControl_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.StartUITimer();
+        }
     }
 }

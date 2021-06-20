@@ -509,9 +509,7 @@
                         Maximum="120"
                         Minimum="1"
                         Value="{x:Bind Mode=TwoWay, Path=ViewModel.ShowDurationNewsFeed}" />
-
                 </StackPanel>
-
                 <StackPanel Margin="0,10" Orientation="Horizontal">
                     <CheckBox
                         x:Name="checkBoxPictures"

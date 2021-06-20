@@ -24,5 +24,15 @@ namespace MyHome.Views
                 WebView1.Navigate(new Uri(item.Link));
             }
         }
+
+        private void UserControl_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.StartUITimer();
+        }
+
+        private void UserControl_Unloaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.StopUITimer();
+        }
     }
 }

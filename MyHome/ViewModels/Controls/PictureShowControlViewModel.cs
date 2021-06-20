@@ -17,6 +17,16 @@ namespace MyHome.ViewModels
 
         public ObservableCollection<string> ItemsList { get; } = new ObservableCollection<string>();
 
+        public void StartUITimer()
+        {
+            timer.Start();
+        }
+
+        public void StopUITimer()
+        {
+            timer.Stop();
+        }
+
         protected PictureShowControlViewModel()
         {
 
