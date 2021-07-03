@@ -159,7 +159,6 @@
     <Compile Include="Settings\ClockModus.cs" />
     <Compile Include="Settings\PictureSeletionMode.cs" />
     <Compile Include="Settings\Settings.cs" />
-    <Compile Include="ViewModels\Controls\CanvasControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\ClockControlDigitalViewModel.cs" />
     <Compile Include="ViewModels\Controls\MapControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\MessageControlViewModel.cs" />
@@ -174,9 +173,6 @@
     <Compile Include="ViewModels\Controls\NewsControlViewModel.cs" />
     <Compile Include="ViewModels\Pages\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\Controls\WeatherControlViewModel.cs" />
-    <Compile Include="Views\Controls\CanvasControl.xaml.cs">
-      <DependentUpon>CanvasControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Controls\ClockControlDigital.xaml.cs">
       <DependentUpon>ClockControlDigital.xaml</DependentUpon>
     </Compile>
@@ -272,10 +268,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\TextBlock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Controls\CanvasControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
