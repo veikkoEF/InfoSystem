@@ -5,11 +5,88 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:MyHome.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:view="using:MyHome.Views"
+    xmlns:data="using:RSSFeed"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     NavigationCacheMode="Enabled"
+    Loaded="UserControl_Loaded"
+    Unloaded="UserControl_Unloaded"
     mc:Ignorable="d">
-    <Grid>
-        <view:NewsFeedControl />
+    <Grid Background="DarkGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*" MaxWidth="600" />
+            <ColumnDefinition Width="181*" />
+            <ColumnDefinition Width="259*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Margin="76,303,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="55"
+            FontWeight="Bold"
+            Foreground="Red"
+            Text="Keine aktuellen Daten"
+            Visibility="{x:Bind ViewModel.NoDataAccess, Mode=OneWay}" />
+        <Image Margin="20,20,20,20" Stretch="None">
+            <Image.Source>
+                <BitmapImage CreateOptions="IgnoreImageCache" UriSource="{x:Bind ViewModel.ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </Image.Source>
+        </Image>
+        <TextBlock
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="80"
+            FontWeight="Bold"
+            Text="{x:Bind ViewModel.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <ListView
+            x:Name="ListView"
+            Grid.Row="1"
+            Margin="20,20,20,20"
+            ItemsSource="{x:Bind ViewModel.Items}"
+            SelectedIndex="{x:Bind ViewModel.Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ListView_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="data:FeedItem">
+                    <Border
+                        MaxWidth="500"
+                        Margin="10"
+                        Background="LightGray"
+                        BorderBrush="DarkBlue"
+                        BorderThickness="2"
+                        CornerRadius="10">
+                        <StackPanel Margin="10">
+                            <TextBlock
+                                Margin="10,0"
+                                FontSize="20"
+                                FontWeight="SemiBold"
+                                Text="{x:Bind Title}"
+                                TextAlignment="Justify"
+                                TextWrapping="WrapWholeWords" />
+                            <TextBlock
+                                Margin="10,5,10,0"
+                                FontSize="14"
+                                FontWeight="Normal"
+                                Text="{x:Bind Description}"
+                                TextAlignment="Justify"
+                                TextWrapping="WrapWholeWords" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <WebView
+            x:Name="WebView1"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Margin="10,10,10,10" />
     </Grid>
 </Page>

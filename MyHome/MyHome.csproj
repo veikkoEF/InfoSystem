@@ -163,7 +163,7 @@
     <Compile Include="ViewModels\Pages\MapViewModel.cs" />
     <Compile Include="ViewModels\Pages\MessageViewModel.cs" />
     <Compile Include="ViewModels\Controls\MultiViewPictureShowControlViewModel.cs" />
-    <Compile Include="ViewModels\Controls\NewsFeedControlViewModel.cs" />
+    <Compile Include="ViewModels\Pages\NewsFeedViewModel.cs" />
     <Compile Include="ViewModels\Controls\SingleViewPictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\PictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\WeatherControlViewModel2.cs" />
@@ -187,9 +187,6 @@
     </Compile>
     <Compile Include="Views\Controls\PictureSchowControlMulti.xaml.cs">
       <DependentUpon>PictureSchowControlMulti.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\NewsFeedControl.xaml.cs">
-      <DependentUpon>NewsFeedControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\WeatherControl2.xaml.cs">
       <DependentUpon>WeatherControl2.xaml</DependentUpon>
@@ -279,10 +276,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\PictureSchowControlMulti.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Controls\NewsFeedControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
