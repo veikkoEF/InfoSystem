@@ -170,7 +170,7 @@
     <Compile Include="ViewModels\Pages\WeatherPageViewModel.cs" />
     <Compile Include="ViewModels\Pages\HomePageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="ViewModels\Controls\NewsControlViewModel.cs" />
+    <Compile Include="ViewModels\Pages\NewsControlViewModel.cs" />
     <Compile Include="ViewModels\Pages\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\Controls\WeatherControlViewModel.cs" />
     <Compile Include="Views\Controls\ClockControlDigital.xaml.cs">
@@ -202,9 +202,6 @@
     </Compile>
     <Compile Include="Views\Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\NewsControl.xaml.cs">
-      <DependentUpon>NewsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
@@ -296,10 +293,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\HomePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Controls\NewsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -417,7 +410,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="doc\UploadFolder.png" />
-    <None Include="doc\ClassDiagramPictureShowControlViewModel.cd" />
     <None Include="doc\UploadFolder.vpd" />
     <None Include="doc\notes.md" />
     <Content Include="Properties\Default.rd.xml" />

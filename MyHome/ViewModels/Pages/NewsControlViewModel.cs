@@ -9,7 +9,7 @@ using Windows.UI.Xaml;
 
 namespace MyHome.ViewModels
 {
-    public class NewsControlViewModel : Observable
+    public class NewsViewModel : Observable
     {
         private string description;
         private string headline;
@@ -31,7 +31,7 @@ namespace MyHome.ViewModels
             uiTimer.Stop();
         }
 
-        public NewsControlViewModel()
+        public NewsViewModel()
         {
             GetNewsAsync();
             currentNumber = 0;
