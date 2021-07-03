@@ -160,8 +160,8 @@
     <Compile Include="Settings\PictureSeletionMode.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="ViewModels\Controls\ClockControlDigitalViewModel.cs" />
-    <Compile Include="ViewModels\Controls\MapControlViewModel.cs" />
-    <Compile Include="ViewModels\Controls\MessageControlViewModel.cs" />
+    <Compile Include="ViewModels\Pages\MapViewModel.cs" />
+    <Compile Include="ViewModels\Pages\MessageViewModel.cs" />
     <Compile Include="ViewModels\Controls\MultiViewPictureShowControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\NewsFeedControlViewModel.cs" />
     <Compile Include="ViewModels\Controls\SingleViewPictureShowControlViewModel.cs" />
@@ -178,12 +178,6 @@
     </Compile>
     <Compile Include="Views\Controls\ClockControlAnalog.xaml.cs">
       <DependentUpon>ClockControlAnalog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\MapControl.xaml.cs">
-      <DependentUpon>MapControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\MessageControl.xaml.cs">
-      <DependentUpon>MessageControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\PictureShowControlCarousel.xaml.cs">
       <DependentUpon>PictureShowControlCarousel.xaml</DependentUpon>
@@ -205,9 +199,6 @@
     </Compile>
     <Compile Include="Views\Pages\ClockPage.xaml.cs">
       <DependentUpon>ClockPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Pages\HomePage2.xaml.cs">
-      <DependentUpon>HomePage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -279,14 +270,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Controls\MapControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Controls\MessageControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\Controls\PictureShowControlCarousel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -312,10 +295,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\ClockPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Pages\HomePage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

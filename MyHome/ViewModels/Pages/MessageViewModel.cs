@@ -5,9 +5,9 @@ using System.Collections.ObjectModel;
 
 namespace MyHome.ViewModels
 {
-    public class MessageControlViewModel : Observable
+    public class MessageViewModel : Observable
     {
-        public MessageControlViewModel()
+        public MessageViewModel()
         {
             Messages = new ObservableCollection<MessageData>();
             DeleteAllMessages = new RelayCommand(DeleteAllMessagesExecuteAsync);

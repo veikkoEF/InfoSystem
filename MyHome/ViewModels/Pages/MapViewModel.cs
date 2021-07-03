@@ -6,13 +6,13 @@ using Windows.UI.Xaml.Controls.Maps;
 
 namespace MyHome.ViewModels
 {
-    public class MapControlViewModel : Observable
+    public class MapViewModel : Observable
     {
         private Geopoint homeLocation;
 
         public IList<MapLayer> Layers { get; }
 
-        public MapControlViewModel()
+        public MapViewModel()
         {
             //GetCurrentPosition();
             Layers = new List<MapLayer>();
