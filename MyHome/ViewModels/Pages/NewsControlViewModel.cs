@@ -1,5 +1,4 @@
 ﻿#pragma warning disable CA2007 // Aufruf von "ConfigureAwait" für erwarteten Task erwägen
-
 using Hassie.NET.API.NewsAPI.Models;
 using MyHome.Helpers;
 using MyHome.Settings;
@@ -7,7 +6,6 @@ using System;
 using Windows.UI.Xaml;
 using Hassie.NET.API.NewsAPI.API.v2;
 using Hassie.NET.API.NewsAPI.Client;
-using System.Threading.Tasks;
 
 namespace MyHome.ViewModels
 {
