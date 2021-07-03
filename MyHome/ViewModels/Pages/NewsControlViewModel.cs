@@ -3,9 +3,11 @@
 using Hassie.NET.API.NewsAPI.Models;
 using MyHome.Helpers;
 using MyHome.Settings;
-using NewsAPI;
 using System;
 using Windows.UI.Xaml;
+using Hassie.NET.API.NewsAPI.API.v2;
+using Hassie.NET.API.NewsAPI.Client;
+using System.Threading.Tasks;
 
 namespace MyHome.ViewModels
 {
@@ -124,8 +126,25 @@ namespace MyHome.ViewModels
 
         private async void GetNewsAsync()
         {
-            News news = new News(ProgrammSettings.NewsAPIKey);
-            newsArticles = await news.GetNewsFromServiceAsync(ProgrammSettings.NewsCategory);
+            //  https://github.com/hassie-dash/NewsAPI.NET
+            try
+            {
+                INewsClient newsClient = new ClientBuilder()
+                {
+                    ApiKey = ProgrammSettings.NewsAPIKey
+                }
+                .Build();
+                newsArticles = await newsClient.GetTopHeadlines(new TopHeadlinesBuilder()
+                    .WithCountryQuery(Country.DE)
+                    .WithLanguageQuery(Language.DE)
+                    .WithCategoryQuery(ProgrammSettings.NewsCategory)
+                    .Build());
+            }
+            catch
+            {
+
+            }
+
             ShowNewsArticle(currentNumber);
         }
 

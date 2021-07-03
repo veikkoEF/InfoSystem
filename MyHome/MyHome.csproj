@@ -438,10 +438,6 @@
       <Project>{353d472b-8f06-4ed5-82fd-f03aa27a56fb}</Project>
       <Name>Hassie.NET.API.NewsAPI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NewsAPI\NewsAPI.csproj">
-      <Project>{584334b9-62fa-47c6-9fd5-fa93bba4d33d}</Project>
-      <Name>NewsAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OpenWeather\OpenWeatherAPI.csproj">
       <Project>{5e285804-6f0c-47c6-86fe-8b6f8247e67f}</Project>
       <Name>OpenWeatherAPI</Name>
