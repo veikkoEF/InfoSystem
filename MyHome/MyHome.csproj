@@ -146,7 +146,6 @@
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Settings\ContentType.cs" />
-    <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
     <Compile Include="Helpers\FileNameConverter.cs" />
     <Compile Include="Helpers\Information.cs" />
     <Compile Include="Helpers\LocationService.cs" />
@@ -236,26 +235,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Styles\Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\_Colors.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\_FontSizes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\_Thickness.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\TextBlock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Controls\ClockControlDigital.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
