@@ -31,43 +31,51 @@ namespace BaaSCommunication
 
         public async Task<ObservableCollection<MessageData>> GetMessagesAsync()
         {
-            var query = ParseObject.GetQuery("Message").OrderByDescending("createdAt");
-            if (query != null)
+            try
             {
-                IEnumerable<ParseObject> results = await query.FindAsync();
-                ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
-                foreach (var item in results)
+                var query = ParseObject.GetQuery("Message").OrderByDescending("createdAt");
+                if (query != null)
                 {
-                    MessageData myMessageData = new MessageData();
-                    string myMessage = item.Get<string>("Message");
-                    string myUserName = item.Get<string>("UserName");
-                    DateTime myDate = (DateTime)item.CreatedAt;
-
-                    // Opionale Elemente
-                    if (item.ContainsKey("imageFile"))
+                    IEnumerable<ParseObject> results = await query.FindAsync();
+                    ObservableCollection<MessageData> list = new ObservableCollection<MessageData>();
+                    foreach (var item in results)
                     {
-                        var url = item.Get<ParseFile>("imageFile").Url;
-                        //var img  = new HttpClient().GetStreamAsync(url);
+                        MessageData myMessageData = new MessageData();
+                        string myMessage = item.Get<string>("Message");
+                        string myUserName = item.Get<string>("UserName");
+                        DateTime myDate = (DateTime)item.CreatedAt;
 
-                        var httpClient = new HttpClient();
-                        Stream st = await httpClient.GetStreamAsync(url);
-                        var memoryStream = new MemoryStream();
-                        await st.CopyToAsync(memoryStream);
-                        memoryStream.Position = 0;
-                        BitmapImage bitmapImage = new BitmapImage();
-                        bitmapImage.SetSource(memoryStream.AsRandomAccessStream());
+                        // Opionale Elemente
+                        if (item.ContainsKey("imageFile"))
+                        {
+                            var url = item.Get<ParseFile>("imageFile").Url;
+                            //var img  = new HttpClient().GetStreamAsync(url);
 
-                        myMessageData.BitmapImage = bitmapImage;
+                            var httpClient = new HttpClient();
+                            Stream st = await httpClient.GetStreamAsync(url);
+                            var memoryStream = new MemoryStream();
+                            await st.CopyToAsync(memoryStream);
+                            memoryStream.Position = 0;
+                            BitmapImage bitmapImage = new BitmapImage();
+                            bitmapImage.SetSource(memoryStream.AsRandomAccessStream());
+
+                            myMessageData.BitmapImage = bitmapImage;
+                        }
+                        myMessageData.Message = myMessage;
+                        myMessageData.Date = myDate;
+                        myMessageData.UserName = myUserName;
+                        list.Add(myMessageData);
                     }
-                    myMessageData.Message = myMessage;
-                    myMessageData.Date = myDate;
-                    myMessageData.UserName = myUserName;
-                    list.Add(myMessageData);
+                    return list;
                 }
-                return list;
+                else
+                    return null;
             }
-            else
-                return null;
+            catch 
+            {
+                return null;                
+            }
+           
         }
 
         public async void DeleteMessagesAsync()
